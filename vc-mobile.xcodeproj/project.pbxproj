@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8585149C9FEF007C578B /* UIKit.framework */; };
+		A0FE8588149C9FEF007C578B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8587149C9FEF007C578B /* Foundation.framework */; };
+		A0FE858A149C9FEF007C578B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8589149C9FEF007C578B /* CoreGraphics.framework */; };
+		A0FE858C149C9FEF007C578B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE858B149C9FEF007C578B /* CoreData.framework */; };
+		A0FE8592149C9FEF007C578B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8590149C9FEF007C578B /* InfoPlist.strings */; };
+		A0FE8594149C9FEF007C578B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8593149C9FEF007C578B /* main.m */; };
+		A0FE8598149C9FEF007C578B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8597149C9FEF007C578B /* AppDelegate.m */; };
+		A0FE859B149C9FEF007C578B /* vc_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */; };
+		A0FE859E149C9FEF007C578B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE859D149C9FEF007C578B /* MasterViewController.m */; };
+		A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85A0149C9FEF007C578B /* DetailViewController.m */; };
+		A0FE85A4149C9FEF007C578B /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A2149C9FEF007C578B /* MasterViewController.xib */; };
+		A0FE85A7149C9FF0007C578B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A5149C9FF0007C578B /* DetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A0FE8581149C9FEF007C578B /* vc-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0FE8585149C9FEF007C578B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A0FE8587149C9FEF007C578B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A0FE8589149C9FEF007C578B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A0FE858B149C9FEF007C578B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A0FE858F149C9FEF007C578B /* vc-mobile-Info.plist */ = {isa = PBXFileReference; path = "vc-mobile-Info.plist"; sourceTree = "<group>"; };
+		A0FE8591149C9FEF007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0FE8593149C9FEF007C578B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0FE8595149C9FEF007C578B /* vc-mobile-Prefix.pch */ = {isa = PBXFileReference; path = "vc-mobile-Prefix.pch"; sourceTree = "<group>"; };
+		A0FE8596149C9FEF007C578B /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		A0FE8597149C9FEF007C578B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A0FE859A149C9FEF007C578B /* vc_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vc_mobile.xcdatamodel; sourceTree = "<group>"; };
+		A0FE859C149C9FEF007C578B /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		A0FE859D149C9FEF007C578B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		A0FE859F149C9FEF007C578B /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		A0FE85A0149C9FEF007C578B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A0FE85A3149C9FEF007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
+		A0FE85A6149C9FF0007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0FE857E149C9FEF007C578B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */,
+				A0FE8588149C9FEF007C578B /* Foundation.framework in Frameworks */,
+				A0FE858A149C9FEF007C578B /* CoreGraphics.framework in Frameworks */,
+				A0FE858C149C9FEF007C578B /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0FE8576149C9FEF007C578B = {
+			isa = PBXGroup;
+			children = (
+				A0FE858D149C9FEF007C578B /* vc-mobile */,
+				A0FE8584149C9FEF007C578B /* Frameworks */,
+				A0FE8582149C9FEF007C578B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0FE8582149C9FEF007C578B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE8581149C9FEF007C578B /* vc-mobile.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0FE8584149C9FEF007C578B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE8585149C9FEF007C578B /* UIKit.framework */,
+				A0FE8587149C9FEF007C578B /* Foundation.framework */,
+				A0FE8589149C9FEF007C578B /* CoreGraphics.framework */,
+				A0FE858B149C9FEF007C578B /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0FE858D149C9FEF007C578B /* vc-mobile */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE8596149C9FEF007C578B /* AppDelegate.h */,
+				A0FE8597149C9FEF007C578B /* AppDelegate.m */,
+				A0FE859C149C9FEF007C578B /* MasterViewController.h */,
+				A0FE859D149C9FEF007C578B /* MasterViewController.m */,
+				A0FE859F149C9FEF007C578B /* DetailViewController.h */,
+				A0FE85A0149C9FEF007C578B /* DetailViewController.m */,
+				A0FE85A2149C9FEF007C578B /* MasterViewController.xib */,
+				A0FE85A5149C9FF0007C578B /* DetailViewController.xib */,
+				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				A0FE858E149C9FEF007C578B /* Supporting Files */,
+			);
+			path = "vc-mobile";
+			sourceTree = "<group>";
+		};
+		A0FE858E149C9FEF007C578B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE858F149C9FEF007C578B /* vc-mobile-Info.plist */,
+				A0FE8590149C9FEF007C578B /* InfoPlist.strings */,
+				A0FE8593149C9FEF007C578B /* main.m */,
+				A0FE8595149C9FEF007C578B /* vc-mobile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0FE8580149C9FEF007C578B /* vc-mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0FE85AA149C9FF0007C578B /* Build configuration list for PBXNativeTarget "vc-mobile" */;
+			buildPhases = (
+				A0FE857D149C9FEF007C578B /* Sources */,
+				A0FE857E149C9FEF007C578B /* Frameworks */,
+				A0FE857F149C9FEF007C578B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "vc-mobile";
+			productName = "vc-mobile";
+			productReference = A0FE8581149C9FEF007C578B /* vc-mobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0FE8578149C9FEF007C578B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = A0FE857B149C9FEF007C578B /* Build configuration list for PBXProject "vc-mobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0FE8576149C9FEF007C578B;
+			productRefGroup = A0FE8582149C9FEF007C578B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0FE8580149C9FEF007C578B /* vc-mobile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0FE857F149C9FEF007C578B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FE8592149C9FEF007C578B /* InfoPlist.strings in Resources */,
+				A0FE85A4149C9FEF007C578B /* MasterViewController.xib in Resources */,
+				A0FE85A7149C9FF0007C578B /* DetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0FE857D149C9FEF007C578B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FE8594149C9FEF007C578B /* main.m in Sources */,
+				A0FE8598149C9FEF007C578B /* AppDelegate.m in Sources */,
+				A0FE859B149C9FEF007C578B /* vc_mobile.xcdatamodeld in Sources */,
+				A0FE859E149C9FEF007C578B /* MasterViewController.m in Sources */,
+				A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0FE8590149C9FEF007C578B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0FE8591149C9FEF007C578B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A0FE85A2149C9FEF007C578B /* MasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0FE85A3149C9FEF007C578B /* en */,
+			);
+			name = MasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		A0FE85A5149C9FF0007C578B /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0FE85A6149C9FF0007C578B /* en */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0FE85A8149C9FF0007C578B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A0FE85A9149C9FF0007C578B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0FE85AB149C9FF0007C578B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "vc-mobile/vc-mobile-Prefix.pch";
+				INFOPLIST_FILE = "vc-mobile/vc-mobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A0FE85AC149C9FF0007C578B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "vc-mobile/vc-mobile-Prefix.pch";
+				INFOPLIST_FILE = "vc-mobile/vc-mobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0FE857B149C9FEF007C578B /* Build configuration list for PBXProject "vc-mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0FE85A8149C9FF0007C578B /* Debug */,
+				A0FE85A9149C9FF0007C578B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0FE85AA149C9FF0007C578B /* Build configuration list for PBXNativeTarget "vc-mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0FE85AB149C9FF0007C578B /* Debug */,
+				A0FE85AC149C9FF0007C578B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A0FE859A149C9FEF007C578B /* vc_mobile.xcdatamodel */,
+			);
+			currentVersion = A0FE859A149C9FEF007C578B /* vc_mobile.xcdatamodel */;
+			path = vc_mobile.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A0FE8578149C9FEF007C578B /* Project object */;
+}
