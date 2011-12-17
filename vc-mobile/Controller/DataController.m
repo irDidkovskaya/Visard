@@ -10,4 +10,18 @@
 
 @implementation DataController
 
++ (DataController *)sharedDataController
+{
+    static DataController *_sharedDataController = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedDataController = [[self alloc] init];
+        
+        // You additional setup goes here...
+        
+    });
+    
+    return _sharedDataController;
+}
+
 @end
