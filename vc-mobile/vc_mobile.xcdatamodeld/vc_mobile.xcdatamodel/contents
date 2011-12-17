@@ -14,7 +14,7 @@
     </entity>
     <entity name="Country" representedClassName="Country" syncable="YES">
         <attribute name="isFavorite" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="advices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Advice" inverseName="countries" inverseEntity="Advice" syncable="YES"/>
         <relationship name="consulates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consulate" inverseName="countries" inverseEntity="Consulate" syncable="YES"/>
@@ -33,10 +33,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="277" positionY="342" width="128" height="90"/>
+        <element name="Advice" positionX="286" positionY="189" width="128" height="90"/>
+        <element name="Consulate" positionX="160" positionY="-45" width="128" height="120"/>
         <element name="Country" positionX="-18" positionY="81" width="128" height="135"/>
         <element name="Requirement" positionX="-110" positionY="288" width="128" height="120"/>
-        <element name="Consulate" positionX="160" positionY="-45" width="128" height="120"/>
-        <element name="Advice" positionX="286" positionY="189" width="128" height="90"/>
+        <element name="User" positionX="277" positionY="342" width="128" height="90"/>
     </elements>
 </model>

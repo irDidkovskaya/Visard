@@ -49,8 +49,12 @@
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    
+    
+    
     DataController *dc = [DataController sharedDataController];
-    if ([dc ifUserExist] == NO) {
+    [dc updateCountiesList];
+    if (![dc ifUserExist]) {
        [self showStartViewController];
     }
     

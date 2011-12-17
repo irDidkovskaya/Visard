@@ -11,8 +11,9 @@
 #import "BSJSONRequestOperation.h"
 #import "JSONKit.h"
 #import "Reachability.h"
+#import "DataController.h"
 
-NSString * const baseURLString = @"http://";
+NSString * const baseURLString = @"http://visard.com/";
 
 static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSStringEncoding encoding) {
     static NSString * const kAFLegalCharactersToBeEscaped = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\|~ ";
@@ -166,7 +167,7 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
 
 #pragma mark
 
-- (NSArray *)loadCountiesList
+- (void)updateCountiesList
 {
     
     // Заглушка
@@ -182,8 +183,9 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
     NSArray* countriesList = [decoder objectWithData:jsonData];
     
     NSLog(@"countries: %@", countriesList);
-    
-    return countriesList;
+    if ([countriesList count]) {
+        [[DataController sharedDataController] updateDBWithCountriesList:countriesList];
+    }
 }
 
 @end

@@ -134,11 +134,13 @@
     
     if (indexPath.section == 0 && indexPath.row == 0) {
         UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(10, 15, 280, 30)] autorelease];
+        tf.delegate = self;
         tf.placeholder = NSLocalizedString(@"Enter your name", nil);
         self.nameField = tf;
         cell.accessoryView = self.nameField;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
         UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
+        tf.delegate = self;
         tf.placeholder = NSLocalizedString(@"Enter your country", nil);
         self.countryField = tf;
         cell.accessoryView = self.countryField;
@@ -224,6 +226,14 @@
     
     [self dismissModalViewControllerAnimated:YES];
     
+}
+
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

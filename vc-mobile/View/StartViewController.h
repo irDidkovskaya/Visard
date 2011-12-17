@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StartViewController : UITableViewController
+@interface StartViewController : UITableViewController <UITextFieldDelegate>
 
 
 
