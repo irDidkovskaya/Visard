@@ -42,6 +42,8 @@
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
     [countrySelectorVC release];
     
+
+    [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
@@ -210,13 +212,13 @@
     
     StartViewController *vc = [[StartViewController alloc] init];
     
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    //UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self.navigationController presentModalViewController:nc animated:YES];
+        [self.navigationController presentModalViewController:vc animated:YES];
     }
     
     
-    [nc release];
+    //[nc release];
     [vc release];
 
     

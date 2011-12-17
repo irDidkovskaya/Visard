@@ -37,6 +37,13 @@
 		A0FE85CA149CB665007C578B /* ConsulateLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */; };
 		A0FE85CD149CB72A007C578B /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85CC149CB72A007C578B /* DataController.m */; };
 		A0FE85D0149CB745007C578B /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85CF149CB744007C578B /* NetworkController.m */; };
+		A0FE8617149CD9CE007C578B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8616149CD9CE007C578B /* SystemConfiguration.framework */; };
+		A0FE861E149CE8FA007C578B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE861A149CE8FA007C578B /* icon.png */; };
+		A0FE861F149CE8FA007C578B /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE861B149CE8FA007C578B /* icon@2x.png */; };
+		A0FE8620149CE8FA007C578B /* visard.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE861C149CE8FA007C578B /* visard.png */; };
+		A0FE8621149CE8FA007C578B /* visard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE861D149CE8FA007C578B /* visard@2x.png */; };
+		A0FE8624149CF31B007C578B /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8622149CF31B007C578B /* splash.png */; };
+		A0FE8625149CF31B007C578B /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8623149CF31B007C578B /* splash@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +102,13 @@
 		A0FE85CC149CB72A007C578B /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataController.m; path = Controller/DataController.m; sourceTree = "<group>"; };
 		A0FE85CE149CB744007C578B /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkController.h; path = Controller/NetworkController.h; sourceTree = "<group>"; };
 		A0FE85CF149CB744007C578B /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkController.m; path = Controller/NetworkController.m; sourceTree = "<group>"; };
+		A0FE8616149CD9CE007C578B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A0FE861A149CE8FA007C578B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A0FE861B149CE8FA007C578B /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		A0FE861C149CE8FA007C578B /* visard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visard.png; sourceTree = "<group>"; };
+		A0FE861D149CE8FA007C578B /* visard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visard@2x.png"; sourceTree = "<group>"; };
+		A0FE8622149CF31B007C578B /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		A0FE8623149CF31B007C578B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FE8617149CD9CE007C578B /* SystemConfiguration.framework in Frameworks */,
 				81A6D034149CC98F00D0714A /* CFNetwork.framework in Frameworks */,
 				A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */,
 				A0FE8588149C9FEF007C578B /* Foundation.framework in Frameworks */,
@@ -184,6 +199,7 @@
 		A0FE8584149C9FEF007C578B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE8616149CD9CE007C578B /* SystemConfiguration.framework */,
 				81A6D033149CC98F00D0714A /* CFNetwork.framework */,
 				A0FE8585149C9FEF007C578B /* UIKit.framework */,
 				A0FE8587149C9FEF007C578B /* Foundation.framework */,
@@ -196,8 +212,8 @@
 		A0FE858D149C9FEF007C578B /* vc-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE8619149CE8FA007C578B /* images */,
 				81A6D011149CBBC600D0714A /* Libraries */,
-				A0FE85D1149CB77C007C578B /* img */,
 				A0FE85BE149CB513007C578B /* Controller */,
 				A0FE85BD149CB4F7007C578B /* ViewController */,
 				A0FE85AD149CAB1F007C578B /* Model */,
@@ -263,11 +279,17 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		A0FE85D1149CB77C007C578B /* img */ = {
+		A0FE8619149CE8FA007C578B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE8622149CF31B007C578B /* splash.png */,
+				A0FE8623149CF31B007C578B /* splash@2x.png */,
+				A0FE861A149CE8FA007C578B /* icon.png */,
+				A0FE861B149CE8FA007C578B /* icon@2x.png */,
+				A0FE861C149CE8FA007C578B /* visard.png */,
+				A0FE861D149CE8FA007C578B /* visard@2x.png */,
 			);
-			name = img;
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0FE8592149C9FEF007C578B /* InfoPlist.strings in Resources */,
+				A0FE861E149CE8FA007C578B /* icon.png in Resources */,
+				A0FE861F149CE8FA007C578B /* icon@2x.png in Resources */,
+				A0FE8620149CE8FA007C578B /* visard.png in Resources */,
+				A0FE8621149CE8FA007C578B /* visard@2x.png in Resources */,
+				A0FE8624149CF31B007C578B /* splash.png in Resources */,
+				A0FE8625149CF31B007C578B /* splash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

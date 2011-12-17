@@ -7,6 +7,9 @@
 //
 
 #import "StartViewController.h"
+#import "ColorfulButton.h"
+#import "CountrySelectorVC.h"
+#import "DataController.h"
 
 
 @implementation StartViewController
@@ -30,11 +33,28 @@
 
 #pragma mark - View lifecycle
 
+- (UIView *)headerView {
+    
+    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)] autorelease];
+    UIImageView *logoView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 320, 122)] autorelease];
+    
+    UIImage *logoImg = [UIImage imageNamed:@"visard.png"];
+    
+    [logoView setImage:logoImg];
+    [headerView addSubview:logoView];
+    
+    
+    return headerView;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.navigationItem.title = NSLocalizedString(@"Start", nil);
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.tableView.tableHeaderView = [self headerView];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -113,23 +133,26 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UITextField *tf = [[[UITextField alloc] initWithFrame:cell.frame] autorelease];
+        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(10, 15, 280, 30)] autorelease];
         tf.placeholder = NSLocalizedString(@"Enter your name", nil);
         self.nameField = tf;
         cell.accessoryView = self.nameField;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        UITextField *tf = [[[UITextField alloc] initWithFrame:cell.frame] autorelease];
+        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
         tf.placeholder = NSLocalizedString(@"Enter your country", nil);
         self.countryField = tf;
         cell.accessoryView = self.countryField;
     } else {
         
-        UIButton *btn = [[UIButton alloc] initWithFrame:cell.frame];
+        ColorfulButton *btn = [[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] andBottomGradientColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+        
+        [btn setTitleColor:[UIColor colorWithRed:11/255.0 green:121/255.0 blue:5/255.0 alpha:1]  forState:UIControlStateNormal];
         
         
-        [btn setTitle:NSLocalizedString(@"Log off", nil) forState:UIControlStateNormal];
         
+        [btn setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
         
+        [btn addTarget:self action:@selector(openCountryList) forControlEvents:UIControlEventTouchUpInside];
         cell.backgroundView = btn;
         
     }
@@ -192,5 +215,18 @@
      [detailViewController release];
      */
 }
+
+
+#pragma mark Action 
+
+- (void)openCountryList {
+
+    DataController *vc = [DataController ]
+    
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
 
 @end
