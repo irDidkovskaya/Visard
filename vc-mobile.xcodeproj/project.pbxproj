@@ -19,6 +19,11 @@
 		A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85A0149C9FEF007C578B /* DetailViewController.m */; };
 		A0FE85A4149C9FEF007C578B /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A2149C9FEF007C578B /* MasterViewController.xib */; };
 		A0FE85A7149C9FF0007C578B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A5149C9FF0007C578B /* DetailViewController.xib */; };
+		A0FE85B0149CAB47007C578B /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85AF149CAB47007C578B /* Consulate.m */; };
+		A0FE85B3149CAB6B007C578B /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B2149CAB6B007C578B /* Advice.m */; };
+		A0FE85B6149CAB6C007C578B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B5149CAB6C007C578B /* User.m */; };
+		A0FE85B9149CAB6C007C578B /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B8149CAB6C007C578B /* Country.m */; };
+		A0FE85BC149CAB6C007C578B /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85BB149CAB6C007C578B /* Requirement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,16 @@
 		A0FE85A0149C9FEF007C578B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		A0FE85A3149C9FEF007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		A0FE85A6149C9FF0007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		A0FE85AE149CAB47007C578B /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
+		A0FE85AF149CAB47007C578B /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
+		A0FE85B1149CAB6B007C578B /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
+		A0FE85B2149CAB6B007C578B /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advice.m; path = Model/Advice.m; sourceTree = "<group>"; };
+		A0FE85B4149CAB6C007C578B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
+		A0FE85B5149CAB6C007C578B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		A0FE85B7149CAB6C007C578B /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
+		A0FE85B8149CAB6C007C578B /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
+		A0FE85BA149CAB6C007C578B /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
+		A0FE85BB149CAB6C007C578B /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +103,7 @@
 		A0FE858D149C9FEF007C578B /* vc-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE85AD149CAB1F007C578B /* Model */,
 				A0FE8596149C9FEF007C578B /* AppDelegate.h */,
 				A0FE8597149C9FEF007C578B /* AppDelegate.m */,
 				A0FE859C149C9FEF007C578B /* MasterViewController.h */,
@@ -96,7 +112,6 @@
 				A0FE85A0149C9FEF007C578B /* DetailViewController.m */,
 				A0FE85A2149C9FEF007C578B /* MasterViewController.xib */,
 				A0FE85A5149C9FF0007C578B /* DetailViewController.xib */,
-				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
 				A0FE858E149C9FEF007C578B /* Supporting Files */,
 			);
 			path = "vc-mobile";
@@ -111,6 +126,24 @@
 				A0FE8595149C9FEF007C578B /* vc-mobile-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0FE85AD149CAB1F007C578B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				A0FE85BA149CAB6C007C578B /* Requirement.h */,
+				A0FE85BB149CAB6C007C578B /* Requirement.m */,
+				A0FE85B7149CAB6C007C578B /* Country.h */,
+				A0FE85B8149CAB6C007C578B /* Country.m */,
+				A0FE85B4149CAB6C007C578B /* User.h */,
+				A0FE85B5149CAB6C007C578B /* User.m */,
+				A0FE85B1149CAB6B007C578B /* Advice.h */,
+				A0FE85B2149CAB6B007C578B /* Advice.m */,
+				A0FE85AE149CAB47007C578B /* Consulate.h */,
+				A0FE85AF149CAB47007C578B /* Consulate.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +214,11 @@
 				A0FE859B149C9FEF007C578B /* vc_mobile.xcdatamodeld in Sources */,
 				A0FE859E149C9FEF007C578B /* MasterViewController.m in Sources */,
 				A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */,
+				A0FE85B0149CAB47007C578B /* Consulate.m in Sources */,
+				A0FE85B3149CAB6B007C578B /* Advice.m in Sources */,
+				A0FE85B6149CAB6C007C578B /* User.m in Sources */,
+				A0FE85B9149CAB6C007C578B /* Country.m in Sources */,
+				A0FE85BC149CAB6C007C578B /* Requirement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
