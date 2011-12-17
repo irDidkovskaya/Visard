@@ -143,7 +143,7 @@
         self.countryField = tf;
         cell.accessoryView = self.countryField;
     } else {
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
         ColorfulButton *btn = [[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] andBottomGradientColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
         
         [btn setTitleColor:[UIColor colorWithRed:11/255.0 green:121/255.0 blue:5/255.0 alpha:1]  forState:UIControlStateNormal];
@@ -153,6 +153,7 @@
         [btn setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
         
         [btn addTarget:self action:@selector(openCountryList) forControlEvents:UIControlEventTouchUpInside];
+        
         cell.backgroundView = btn;
         
     }
@@ -206,14 +207,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+    if (indexPath.section == 1) {
+        
+        [self openCountryList];
+    }
 }
 
 
@@ -221,12 +219,11 @@
 
 - (void)openCountryList {
 
-//    DataController *vc = [DataController ]
-    
+    DataController *dc = [DataController sharedDataController];
+    [dc saveUserToCoreData:nameField.text countryShip:self.countryField.text];
     
     [self dismissModalViewControllerAnimated:YES];
     
 }
-
 
 @end

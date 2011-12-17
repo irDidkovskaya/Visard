@@ -49,9 +49,9 @@
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    int a = 0;
-    if (a == 0) {
-        [self showStartViewController];
+    DataController *dc = [DataController sharedDataController];
+    if ([dc ifUserExist] == NO) {
+       [self showStartViewController];
     }
     
     

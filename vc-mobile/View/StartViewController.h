@@ -15,4 +15,6 @@
 @property (nonatomic, retain) UITextField *nameField;
 @property (nonatomic, retain) UITextField *countryField;
 
+
+- (void)openCountryList;
 @end

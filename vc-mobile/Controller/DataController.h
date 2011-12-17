@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "User.h"
 @interface DataController : NSObject
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 + (DataController *)sharedDataController;
-
+- (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs;
+- (BOOL)ifUserExist;
 @end

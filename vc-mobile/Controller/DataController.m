@@ -7,9 +7,10 @@
 //
 
 #import "DataController.h"
+#import "AppDelegate.h"
 
 @implementation DataController
-
+@synthesize managedObjectContext;
 + (DataController *)sharedDataController
 {
     static DataController *_sharedDataController = nil;
@@ -18,10 +19,44 @@
         _sharedDataController = [[self alloc] init];
         
         // You additional setup goes here...
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        _sharedDataController.managedObjectContext = appDelegate.managedObjectContext;
+        
         
     });
     
     return _sharedDataController;
 }
+
+
+- (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs {
+    
+    User *user = (User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    
+    user.name = userName;
+    user.citezenShip = cs;
+    
+    
+    
+}
+
+
+
+- (BOOL)ifUserExist {
+    
+    BOOL ifUserExist = NO;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *checkData = [[NSFetchRequest alloc] init];
+    [checkData setEntity:entity];
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:checkData error:&error];
+    if ([results count]) {
+        ifUserExist = YES;
+    }
+    
+    return ifUserExist;
+}
+
+
 
 @end
