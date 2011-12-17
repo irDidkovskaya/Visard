@@ -221,7 +221,7 @@
 
 - (void)openCountryList {
 
-    DataController *vc = [DataController ]
+//    DataController *vc = [DataController ]
     
     
     [self dismissModalViewControllerAnimated:YES];

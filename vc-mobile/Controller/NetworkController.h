@@ -37,4 +37,8 @@ extern NSString * const baseURLString;
 
 - (BOOL)isHostReachable:(NSString *)host;
 
+#pragma mark - Calls
+
+- (NSArray *)loadCountiesList;
+
 @end
