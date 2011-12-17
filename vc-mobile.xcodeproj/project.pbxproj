@@ -46,6 +46,7 @@
 		A0FE8624149CF31B007C578B /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8622149CF31B007C578B /* splash.png */; };
 		A0FE8625149CF31B007C578B /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8623149CF31B007C578B /* splash@2x.png */; };
 		A0FE862C149D158F007C578B /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE862B149D158F007C578B /* OverlayViewController.m */; };
+		A0FE8651149D3964007C578B /* UISegmentedControl+CustomTintExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,8 @@
 		A0FE8623149CF31B007C578B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		A0FE862A149D158F007C578B /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = View/OverlayViewController.h; sourceTree = "<group>"; };
 		A0FE862B149D158F007C578B /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = View/OverlayViewController.m; sourceTree = "<group>"; };
+		A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; name = "UISegmentedControl+CustomTintExtension.h"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.h"; sourceTree = "<group>"; };
+		A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISegmentedControl+CustomTintExtension.m"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 		81A6D011149CBBC600D0714A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */,
+				A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */,
 				81A6D039149CD58100D0714A /* ColorfulButton.h */,
 				81A6D03A149CD58100D0714A /* ColorfulButton.m */,
 				81A6D02F149CC88E00D0714A /* Reachability */,
@@ -401,6 +406,7 @@
 				81A6D032149CC8BD00D0714A /* Reachability.m in Sources */,
 				81A6D03B149CD58100D0714A /* ColorfulButton.m in Sources */,
 				A0FE862C149D158F007C578B /* OverlayViewController.m in Sources */,
+				A0FE8651149D3964007C578B /* UISegmentedControl+CustomTintExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

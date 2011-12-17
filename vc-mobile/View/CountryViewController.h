@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Requirement.h"
+#import "User.h"
 
-@interface CountryViewController : UITableViewController
+@interface CountryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+
+@property (nonatomic, retain) Requirement *requirement;
+@property (nonatomic, retain) User *user;
+@property (nonatomic, retain) UITableView *tableView;
+
+-(void)setTextColorsForSegmentedControl:(UISegmentedControl*)segmented;
 @end

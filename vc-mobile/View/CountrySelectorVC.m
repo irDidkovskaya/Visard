@@ -8,6 +8,8 @@
 
 #import "CountrySelectorVC.h"
 #import "Country.h"
+#import "CountryViewController.h"
+#import "User.h"
 
 @implementation CountrySelectorVC
 @synthesize managedObjectContext, searchBar, ovController;
@@ -43,10 +45,12 @@
     self.searchBar = sb;
     self.tableView.tableHeaderView = self.searchBar;
     self.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    
+    //self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     searching = NO;
     letUserSelectRow = YES;
     
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.searchBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -177,13 +181,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+     CountryViewController *vc = [[CountryViewController alloc] init];
+    
+    User *user = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //vc.requirement.name = 
+    vc.user = user;
+    
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+     [self.navigationController pushViewController:vc animated:YES];
+     [vc release];
+     
 }
 
 

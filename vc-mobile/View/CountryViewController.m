@@ -7,18 +7,19 @@
 //
 
 #import "CountryViewController.h"
-
+#import "UISegmentedControl+CustomTintExtension.h"
 
 @implementation CountryViewController
+@synthesize requirement, user, tableView = tableView_;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewStyle)style
+//{
+//    self = [super initWithStyle:style];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -30,28 +31,49 @@
 
 #pragma mark - View lifecycle
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 44, 320, 44)] autorelease];
     
+    
+    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
+    scView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     
     NSArray *itemArray = [NSArray arrayWithObjects: @"Consulate", @"Requirements", @"Advices", nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-    
-    segmentedControl.frame = CGRectMake(35, 10, 250, 50);
+    UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
+    segmentedControl.frame = CGRectMake(50, 7, 250, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	segmentedControl.selectedSegmentIndex = 1;
-    
+	segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.tintColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
     [segmentedControl addTarget:self
 	                     action:@selector(pickOne:)
 	           forControlEvents:UIControlEventValueChanged];
     
+    [segmentedControl setTag:0 forSegmentAtIndex:0];
+    [segmentedControl setTag:0 forSegmentAtIndex:1];
+    [segmentedControl setTag:0 forSegmentAtIndex:2];
+    [self setTextColorsForSegmentedControl:segmentedControl];
     [scView addSubview:segmentedControl];
+
+    
     [self.view addSubview:scView];
     
-	[segmentedControl release];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        
+        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+        tv.delegate = self;
+        self.tableView = tv;
+         [self.view addSubview:self.tableView];
+    }
+    
+    
+    
+   
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,10 +82,55 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)setTextColorsForSegmentedControl:(UISegmentedControl*)segmented {
+   [segmented setTextColor:[UIColor blackColor] forTag:0]; 
+
+}
 
 - (void) pickOne:(id)sender{
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    UISegmentedControl *sc = (UISegmentedControl *)sender;
+    
+    switch (sc.selectedSegmentIndex) {
+        case 0: {
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+            
+            tv.delegate = self;
+            
+            self.tableView = tv;
+            [self.view addSubview:self.tableView];
+        }
+            break;
+        case 1: {
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+            
+            tv.delegate = self;
+            self.tableView = tv;
+            [self.view addSubview:self.tableView];
+        }
+            break;
+        case 2: {
+            
+            [self.tableView removeFromSuperview];
+            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
+            tv.text = @"This app halp you find all information about the visa";
+            [self.view addSubview:tv];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+    
     //label.text = [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
+}
+
+
+- (void)dealloc {
+    
+    self.requirement = nil;
+    self.user = nil;
+    self.tableView = nil;
 }
 
 - (void)viewDidUnload
@@ -104,14 +171,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,44 +195,7 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
