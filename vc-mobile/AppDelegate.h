@@ -21,4 +21,7 @@
 
 @property (strong, nonatomic) UINavigationController *navigationController;
 
+
+- (void)showStartViewController;
+
 @end

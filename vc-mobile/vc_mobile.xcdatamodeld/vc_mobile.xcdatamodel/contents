@@ -20,9 +20,6 @@
         <relationship name="consulates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consulate" inverseName="countries" inverseEntity="Consulate" syncable="YES"/>
         <relationship name="requirements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Requirement" inverseName="countries" inverseEntity="Requirement" syncable="YES"/>
     </entity>
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
-    </entity>
     <entity name="Requirement" representedClassName="Requirement" syncable="YES">
         <attribute name="isDone" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isRequired" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -36,7 +33,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
         <element name="User" positionX="277" positionY="342" width="128" height="90"/>
         <element name="Country" positionX="-18" positionY="81" width="128" height="135"/>
         <element name="Requirement" positionX="-110" positionY="288" width="128" height="120"/>

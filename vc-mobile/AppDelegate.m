@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "DataController.h"
+#import "StartViewController.h"
+#import "CountrySelectorVC.h"
 
 @implementation AppDelegate
 
@@ -34,12 +36,23 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-
-    MasterViewController *masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
-    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
-    masterViewController.managedObjectContext = self.managedObjectContext;
+    
+    CountrySelectorVC *countrySelectorVC = [[CountrySelectorVC alloc] init];
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
+    countrySelectorVC.managedObjectContext = self.managedObjectContext;
+    [countrySelectorVC release];
+    
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    int a = 0;
+    if (a == 0) {
+        [self showStartViewController];
+    }
+    
+    
+    
+
     return YES;
 }
 
@@ -190,6 +203,23 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+- (void)showStartViewController {
+    
+    StartViewController *vc = [[StartViewController alloc] init];
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.navigationController presentModalViewController:nc animated:YES];
+    }
+    
+    
+    [nc release];
+    [vc release];
+
+    
 }
 
 @end

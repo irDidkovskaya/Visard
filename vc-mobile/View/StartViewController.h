@@ -10,4 +10,9 @@
 
 @interface StartViewController : UITableViewController
 
+
+
+@property (nonatomic, retain) UITextField *nameField;
+@property (nonatomic, retain) UITextField *countryField;
+
 @end

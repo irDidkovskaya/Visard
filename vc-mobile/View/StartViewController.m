@@ -10,12 +10,12 @@
 
 
 @implementation StartViewController
-
+@synthesize nameField, countryField;
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -33,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = NSLocalizedString(@"Start", nil);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,6 +46,10 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.nameField = nil;
+    self.countryField = nil;
+    
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -78,16 +84,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if (section == 0) {
+        return 2;
+    } else {
+        return 1;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,6 +109,33 @@
     }
     
     // Configure the cell...
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        UITextField *tf = [[[UITextField alloc] initWithFrame:cell.frame] autorelease];
+        tf.placeholder = NSLocalizedString(@"Enter your name", nil);
+        self.nameField = tf;
+        cell.accessoryView = self.nameField;
+    } else if (indexPath.section == 0 && indexPath.row == 1) {
+        UITextField *tf = [[[UITextField alloc] initWithFrame:cell.frame] autorelease];
+        tf.placeholder = NSLocalizedString(@"Enter your country", nil);
+        self.countryField = tf;
+        cell.accessoryView = self.countryField;
+    } else {
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:cell.frame];
+        
+        
+        [btn setTitle:NSLocalizedString(@"Log off", nil) forState:UIControlStateNormal];
+        
+        
+        cell.backgroundView = btn;
+        
+    }
+    
+    
+    
     
     return cell;
 }
