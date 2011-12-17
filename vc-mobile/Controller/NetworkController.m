@@ -164,4 +164,26 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
     return YES;
 }
 
+#pragma mark
+
+- (NSArray *)loadCountiesList
+{
+    
+    // Заглушка
+    NSString *countiesListFilePath = [[NSBundle mainBundle] pathForResource:@"CountriesList" ofType:@"json"];
+    
+    NSData* jsonData = [NSData dataWithContentsOfFile:countiesListFilePath];
+    
+    // End Заглушка
+    
+    JSONDecoder* decoder = [[JSONDecoder alloc]
+                            initWithParseOptions:JKParseOptionNone];
+    
+    NSArray* countriesList = [decoder objectWithData:jsonData];
+    
+    NSLog(@"countries: %@", countriesList);
+    
+    return countriesList;
+}
+
 @end

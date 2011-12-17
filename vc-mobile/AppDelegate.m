@@ -10,6 +10,7 @@
 #import "DataController.h"
 #import "StartViewController.h"
 #import "CountrySelectorVC.h"
+#import "NetworkController.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,7 @@
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
     [_navigationController release];
+    
     [super dealloc];
 }
 

@@ -212,8 +212,6 @@
         
         [self openCountryList];
     }
-    
-    
 }
 
 
@@ -227,6 +225,5 @@
     [self dismissModalViewControllerAnimated:YES];
     
 }
-
 
 @end
