@@ -7,10 +7,19 @@
 //
 
 #import "DataController.h"
+#import "NetworkController.h"
 #import "AppDelegate.h"
 
+#import "User.h"
+#import "Country.h"
+#import "Requirement.h"
+#import "Advice.h"
+#import "Consulate.h"
+
 @implementation DataController
+
 @synthesize managedObjectContext;
+
 + (DataController *)sharedDataController
 {
     static DataController *_sharedDataController = nil;
@@ -28,7 +37,6 @@
     return _sharedDataController;
 }
 
-
 - (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs {
     
     User *user = (User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
@@ -42,8 +50,6 @@
     }
     
 }
-
-
 
 - (BOOL)ifUserExist {
     
@@ -59,6 +65,23 @@
     return ifUserExist;
 }
 
+- (void)updateCountiesList
+{
+    [[NetworkController sharedNetworkController] updateCountiesList];
+}
 
+- (void)updateDBWithCountriesList:(NSArray *)updatedCountries
+{
+    for (NSDictionary *countryDict in updatedCountries) {
+        Country *newCountry = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
+        
+        newCountry.name = [countryDict objectForKey:@"name"];
+        newCountry.itemId = [countryDict objectForKey:@"code"];
+    }
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+    }
+}
 
 @end

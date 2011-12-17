@@ -39,6 +39,6 @@ extern NSString * const baseURLString;
 
 #pragma mark - Calls
 
-- (NSArray *)loadCountiesList;
+- (void)updateCountiesList;
 
 @end

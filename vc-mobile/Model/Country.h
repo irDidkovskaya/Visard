@@ -14,7 +14,7 @@
 @interface Country : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * itemId;
+@property (nonatomic, retain) NSString * itemId;
 @property (nonatomic, retain) NSString * isFavorite;
 @property (nonatomic, retain) NSSet *requirements;
 @property (nonatomic, retain) NSSet *consulates;
