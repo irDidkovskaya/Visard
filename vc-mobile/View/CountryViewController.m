@@ -34,11 +34,36 @@
 {
     [super viewDidLoad];
 
+    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 44, 320, 44)] autorelease];
+    
+    
+    NSArray *itemArray = [NSArray arrayWithObjects: @"Consulate", @"Requirements", @"Advices", nil];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+    
+    segmentedControl.frame = CGRectMake(35, 10, 250, 50);
+	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	segmentedControl.selectedSegmentIndex = 1;
+    
+    [segmentedControl addTarget:self
+	                     action:@selector(pickOne:)
+	           forControlEvents:UIControlEventValueChanged];
+    
+    [scView addSubview:segmentedControl];
+    [self.view addSubview:scView];
+    
+	[segmentedControl release];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void) pickOne:(id)sender{
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    //label.text = [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
 }
 
 - (void)viewDidUnload

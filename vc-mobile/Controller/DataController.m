@@ -36,7 +36,10 @@
     user.name = userName;
     user.citezenShip = cs;
     
-    
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+    }
     
 }
 
@@ -53,7 +56,6 @@
     if ([results count]) {
         ifUserExist = YES;
     }
-    
     return ifUserExist;
 }
 

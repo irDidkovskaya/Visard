@@ -199,7 +199,7 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -213,7 +213,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Country"] autorelease];
+    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"User"] autorelease];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -285,7 +285,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"Country"] description];
+    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
 }
 
@@ -324,7 +324,7 @@
     
     //Add the overlay view.
     if(self.ovController == nil)
-        self.ovController = [[OverlayViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
+        self.ovController = [[[OverlayViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]] autorelease];
     
     CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
     CGFloat width = self.view.frame.size.width;
