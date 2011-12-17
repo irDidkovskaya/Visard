@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
-#import "MasterViewController.h"
+#import "DataController.h"
 
 @implementation AppDelegate
 
@@ -27,6 +26,9 @@
     [_navigationController release];
     [super dealloc];
 }
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

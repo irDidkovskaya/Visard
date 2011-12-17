@@ -15,15 +15,17 @@
 		A0FE8594149C9FEF007C578B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8593149C9FEF007C578B /* main.m */; };
 		A0FE8598149C9FEF007C578B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8597149C9FEF007C578B /* AppDelegate.m */; };
 		A0FE859B149C9FEF007C578B /* vc_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */; };
-		A0FE859E149C9FEF007C578B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE859D149C9FEF007C578B /* MasterViewController.m */; };
-		A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85A0149C9FEF007C578B /* DetailViewController.m */; };
-		A0FE85A4149C9FEF007C578B /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A2149C9FEF007C578B /* MasterViewController.xib */; };
-		A0FE85A7149C9FF0007C578B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FE85A5149C9FF0007C578B /* DetailViewController.xib */; };
 		A0FE85B0149CAB47007C578B /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85AF149CAB47007C578B /* Consulate.m */; };
 		A0FE85B3149CAB6B007C578B /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B2149CAB6B007C578B /* Advice.m */; };
 		A0FE85B6149CAB6C007C578B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B5149CAB6C007C578B /* User.m */; };
 		A0FE85B9149CAB6C007C578B /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85B8149CAB6C007C578B /* Country.m */; };
 		A0FE85BC149CAB6C007C578B /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85BB149CAB6C007C578B /* Requirement.m */; };
+		A0FE85C1149CB592007C578B /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85C0149CB592007C578B /* StartViewController.m */; };
+		A0FE85C4149CB5CE007C578B /* CountrySelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */; };
+		A0FE85C7149CB615007C578B /* CountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85C6149CB615007C578B /* CountryViewController.m */; };
+		A0FE85CA149CB665007C578B /* ConsulateLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */; };
+		A0FE85CD149CB72A007C578B /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85CC149CB72A007C578B /* DataController.m */; };
+		A0FE85D0149CB745007C578B /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE85CF149CB744007C578B /* NetworkController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +41,6 @@
 		A0FE8596149C9FEF007C578B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0FE8597149C9FEF007C578B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A0FE859A149C9FEF007C578B /* vc_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vc_mobile.xcdatamodel; sourceTree = "<group>"; };
-		A0FE859C149C9FEF007C578B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		A0FE859D149C9FEF007C578B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		A0FE859F149C9FEF007C578B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		A0FE85A0149C9FEF007C578B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		A0FE85A3149C9FEF007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		A0FE85A6149C9FF0007C578B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
 		A0FE85AE149CAB47007C578B /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
 		A0FE85AF149CAB47007C578B /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
 		A0FE85B1149CAB6B007C578B /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
@@ -55,6 +51,18 @@
 		A0FE85B8149CAB6C007C578B /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		A0FE85BA149CAB6C007C578B /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
 		A0FE85BB149CAB6C007C578B /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
+		A0FE85BF149CB592007C578B /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = View/StartViewController.h; sourceTree = "<group>"; };
+		A0FE85C0149CB592007C578B /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = View/StartViewController.m; sourceTree = "<group>"; };
+		A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountrySelectorVC.h; path = View/CountrySelectorVC.h; sourceTree = "<group>"; };
+		A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountrySelectorVC.m; path = View/CountrySelectorVC.m; sourceTree = "<group>"; };
+		A0FE85C5149CB615007C578B /* CountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountryViewController.h; path = View/CountryViewController.h; sourceTree = "<group>"; };
+		A0FE85C6149CB615007C578B /* CountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountryViewController.m; path = View/CountryViewController.m; sourceTree = "<group>"; };
+		A0FE85C8149CB665007C578B /* ConsulateLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsulateLocationViewController.h; path = View/ConsulateLocationViewController.h; sourceTree = "<group>"; };
+		A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsulateLocationViewController.m; path = View/ConsulateLocationViewController.m; sourceTree = "<group>"; };
+		A0FE85CB149CB72A007C578B /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataController.h; path = Controller/DataController.h; sourceTree = "<group>"; };
+		A0FE85CC149CB72A007C578B /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataController.m; path = Controller/DataController.m; sourceTree = "<group>"; };
+		A0FE85CE149CB744007C578B /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkController.h; path = Controller/NetworkController.h; sourceTree = "<group>"; };
+		A0FE85CF149CB744007C578B /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkController.m; path = Controller/NetworkController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +111,12 @@
 		A0FE858D149C9FEF007C578B /* vc-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE85D1149CB77C007C578B /* img */,
+				A0FE85BE149CB513007C578B /* Controller */,
+				A0FE85BD149CB4F7007C578B /* ViewController */,
 				A0FE85AD149CAB1F007C578B /* Model */,
 				A0FE8596149C9FEF007C578B /* AppDelegate.h */,
 				A0FE8597149C9FEF007C578B /* AppDelegate.m */,
-				A0FE859C149C9FEF007C578B /* MasterViewController.h */,
-				A0FE859D149C9FEF007C578B /* MasterViewController.m */,
-				A0FE859F149C9FEF007C578B /* DetailViewController.h */,
-				A0FE85A0149C9FEF007C578B /* DetailViewController.m */,
-				A0FE85A2149C9FEF007C578B /* MasterViewController.xib */,
-				A0FE85A5149C9FF0007C578B /* DetailViewController.xib */,
 				A0FE858E149C9FEF007C578B /* Supporting Files */,
 			);
 			path = "vc-mobile";
@@ -144,6 +149,39 @@
 				A0FE85AF149CAB47007C578B /* Consulate.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A0FE85BD149CB4F7007C578B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE85BF149CB592007C578B /* StartViewController.h */,
+				A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */,
+				A0FE85C5149CB615007C578B /* CountryViewController.h */,
+				A0FE85C8149CB665007C578B /* ConsulateLocationViewController.h */,
+				A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */,
+				A0FE85C6149CB615007C578B /* CountryViewController.m */,
+				A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */,
+				A0FE85C0149CB592007C578B /* StartViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A0FE85BE149CB513007C578B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE85CB149CB72A007C578B /* DataController.h */,
+				A0FE85CE149CB744007C578B /* NetworkController.h */,
+				A0FE85CF149CB744007C578B /* NetworkController.m */,
+				A0FE85CC149CB72A007C578B /* DataController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A0FE85D1149CB77C007C578B /* img */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0FE8592149C9FEF007C578B /* InfoPlist.strings in Resources */,
-				A0FE85A4149C9FEF007C578B /* MasterViewController.xib in Resources */,
-				A0FE85A7149C9FF0007C578B /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,13 +248,17 @@
 				A0FE8594149C9FEF007C578B /* main.m in Sources */,
 				A0FE8598149C9FEF007C578B /* AppDelegate.m in Sources */,
 				A0FE859B149C9FEF007C578B /* vc_mobile.xcdatamodeld in Sources */,
-				A0FE859E149C9FEF007C578B /* MasterViewController.m in Sources */,
-				A0FE85A1149C9FEF007C578B /* DetailViewController.m in Sources */,
 				A0FE85B0149CAB47007C578B /* Consulate.m in Sources */,
 				A0FE85B3149CAB6B007C578B /* Advice.m in Sources */,
 				A0FE85B6149CAB6C007C578B /* User.m in Sources */,
 				A0FE85B9149CAB6C007C578B /* Country.m in Sources */,
 				A0FE85BC149CAB6C007C578B /* Requirement.m in Sources */,
+				A0FE85C1149CB592007C578B /* StartViewController.m in Sources */,
+				A0FE85C4149CB5CE007C578B /* CountrySelectorVC.m in Sources */,
+				A0FE85C7149CB615007C578B /* CountryViewController.m in Sources */,
+				A0FE85CA149CB665007C578B /* ConsulateLocationViewController.m in Sources */,
+				A0FE85CD149CB72A007C578B /* DataController.m in Sources */,
+				A0FE85D0149CB745007C578B /* NetworkController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,22 +271,6 @@
 				A0FE8591149C9FEF007C578B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A0FE85A2149C9FEF007C578B /* MasterViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A0FE85A3149C9FEF007C578B /* en */,
-			);
-			name = MasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		A0FE85A5149C9FF0007C578B /* DetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A0FE85A6149C9FF0007C578B /* en */,
-			);
-			name = DetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
