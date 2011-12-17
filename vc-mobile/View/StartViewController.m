@@ -221,8 +221,8 @@
 
 - (void)openCountryList {
 
-    //DataController *vc = [DataController ]
-    
+    DataController *dc = [DataController sharedDataController];
+    [dc saveUserToCoreData:nameField.text countryShip:self.countryField.text];
     
     [self dismissModalViewControllerAnimated:YES];
     

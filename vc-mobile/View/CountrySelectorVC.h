@@ -18,8 +18,6 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
-
-
 - (void) searchTableView;
 - (void) doneSearching_Clicked:(id)sender;
 
