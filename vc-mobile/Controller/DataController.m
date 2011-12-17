@@ -45,7 +45,7 @@
 - (BOOL)ifUserExist {
     
     BOOL ifUserExist = NO;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *checkData = [[NSFetchRequest alloc] init];
     [checkData setEntity:entity];
     NSError *error;

@@ -49,7 +49,7 @@
     [self.window makeKeyAndVisible];
     DataController *dc = [DataController sharedDataController];
     if ([dc ifUserExist] == NO) {
-        [self showStartViewController];
+       [self showStartViewController];
     }
     
     
