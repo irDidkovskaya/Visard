@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CountrySelectorVC : UITableViewController
+@interface CountrySelectorVC : UITableViewController {
+    
+    BOOL searching;
+    BOOL letUserSelectRow;
+    
+}
 
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+
+
+- (void) searchTableView;
+- (void) doneSearching_Clicked:(id)sender;
 
 @end
