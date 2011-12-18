@@ -293,19 +293,25 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+//    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+    
+    Country *currentContry = (Country *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = currentContry.name;
+    cell.imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:currentContry.image ofType:@"png"]];
+    
    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
 }
 
-#pragma mark SearchBar
+#pragma mark - SearchBar
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
     
     [self searchTableView];
 }
 
-- (void) searchTableView {
+- (void)searchTableView {
     
     NSString *searchText = searchBar.text;
     NSMutableArray *searchArray = [[NSMutableArray alloc] init];
@@ -329,7 +335,7 @@
 }
 
 
-- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     
     //Add the overlay view.
     if(self.ovController == nil)

@@ -77,6 +77,7 @@
         
         newCountry.name = [countryDict objectForKey:@"name"];
         newCountry.itemId = [countryDict objectForKey:@"code"];
+        newCountry.image = [countryDict objectForKey:@"img"];
     }
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {

@@ -1,102 +1,102 @@
-[
-    {
-        "name": "Россия",
-        "code": "RU",
-        "img": "ru.png"
-    },
-    {
-        "name": "Польша",
-        "code": "PL",
-        "img": "pl.png"
-    },
-    {
-        "name": "Венгрия",
-        "code": "HU",
-        "img": "hu.png"
-    },
-    {
-        "name": "Молдавия",
-        "code": "MD",
-        "img": "md.png"
-    },
-    {
-        "name": "Белорусия",
-        "code": "BY"
-        "img": "by.png"
-    },
-    {
-        "name": "Румыния",
-        "code": "RM",
-        "img": "rm.png"
-    },
-    {
-        "name": "Словакия",
-        "code": "SL",
-        "img": "sl.png"
-    },
-    {
-        "name": "Египет",
-        "code": "EG",
-        "img": "eg.png"
-    },
-    {
-        "name": "Германия",
-        "code": "DE",
-        "img": "de.png"
-    },
-    {
-        "name": "Греция",
-        "code": "GR",
-        "img": "gr.png"
-    },
-    {
-        "name": "Чехия",
-        "code": "CZ",
-        "img": "cz.png"
-    },
-    {
-        "name": "Хорватия",
-        "code": "HW",
-        "img": "hw.png"
-    },
-    {
-        "name": "Черногорье",
-        "code": "CS",
-        "img": "cs.png"
-    },
-    {
-        "name": "Австрия",
-        "code": "AT",
-        "img": "at.png"
-    },
-    {
-        "name": "Франция",
-        "code": "FR",
-        "img": "fr.png"
-    },
-    {
-        "name": "Словения",
-        "code": "SI",
-        "img": "si.png"
-    },
-    {
-        "name": "Испания",
-        "code": "ES"
-        "img": "es.png"
-    },
-    {
-        "name": "Эстония",
-        "code": "EE"
-        "img": "ee.png"
-    },
-    {
-        "name": "Великобритания",
-        "code": "GB"
-        "img": "gb.png"
-    },
-    {
-        "name": "Бельгия",
-        "code": "BE",
-        "img": "be.png"
-    },
-]
+ [
+  {
+  "name": "Россия",
+  "code": "RU",
+  "img": "ru.png"
+  },
+  {
+  "name": "Польша",
+  "code": "PL",
+  "img": "pl.png"
+  },
+  {
+  "name": "Венгрия",
+  "code": "HU",
+  "img": "hu.png"
+  },
+  {
+  "name": "Молдавия",
+  "code": "MD",
+  "img": "md.png"
+  },
+  {
+  "name": "Белорусия",
+  "code": "BY",
+  "img": "by.png"
+  },
+  {
+  "name": "Румыния",
+  "code": "RM",
+  "img": "rm.png"
+  },
+  {
+  "name": "Словакия",
+  "code": "SL",
+  "img": "sl.png"
+  },
+  {
+  "name": "Египет",
+  "code": "EG",
+  "img": "eg.png"
+  },
+  {
+  "name": "Германия",
+  "code": "DE",
+  "img": "de.png"
+  },
+  {
+  "name": "Греция",
+  "code": "GR",
+  "img": "gr.png"
+  },
+  {
+  "name": "Чехия",
+  "code": "CZ",
+  "img": "cz.png"
+  },
+  {
+  "name": "Хорватия",
+  "code": "HW",
+  "img": "hw.png"
+  },
+  {
+  "name": "Черногорье",
+  "code": "CS",
+  "img": "cs.png"
+  },
+  {
+  "name": "Австрия",
+  "code": "AT",
+  "img": "at.png"
+  },
+  {
+  "name": "Франция",
+  "code": "FR",
+  "img": "fr.png"
+  },
+  {
+  "name": "Словения",
+  "code": "SI",
+  "img": "si.png"
+  },
+  {
+  "name": "Испания",
+  "code": "ES",
+  "img": "es.png"
+  },
+  {
+  "name": "Эстония",
+  "code": "EE",
+  "img": "ee.png"
+  },
+  {
+  "name": "Великобритания",
+  "code": "GB",
+  "img": "gb.png"
+  },
+  {
+  "name": "Бельгия",
+  "code": "BE",
+  "img": "be.png"
+  }
+  ]
