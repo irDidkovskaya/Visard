@@ -51,7 +51,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = NSLocalizedString(@"Start", nil);
+    self.navigationItem.title = NSLocalizedString(@"Старт", nil);
     
     self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     self.tableView.tableHeaderView = [self headerView];
@@ -135,13 +135,13 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(10, 15, 280, 30)] autorelease];
         tf.delegate = self;
-        tf.placeholder = NSLocalizedString(@"Enter your name", nil);
+        tf.placeholder = NSLocalizedString(@"Ваше Имя", nil);
         self.nameField = tf;
         cell.accessoryView = self.nameField;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
         UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
         tf.delegate = self;
-        tf.placeholder = NSLocalizedString(@"Enter your country", nil);
+        tf.placeholder = NSLocalizedString(@"Гражданство", nil);
         self.countryField = tf;
         cell.accessoryView = self.countryField;
     } else {
@@ -152,7 +152,7 @@
         
         
         
-        [btn setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(@"Старт", nil) forState:UIControlStateNormal];
         
         [btn addTarget:self action:@selector(openCountryList) forControlEvents:UIControlEventTouchUpInside];
         

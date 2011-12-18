@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"Choose country";
+    self.navigationItem.title = @"выберите страну";
     
     UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.countrySearchBar = sb;
