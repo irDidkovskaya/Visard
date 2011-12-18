@@ -12,8 +12,10 @@
 #import "User.h"
 
 @implementation CountrySelectorVC
-@synthesize managedObjectContext, searchBar, ovController;
+@synthesize managedObjectContext, countrySearchBar, ovController;
 @synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize searchPredicate;
+@synthesize filteredCountries;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -42,15 +44,20 @@
     self.navigationItem.title = @"Choose country";
     
     UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar = sb;
-    self.tableView.tableHeaderView = self.searchBar;
-    self.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.countrySearchBar = sb;
+    self.countrySearchBar.delegate = self;
+    UITextField *searchBarTextField = [[self.countrySearchBar subviews] objectAtIndex:1];
+    searchBarTextField.enablesReturnKeyAutomatically = NO;
+    searchBarTextField.returnKeyType = UIReturnKeyDone;
+    self.countrySearchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.countrySearchBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    
+    self.tableView.tableHeaderView = self.countrySearchBar;
     //self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     searching = NO;
     letUserSelectRow = YES;
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
-    self.searchBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -63,35 +70,11 @@
     self.managedObjectContext = nil;
     self.ovController = nil;
     self.fetchedResultsController = nil;
+    self.searchPredicate = nil;
+    self.filteredCountries = nil;
+    
     [super dealloc];
     
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -109,6 +92,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.filteredCountries) {
+        return [filteredCountries count];
+    }
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
@@ -121,13 +107,11 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
     [self configureCell:cell atIndexPath:indexPath];
 
     
     return cell;
 }
-
 
 - (NSIndexPath *)tableView :(UITableView *)theTableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -136,45 +120,6 @@
     else
         return nil;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -222,7 +167,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"User"] autorelease];
+    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil] autorelease];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -293,113 +238,42 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+//    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+    Country *currentContry = nil;
+    if (self.filteredCountries) {
+        currentContry = [self.filteredCountries objectAtIndex:indexPath.row];
+    } else {
+        currentContry = (Country *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
+    cell.textLabel.text = currentContry.name;
+    cell.imageView.image = [UIImage imageNamed:currentContry.image];
+    
    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
 }
 
-#pragma mark SearchBar
+#pragma mark - SearchBar delegate
 
-- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
-    
-    [self searchTableView];
-}
-
-- (void) searchTableView {
-    
-    NSString *searchText = searchBar.text;
-    NSMutableArray *searchArray = [[NSMutableArray alloc] init];
-    
-//    for (NSDictionary *dictionary in listOfItems)
-//    {
-//        NSArray *array = [dictionary objectForKey:@"Countries"];
-//        [searchArray addObjectsFromArray:array];
-//    }
-//    
-//    for (NSString *sTemp in searchArray)
-//    {
-//        NSRange titleResultsRange = [sTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
-//        
-//        if (titleResultsRange.length > 0)
-//            [copyListOfItems addObject:sTemp];
-//    }
-    
-    [searchArray release];
-    searchArray = nil;
-}
-
-
-- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
-    
-    //Add the overlay view.
-    if(self.ovController == nil)
-        self.ovController = [[[OverlayViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]] autorelease];
-    
-    CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
-    CGFloat width = self.view.frame.size.width;
-    CGFloat height = self.view.frame.size.height;
-    
-    //Parameters x = origion on x-axis, y = origon on y-axis.
-    CGRect frame = CGRectMake(0, yaxis, width, height);
-    self.ovController.view.frame = frame;
-    self.ovController.view.backgroundColor = [UIColor grayColor];
-    self.ovController.view.alpha = 0.5;
-    
-    self.ovController.rvController = self;
-    
-    [self.tableView insertSubview:self.ovController.view aboveSubview:self.parentViewController.view];
-    
-    searching = YES;
-    letUserSelectRow = NO;
-    self.tableView.scrollEnabled = NO;
-    
-    //Add the done button.
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                               initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                               target:self action:@selector(doneSearching_Clicked:)] autorelease];
-}
-
-- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
-    
-    //Remove all objects first.
-    //[copyListOfItems removeAllObjects];
-    
-    if([searchText length] > 0) {
-        
-        [self.ovController.view removeFromSuperview];
-        searching = YES;
-        letUserSelectRow = YES;
-        self.tableView.scrollEnabled = YES;
-        [self searchTableView];
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""]) {
+        self.searchPredicate = nil;
+        self.filteredCountries = nil;
+    } else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
+        self.searchPredicate = predicate;
+        NSArray *searchResult = [self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate];
+        self.filteredCountries = searchResult;
+        NSLog(@"search text: %@", searchText);
+        NSLog(@"filtered countries: %@", searchResult);
     }
-    else {
-        
-        [self.tableView insertSubview:self.ovController.view aboveSubview:self.parentViewController.view];
-        
-        searching = NO;
-        letUserSelectRow = NO;
-        self.tableView.scrollEnabled = NO;
-    }
-    
     [self.tableView reloadData];
 }
 
-
-- (void) doneSearching_Clicked:(id)sender {
-    
-    searchBar.text = @"";
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
     [searchBar resignFirstResponder];
-    
-    letUserSelectRow = YES;
-    searching = NO;
-    self.navigationItem.rightBarButtonItem = nil;
-    self.tableView.scrollEnabled = YES;
-    
-    [self.ovController.view removeFromSuperview];
-    [self.ovController release];
-    self.ovController = nil;
-    
-    [self.tableView reloadData];
 }
 
 @end

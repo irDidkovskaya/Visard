@@ -72,13 +72,25 @@
 
 - (void)updateDBWithCountriesList:(NSArray *)updatedCountries
 {
+    NSEntityDescription *country = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *countryRequest = [[NSFetchRequest alloc] init];
+    [countryRequest setEntity:country];
+    
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:countryRequest error:&error];
+    if ([results count]) {
+        return;
+    }
+    
     for (NSDictionary *countryDict in updatedCountries) {
         Country *newCountry = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
         
         newCountry.name = [countryDict objectForKey:@"name"];
         newCountry.itemId = [countryDict objectForKey:@"code"];
+        newCountry.image = [countryDict objectForKey:@"img"];
     }
-    NSError *error = nil;
+    
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
     }

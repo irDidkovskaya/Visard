@@ -13,6 +13,7 @@
         <relationship name="countries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="consulates" inverseEntity="Country" syncable="YES"/>
     </entity>
     <entity name="Country" representedClassName="Country" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
