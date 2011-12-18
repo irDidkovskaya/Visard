@@ -299,7 +299,7 @@
     Country *currentContry = (Country *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = currentContry.name;
-    cell.imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:currentContry.image ofType:@"png"]];
+    cell.imageView.image = [UIImage imageNamed:currentContry.image];
     
    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
 }
