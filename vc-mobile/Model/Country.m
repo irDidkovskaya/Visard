@@ -14,10 +14,10 @@
 
 @implementation Country
 
+@dynamic image;
 @dynamic isFavorite;
 @dynamic itemId;
 @dynamic name;
-@dynamic image;
 @dynamic advices;
 @dynamic consulates;
 @dynamic requirements;

@@ -13,10 +13,10 @@
 
 @interface Country : NSManagedObject
 
+@property (nonatomic, retain) NSString * image;
 @property (nonatomic, retain) NSString * isFavorite;
 @property (nonatomic, retain) NSString * itemId;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * image;
 @property (nonatomic, retain) NSSet *advices;
 @property (nonatomic, retain) NSSet *consulates;
 @property (nonatomic, retain) NSSet *requirements;

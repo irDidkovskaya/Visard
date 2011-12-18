@@ -15,7 +15,9 @@
 + (DataController *)sharedDataController;
 - (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs;
 - (BOOL)ifUserExist;
-- (void)updateCountiesList;
+- (void)updateCountriesList;
+- (void)updateConsulates;
 - (void)updateDBWithCountriesList:(NSArray *)updatedCountries;
+- (void)updateDBWithConsulatesList:(NSArray *)updatedConsulates;
 
 @end

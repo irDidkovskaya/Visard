@@ -53,7 +53,8 @@
     
     
     DataController *dc = [DataController sharedDataController];
-    [dc updateCountiesList];
+    [dc updateCountriesList];
+    [dc updateConsulates];
     if (![dc ifUserExist]) {
        [self showStartViewController];
     }

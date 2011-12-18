@@ -2,19 +2,20 @@
 //  Consulate.m
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 17.12.11.
+//  Created by Alexandr Fal' on 12/18/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "Consulate.h"
+#import "Country.h"
 
 
 @implementation Consulate
 
+@dynamic address;
 @dynamic city;
-@dynamic addres;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic countries;
+@dynamic country;
 
 @end
