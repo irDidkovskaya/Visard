@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ConsulateLocationViewController : UIViewController
+@interface ConsulateLocationViewController : UIViewController <MKMapViewDelegate> {
+    
+    CLLocationCoordinate2D coord;
+}
 
+@property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, retain) NSString *address;
+@property (nonatomic, retain) NSString *img;
+@property (nonatomic, retain) NSString *countryName;
+@property (nonatomic, retain) NSString *cityName;
+
+- (id)initWithLocationLatitute:(double)latitude longitude:(double)longitude;
 @end

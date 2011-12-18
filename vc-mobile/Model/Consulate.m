@@ -13,9 +13,10 @@
 @implementation Consulate
 
 @dynamic address;
-@dynamic city;
+@dynamic countryId;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic city;
 @dynamic country;
 
 @end

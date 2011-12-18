@@ -8,6 +8,7 @@
     <entity name="Consulate" representedClassName="Consulate" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="country" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="consulates" inverseEntity="Country" syncable="YES"/>
@@ -36,8 +37,8 @@
     <elements>
         <element name="Advice" positionX="286" positionY="189" width="128" height="90"/>
         <element name="Consulate" positionX="160" positionY="-45" width="128" height="120"/>
-        <element name="Country" positionX="-18" positionY="81" width="128" height="135"/>
-        <element name="Requirement" positionX="-65" positionY="285" width="128" height="120"/>
+        <element name="Country" positionX="97" positionY="189" width="128" height="135"/>
+        <element name="Requirement" positionX="-81" positionY="285" width="128" height="120"/>
         <element name="User" positionX="277" positionY="342" width="128" height="90"/>
     </elements>
 </model>

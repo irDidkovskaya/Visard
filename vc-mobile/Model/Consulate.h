@@ -14,9 +14,10 @@
 @interface Consulate : NSManagedObject
 
 @property (nonatomic, retain) NSString * address;
-@property (nonatomic, retain) NSString * city;
+@property (nonatomic, retain) NSString * countryId;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) Country *country;
 
 @end

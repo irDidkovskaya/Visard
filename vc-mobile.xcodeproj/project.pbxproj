@@ -21,9 +21,11 @@
 		81A6D04C149D153700D0714A /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 81A6D04B149D153700D0714A /* CountriesList.json */; };
 		81A6D08D149E296200D0714A /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D08C149E296200D0714A /* Advice.m */; };
 		81A6D090149E2A6500D0714A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D08F149E2A6500D0714A /* User.m */; };
-		81A6D093149E2A6500D0714A /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D092149E2A6500D0714A /* Consulate.m */; };
 		81A6D096149E2A6500D0714A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D095149E2A6500D0714A /* Country.m */; };
 		81A6D099149E2A6500D0714A /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D098149E2A6500D0714A /* Requirement.m */; };
+		81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */; };
+		81A6D09E149E3E2200D0714A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A6D09D149E3E2200D0714A /* MapKit.framework */; };
+		81A6D0A4149E43A800D0714A /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D0A3149E43A800D0714A /* Consulate.m */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0CBED34149DFCD0000C1A6F /* at.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0C149DFCD0000C1A6F /* at.png */; };
 		A0CBED35149DFCD0000C1A6F /* at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0D149DFCD0000C1A6F /* at@2x.png */; };
@@ -119,12 +121,15 @@
 		81A6D08C149E296200D0714A /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advice.m; path = Model/Advice.m; sourceTree = "<group>"; };
 		81A6D08E149E2A6500D0714A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		81A6D08F149E2A6500D0714A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
-		81A6D091149E2A6500D0714A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
-		81A6D092149E2A6500D0714A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
 		81A6D094149E2A6500D0714A /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
 		81A6D095149E2A6500D0714A /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		81A6D097149E2A6500D0714A /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
 		81A6D098149E2A6500D0714A /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
+		81A6D09A149E3DC000D0714A /* MyPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPinAnnotation.h; sourceTree = "<group>"; };
+		81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPinAnnotation.m; sourceTree = "<group>"; };
+		81A6D09D149E3E2200D0714A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		81A6D0A2149E43A800D0714A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = "vc-mobile/Model/Consulate.h"; sourceTree = "<group>"; };
+		81A6D0A3149E43A800D0714A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = "vc-mobile/Model/Consulate.m"; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
 		A0CBED0D149DFCD0000C1A6F /* at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "at@2x.png"; sourceTree = "<group>"; };
@@ -210,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A6D09E149E3E2200D0714A /* MapKit.framework in Frameworks */,
 				A0FE8617149CD9CE007C578B /* SystemConfiguration.framework in Frameworks */,
 				81A6D034149CC98F00D0714A /* CFNetwork.framework in Frameworks */,
 				A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */,
@@ -229,6 +235,8 @@
 				A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */,
 				81A6D039149CD58100D0714A /* ColorfulButton.h */,
 				81A6D03A149CD58100D0714A /* ColorfulButton.m */,
+				81A6D09A149E3DC000D0714A /* MyPinAnnotation.h */,
+				81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */,
 				81A6D02F149CC88E00D0714A /* Reachability */,
 				81A6D02E149CC84800D0714A /* JSONKit */,
 				81A6D02A149CBC0D00D0714A /* AFNetworking */,
@@ -337,6 +345,8 @@
 		A0FE8576149C9FEF007C578B = {
 			isa = PBXGroup;
 			children = (
+				81A6D0A2149E43A800D0714A /* Consulate.h */,
+				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				A0FE858D149C9FEF007C578B /* vc-mobile */,
 				A0FE8584149C9FEF007C578B /* Frameworks */,
 				A0FE8582149C9FEF007C578B /* Products */,
@@ -354,6 +364,7 @@
 		A0FE8584149C9FEF007C578B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81A6D09D149E3E2200D0714A /* MapKit.framework */,
 				A0FE8616149CD9CE007C578B /* SystemConfiguration.framework */,
 				81A6D033149CC98F00D0714A /* CFNetwork.framework */,
 				A0FE8585149C9FEF007C578B /* UIKit.framework */,
@@ -398,8 +409,6 @@
 				81A6D098149E2A6500D0714A /* Requirement.m */,
 				81A6D094149E2A6500D0714A /* Country.h */,
 				81A6D095149E2A6500D0714A /* Country.m */,
-				81A6D091149E2A6500D0714A /* Consulate.h */,
-				81A6D092149E2A6500D0714A /* Consulate.m */,
 				81A6D08E149E2A6500D0714A /* User.h */,
 				81A6D08F149E2A6500D0714A /* User.m */,
 				81A6D08B149E296200D0714A /* Advice.h */,
@@ -584,9 +593,10 @@
 				A0FE8651149D3964007C578B /* UISegmentedControl+CustomTintExtension.m in Sources */,
 				81A6D08D149E296200D0714A /* Advice.m in Sources */,
 				81A6D090149E2A6500D0714A /* User.m in Sources */,
-				81A6D093149E2A6500D0714A /* Consulate.m in Sources */,
 				81A6D096149E2A6500D0714A /* Country.m in Sources */,
 				81A6D099149E2A6500D0714A /* Requirement.m in Sources */,
+				81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */,
+				81A6D0A4149E43A800D0714A /* Consulate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

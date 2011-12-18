@@ -127,16 +127,35 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     CountryViewController *vc = [[CountryViewController alloc] init];
+    CountryViewController *vc = [[CountryViewController alloc] init];
     
-    User *user = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    //vc.requirement.name = 
-    vc.user = user;
+    NSString *code = nil;
+    NSString *img = nil;
+    NSString *name = nil;
+    NSString *text = nil;
+    if (self.filteredCountries) {
+        Country *currCountry = (Country *)[self.filteredCountries objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    } else {
+        Country *currCountry = (Country *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    }
+    NSLog(@"code = %@", code);
+    vc.code = code;
+    vc.img = img;
+    vc.name = name;
+    vc.text = text;
     
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:vc animated:YES];
-     [vc release];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
      
 }
 

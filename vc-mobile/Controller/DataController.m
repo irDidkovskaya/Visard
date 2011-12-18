@@ -143,6 +143,8 @@
             NSLog(@"new consulate dict: %@", curConsulateDict);
             
             Consulate *newConsulate = [NSEntityDescription insertNewObjectForEntityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];
+            
+            newConsulate.countryId = tmpCountry.itemId;
             newConsulate.country = tmpCountry;
             newConsulate.city = [curConsulateDict objectForKey:@"city"];
             newConsulate.address = [curConsulateDict objectForKey:@"address"];
