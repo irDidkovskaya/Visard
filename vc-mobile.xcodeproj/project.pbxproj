@@ -19,6 +19,7 @@
 		81A6D034149CC98F00D0714A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A6D033149CC98F00D0714A /* CFNetwork.framework */; };
 		81A6D03B149CD58100D0714A /* ColorfulButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D03A149CD58100D0714A /* ColorfulButton.m */; };
 		81A6D04C149D153700D0714A /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 81A6D04B149D153700D0714A /* CountriesList.json */; };
+		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8585149C9FEF007C578B /* UIKit.framework */; };
 		A0FE8588149C9FEF007C578B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8587149C9FEF007C578B /* Foundation.framework */; };
 		A0FE858A149C9FEF007C578B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8589149C9FEF007C578B /* CoreGraphics.framework */; };
@@ -72,6 +73,7 @@
 		81A6D039149CD58100D0714A /* ColorfulButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorfulButton.h; sourceTree = "<group>"; };
 		81A6D03A149CD58100D0714A /* ColorfulButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorfulButton.m; sourceTree = "<group>"; };
 		81A6D04B149D153700D0714A /* CountriesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList.json; path = Resources/CountriesList.json; sourceTree = "<group>"; };
+		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0FE8581149C9FEF007C578B /* vc-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FE8585149C9FEF007C578B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0FE8587149C9FEF007C578B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,7 +117,7 @@
 		A0FE8623149CF31B007C578B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		A0FE862A149D158F007C578B /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = View/OverlayViewController.h; sourceTree = "<group>"; };
 		A0FE862B149D158F007C578B /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = View/OverlayViewController.m; sourceTree = "<group>"; };
-		A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; name = "UISegmentedControl+CustomTintExtension.h"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.h"; sourceTree = "<group>"; };
+		A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISegmentedControl+CustomTintExtension.h"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.h"; sourceTree = "<group>"; };
 		A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISegmentedControl+CustomTintExtension.m"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				81A6D04B149D153700D0714A /* CountriesList.json */,
+				A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */,
 				A0FE8619149CE8FA007C578B /* images */,
 			);
 			name = Resources;
@@ -371,6 +374,7 @@
 				A0FE8624149CF31B007C578B /* splash.png in Resources */,
 				A0FE8625149CF31B007C578B /* splash@2x.png in Resources */,
 				81A6D04C149D153700D0714A /* CountriesList.json in Resources */,
+				A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
