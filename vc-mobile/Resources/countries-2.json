@@ -1,0 +1,151 @@
+[
+    {
+        "name": "Россия",
+        "code": "RU",
+        "img": "ru.png",
+        "consulates": [
+            {
+                "city": " Киев",
+                "address": "01011, г.Киев, ул.Кутузова, 8",
+                "e-mail": "consulatekiev@gmail.com",
+                "WWW": "http://embrus.org.ua/ru/consulate_info",
+                "phone": "(044) 284-68-16",
+                "latitude": "50.001243",
+                "longitude": "36.249808"
+            },
+            {
+                "city": "Харьков",
+                "address": "61024, Украина, г.Харьков, ул.Ольминского, 22",
+                "e-mail": "consul@megacom.ua",
+                "WWW": "http: //www.kharkov.mid.ru",
+                "phone": "(057)700-00-56,(057)715-79-97",
+                "latitude": "50.001243",
+                "longitude": "36.249808"
+            },
+            {
+                "city": "Одесса",
+                "address": "65009, Украина, г.Одесса, ул.Гагаринское плато, 14",
+                "e-mail": "gencon@odessa.tv",
+                "WWW": "http: //www.odessa.mid.ru/",
+                "phone": "+38-048784-15-42",
+                "latitude": "30.00023",
+                "longitude": "50.0024"
+            },
+            {
+                "city": "Львов",
+                "address": "79017, Украина, г.Львов, ул.Левицкого, 95",
+                "e-mail": "Konsrus@lviv.farlep.net",
+                "WWW": "http: //www.lviv.mid.ru",
+                "phone": "+38(032)244-25-25",
+                "latitude": "30.00023",
+                "longitude": "50.0024"
+            }
+        ]
+    },
+    {
+        "name": "Польша",
+        "code": "PL",
+        "img": "pl.png"
+    },
+    {
+        "name": "Венгрия",
+        "code": "HU",
+        "img": "hu.png"
+    },
+    {
+        "name": "Молдавия",
+        "code": "MD",
+        "img": "md.png"
+    },
+    {
+        "name": "Белорусия",
+        "code": "BY",
+        "img": "by.png"
+    },
+    {
+        "name": "Румыния",
+        "code": "RM",
+        "img": "rm.png"
+    },
+    {
+        "name": "Словакия",
+        "code": "SL",
+        "img": "sl.png"
+    },
+    {
+        "name": "Египет",
+        "code": "EG",
+        "img": "eg.png",
+        "consulates": [
+            {
+                "city": "Киев",
+                "address": "г.Киев, ул.Обсерваторная, 19",
+                "e-mail": "ihab@egypt-emb.kiev.ua",
+                "WWW": "",
+                "phone": "(044)212-13-27",
+                "latitude": "50.001243",
+                "longitude": "36.249808"
+            }
+        ]
+    },
+    {
+        "name": "Германия",
+        "code": "DE",
+        "img": "de.png"
+    },
+    {
+        "name": "Греция",
+        "code": "GR",
+        "img": "gr.png"
+    },
+    {
+        "name": "Чехия",
+        "code": "CZ",
+        "img": "cz.png"
+    },
+    {
+        "name": "Хорватия",
+        "code": "HW",
+        "img": "hw.png"
+    },
+    {
+        "name": "Черногория",
+        "code": "CS",
+        "img": "cs.png"
+    },
+    {
+        "name": "Австрия",
+        "code": "AT",
+        "img": "at.png"
+    },
+    {
+        "name": "Франция",
+        "code": "FR",
+        "img": "fr.png"
+    },
+    {
+        "name": "Словения",
+        "code": "SI",
+        "img": "si.png"
+    },
+    {
+        "name": "Испания",
+        "code": "ES",
+        "img": "es.png"
+    },
+    {
+        "name": "Эстония",
+        "code": "EE",
+        "img": "ee.png"
+    },
+    {
+        "name": "Великобритания",
+        "code": "GB",
+        "img": "gb.png"
+    },
+    {
+        "name": "Бельгия",
+        "code": "BE",
+        "img": "be.png"
+    }
+]

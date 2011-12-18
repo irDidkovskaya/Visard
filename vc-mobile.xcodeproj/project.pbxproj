@@ -60,6 +60,9 @@
 		A0CBED59149DFCD0000C1A6F /* si@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED31149DFCD0000C1A6F /* si@2x.PNG */; };
 		A0CBED5A149DFCD0000C1A6F /* sl.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED32149DFCD0000C1A6F /* sl.png */; };
 		A0CBED5B149DFCD0000C1A6F /* sl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED33149DFCD0000C1A6F /* sl@2x.png */; };
+		A0CBED5D149DFDC2000C1A6F /* Consulate.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED5C149DFDC2000C1A6F /* Consulate.json */; };
+		A0CBED5F149E1A13000C1A6F /* Requirements.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED5E149E1A13000C1A6F /* Requirements.json */; };
+		A0CBED61149E1A91000C1A6F /* countries-2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED60149E1A91000C1A6F /* countries-2.json */; };
 		A0FE8586149C9FEF007C578B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8585149C9FEF007C578B /* UIKit.framework */; };
 		A0FE8588149C9FEF007C578B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8587149C9FEF007C578B /* Foundation.framework */; };
 		A0FE858A149C9FEF007C578B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FE8589149C9FEF007C578B /* CoreGraphics.framework */; };
@@ -154,6 +157,9 @@
 		A0CBED31149DFCD0000C1A6F /* si@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "si@2x.PNG"; sourceTree = "<group>"; };
 		A0CBED32149DFCD0000C1A6F /* sl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sl.png; sourceTree = "<group>"; };
 		A0CBED33149DFCD0000C1A6F /* sl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sl@2x.png"; sourceTree = "<group>"; };
+		A0CBED5C149DFDC2000C1A6F /* Consulate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Consulate.json; path = Resources/Consulate.json; sourceTree = "<group>"; };
+		A0CBED5E149E1A13000C1A6F /* Requirements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Requirements.json; path = Resources/Requirements.json; sourceTree = "<group>"; };
+		A0CBED60149E1A91000C1A6F /* countries-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "countries-2.json"; path = "Resources/countries-2.json"; sourceTree = "<group>"; };
 		A0FE8581149C9FEF007C578B /* vc-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FE8585149C9FEF007C578B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0FE8587149C9FEF007C578B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -276,6 +282,9 @@
 			children = (
 				81A6D04B149D153700D0714A /* CountriesList.json */,
 				A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */,
+				A0CBED5C149DFDC2000C1A6F /* Consulate.json */,
+				A0CBED60149E1A91000C1A6F /* countries-2.json */,
+				A0CBED5E149E1A13000C1A6F /* Requirements.json */,
 				A0FE8619149CE8FA007C578B /* images */,
 			);
 			name = Resources;
@@ -543,6 +552,9 @@
 				A0CBED59149DFCD0000C1A6F /* si@2x.PNG in Resources */,
 				A0CBED5A149DFCD0000C1A6F /* sl.png in Resources */,
 				A0CBED5B149DFCD0000C1A6F /* sl@2x.png in Resources */,
+				A0CBED5D149DFDC2000C1A6F /* Consulate.json in Resources */,
+				A0CBED5F149E1A13000C1A6F /* Requirements.json in Resources */,
+				A0CBED61149E1A91000C1A6F /* countries-2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
