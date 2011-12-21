@@ -128,8 +128,8 @@
 		81A6D09A149E3DC000D0714A /* MyPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPinAnnotation.h; sourceTree = "<group>"; };
 		81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPinAnnotation.m; sourceTree = "<group>"; };
 		81A6D09D149E3E2200D0714A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		81A6D0A2149E43A800D0714A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = "vc-mobile/Model/Consulate.h"; sourceTree = "<group>"; };
-		81A6D0A3149E43A800D0714A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = "vc-mobile/Model/Consulate.m"; sourceTree = "<group>"; };
+		81A6D0A2149E43A800D0714A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
+		81A6D0A3149E43A800D0714A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
 		A0CBED0D149DFCD0000C1A6F /* at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "at@2x.png"; sourceTree = "<group>"; };
@@ -345,8 +345,6 @@
 		A0FE8576149C9FEF007C578B = {
 			isa = PBXGroup;
 			children = (
-				81A6D0A2149E43A800D0714A /* Consulate.h */,
-				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				A0FE858D149C9FEF007C578B /* vc-mobile */,
 				A0FE8584149C9FEF007C578B /* Frameworks */,
 				A0FE8582149C9FEF007C578B /* Products */,
@@ -405,6 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				81A6D0A2149E43A800D0714A /* Consulate.h */,
+				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				81A6D097149E2A6500D0714A /* Requirement.h */,
 				81A6D098149E2A6500D0714A /* Requirement.m */,
 				81A6D094149E2A6500D0714A /* Country.h */,
