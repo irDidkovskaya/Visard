@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "DataController.h"
 #import "StartViewController.h"
-#import "CountrySelectorVC.h"
+#import "MainViewController.h"
 #import "NetworkController.h"
 
 @implementation AppDelegate
@@ -39,7 +39,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
-    CountrySelectorVC *countrySelectorVC = [[CountrySelectorVC alloc] init];
+    MainViewController *countrySelectorVC = [[MainViewController alloc] init];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
     [countrySelectorVC release];

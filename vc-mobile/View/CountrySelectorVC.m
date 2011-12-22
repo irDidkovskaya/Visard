@@ -11,6 +11,7 @@
 #import "CountryViewController.h"
 #import "User.h"
 
+
 @implementation CountrySelectorVC
 @synthesize managedObjectContext, countrySearchBar, ovController;
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -41,7 +42,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"выберите страну";
+    self.navigationItem.title = NSLocalizedString(@"Страны от А до Я", nil);
     
     UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.countrySearchBar = sb;
