@@ -10,7 +10,11 @@
 #import "Requirement.h"
 #import "User.h"
 
-@interface CountryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface CountryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate> {
+    
+    int currSigmentControll;
+    
+}
 
 
 @property (nonatomic, retain) Requirement *requirement;

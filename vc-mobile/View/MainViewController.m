@@ -99,7 +99,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 6;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +117,7 @@
     
     switch (indexPath.row) {
         case 0: {
-            cell.textLabel.text = NSLocalizedString(@"Страны от А до Я", nil);
+            cell.textLabel.text = NSLocalizedString(@"Поиск по странам", nil);
         }
             break;
         case 1: {
@@ -139,6 +139,10 @@
             break;
         case 5: {
             cell.textLabel.text = NSLocalizedString(@"Ближнее зарубежье", nil);
+        }
+            break;
+        case 6: {
+            cell.textLabel.text = NSLocalizedString(@"Избранное", nil);
         }
             break;
             

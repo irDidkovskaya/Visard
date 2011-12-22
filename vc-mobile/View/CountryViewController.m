@@ -11,6 +11,7 @@
 #import "ConsulateLocationViewController.h"
 #import "AppDelegate.h"
 #import "Consulate.h"
+#import "Requirement.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -79,14 +80,14 @@
     self.navigationItem.title = self.name;
     
     UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
-    scView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    scView.backgroundColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
     
     NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
     UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
     segmentedControl.frame = CGRectMake(50, 7, 250, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = [UIColor colorWithRed:3/255.0 green:133/255.0 blue:64/255.0 alpha:1];
+    segmentedControl.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     [segmentedControl addTarget:self
 	                     action:@selector(pickOne:)
 	           forControlEvents:UIControlEventValueChanged];
@@ -100,15 +101,16 @@
     
     [self.view addSubview:scView];
     
-    [self.view addSubview:[self headerView]];
+    //[self.view addSubview:[self headerView]];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     if (segmentedControl.selectedSegmentIndex == 0) {
         
-        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
         tv.delegate = self;
         tv.dataSource = self;
         self.tableView = tv;
          [self.view addSubview:self.tableView];
+        currSigmentControll = 0;
     }
     
     
@@ -129,30 +131,32 @@
 
 - (void) pickOne:(id)sender{
     UISegmentedControl *sc = (UISegmentedControl *)sender;
-    
+    currSigmentControll = sc.selectedSegmentIndex;
     switch (sc.selectedSegmentIndex) {
         case 0: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-            
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+            self.fetchedResultsController = nil;
             tv.delegate = self;
             tv.dataSource = self;
             self.tableView = tv;
             [self.view addSubview:self.tableView];
+            [self.tableView reloadData];
         }
             break;
         case 1: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
-            
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+            self.fetchedResultsController = nil;
             tv.delegate = self;
             tv.dataSource = self;
             self.tableView = tv;
             [self.view addSubview:self.tableView];
+            [self.tableView reloadData];
         }
             break;
         case 2: {
             
             [self.tableView removeFromSuperview];
-            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height)];
+            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
             tv.text = @"This app halp you find all information about the visa";
             [self.view addSubview:tv];
         }
@@ -250,21 +254,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
-    Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-    
-    NSNumber *lalitude = currConsulate.latitude;
-    NSNumber *longitude = currConsulate.longitude;
-    
-    
-    ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
-    vc.img = self.img;
-    vc.address = currConsulate.address;
-    vc.countryName = name;
-    vc.cityName = currConsulate.city;
-    [self.navigationController pushViewController:vc animated:YES];
-    [vc release];
+    if (currSigmentControll == 0) {
+        Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        
+        NSNumber *lalitude = currConsulate.latitude;
+        NSNumber *longitude = currConsulate.longitude;
+        
+        
+        ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
+        vc.img = self.img;
+        vc.address = currConsulate.address;
+        vc.countryName = name;
+        vc.cityName = currConsulate.city;
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
+    } else {
+        
+        
+    }
 
 }
 
@@ -281,22 +288,43 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"countryId == %@", self.code];
-    
-    [fetchRequest setPredicate:pred];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"city" ascending:YES] autorelease];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
+    if (currSigmentControll == 0) {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"countryId == %@", self.code];
+        
+        [fetchRequest setPredicate:pred];
+        
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"city" ascending:YES] autorelease];
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+    } else {
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"country == %@", self.name];
+        
+        [fetchRequest setPredicate:pred];
+        
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors]; 
+        
+        
+    }
     
     
     // Edit the section name key path and cache name if appropriate.
@@ -372,11 +400,18 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"OBJECT: %@", [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row]);
-    Consulate *consulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-    cell.textLabel.text = consulate.city;
-    
-    cell.detailTextLabel.text = consulate.address;
+    if (currSigmentControll == 0) {
+        Consulate *consulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        cell.textLabel.text = consulate.city;
+        cell.detailTextLabel.text = consulate.address;
+    } else {
+        
+        Requirement *requir = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = requir.name;
+        cell.detailTextLabel.text = requir.value;
+        
+    }
 }
 
 @end
