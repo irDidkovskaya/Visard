@@ -49,7 +49,10 @@
                  "phone": "(+38 044) 284-00-33, 284-00-35",
                  "e-mail": "konsulat@polska.com.ua",
                  "latitude": 50.44723,
-                 "longitude": 30.50515
+                 "longitude": 30.50515,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Едвард Добровольский",
+                 "site": "http://kijowkg.polemb.net/"
                  },
                  {
                  "city": "Харьков",
@@ -57,7 +60,10 @@
                  "phone": "(+38 057) 75-78-801 (цiлодобово)",
                  "e-mail": "kgrp@kharkov.ukrtel.net",
                  "latitude": 50.00243,
-                 "longitude": 36.24081
+                 "longitude": 36.24081,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Гжегош Серочинський",
+                 "site": "http://charkowkg.polemb.net"
                  },
                  {
                  "city": "Львов",
@@ -65,7 +71,10 @@
                  "phone": "(+38 0322) 97-08-61/62/64",
                  "e-mail": "konsulat@mail.lviv.ua",
                  "latitude": 49.82654,
-                 "longitude": 24.03334
+                 "longitude": 24.03334,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Вьеслав Осуховськи",
+                 "site": "http://lwowkg.polemb.net/"
                  },
                  {
                  "city": "Луцк",
@@ -73,7 +82,10 @@
                  "phone": "(+38 0332) 77-06-10/11/12",
                  "e-mail": "konsulluck@utel.net.ua",
                  "latitude": 50.73819,
-                 "longitude": 25.32123
+                 "longitude": 25.32123,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Томаш Яник",
+                 "site": "http://luckkg.polemb.net/"
                  },
                  {
                  "city": "Одесса",
@@ -81,7 +93,41 @@
                  "phone": "(+38 048) 722-88-99, 722-56-96, 722-60-03",
                  "e-mail": "konsul.pl@kgrp.odessa.ua",
                  "latitude": 46.47536,
-                 "longitude": 30.75359
+                 "longitude": 30.75359,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Вьеслав Мазур",
+                 "site": "http://odessakg.polemb.net/"
+                 }, 
+                 {
+                 "city": "Севастополь",
+                 "address": "99003 Севастополь, пл. Пирогова 3",
+                 "phone": "(380 692) 539 881",
+                 "e-mail": "sewastopol.kg.sekretariat@msz.gov.pl",
+                 "latitude": 46.47536,
+                 "longitude": 30.75359,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Вьеслав Мазур",
+                 "site": "http://sewastopol.polemb.net/"
+                 },
+                 "city": "Винница",
+                 "address": " 21050 м. Винница, ул. Козицкого 51, VI эт.",
+                 "phone": "+38 0432  507-413",
+                 "e-mail": "winnica.kg.sekretariat@msz.gov.pl",
+                 "latitude": 46.47536,
+                 "longitude": 30.75359,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "Пан Кшиштоф Шведерек",
+                 "site": " http://www.winnica.polemb.net/"
+                 },
+                 "city": "Житомир",
+                 "address": "10010 Житомир, ул. Малая Бердичьевськая, 16а",
+                 "phone": "+38 0412 481 555",
+                 "e-mail": "konsulat@konsulatrp.zt.ua",
+                 "latitude": 46.47536,
+                 "longitude": 30.75359,
+                 "timeWork": "10:00 - 18:00", 
+                 "genConsul": "--",
+                 "site": "http://konsulatrp.zt.ua//"
                  }
                  ],
   "requirements": [

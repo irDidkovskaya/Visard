@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "Consulate.h"
 #import "Requirement.h"
+#import "ConsulateViewController.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -182,6 +183,7 @@
     self.img = nil;
     self.name = nil;
     self.text = nil;
+    [super dealloc];
 }
 
 - (void)viewDidUnload
@@ -257,15 +259,22 @@
     if (currSigmentControll == 0) {
         Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
-        NSNumber *lalitude = currConsulate.latitude;
-        NSNumber *longitude = currConsulate.longitude;
+//        NSNumber *lalitude = currConsulate.latitude;
+//        NSNumber *longitude = currConsulate.longitude;
+//        
+//        
+//        ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
+//        vc.img = self.img;
+//        vc.address = currConsulate.address;
+//        vc.countryName = name;
+//        vc.cityName = currConsulate.city;
+
         
-        
-        ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
+        ConsulateViewController *vc = [[ConsulateViewController alloc] init];
+        vc.consulate = currConsulate;
+        vc.countryName = self.name;
         vc.img = self.img;
-        vc.address = currConsulate.address;
-        vc.countryName = name;
-        vc.cityName = currConsulate.city;
+        
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     } else {

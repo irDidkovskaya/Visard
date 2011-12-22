@@ -29,6 +29,7 @@
 		A08627F514A361FA0075D4BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08627F414A361FA0075D4BE /* MainViewController.m */; };
 		A086280114A3711B0075D4BE /* maibBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A08627FF14A3711B0075D4BE /* maibBg.png */; };
 		A086280214A3711B0075D4BE /* maibBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* maibBg@2x.png */; };
+		A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086280814A38EC40075D4BE /* ConsulateViewController.m */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0CBED34149DFCD0000C1A6F /* at.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0C149DFCD0000C1A6F /* at.png */; };
 		A0CBED35149DFCD0000C1A6F /* at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0D149DFCD0000C1A6F /* at@2x.png */; };
@@ -137,6 +138,8 @@
 		A08627F414A361FA0075D4BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = View/MainViewController.m; sourceTree = "<group>"; };
 		A08627FF14A3711B0075D4BE /* maibBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maibBg.png; sourceTree = "<group>"; };
 		A086280014A3711B0075D4BE /* maibBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maibBg@2x.png"; sourceTree = "<group>"; };
+		A086280714A38EC40075D4BE /* ConsulateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsulateViewController.h; path = View/ConsulateViewController.h; sourceTree = "<group>"; };
+		A086280814A38EC40075D4BE /* ConsulateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsulateViewController.m; path = View/ConsulateViewController.m; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
 		A0CBED0D149DFCD0000C1A6F /* at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "at@2x.png"; sourceTree = "<group>"; };
@@ -439,6 +442,8 @@
 				A0FE862B149D158F007C578B /* OverlayViewController.m */,
 				A0FE85C5149CB615007C578B /* CountryViewController.h */,
 				A0FE85C6149CB615007C578B /* CountryViewController.m */,
+				A086280714A38EC40075D4BE /* ConsulateViewController.h */,
+				A086280814A38EC40075D4BE /* ConsulateViewController.m */,
 				A0FE85C8149CB665007C578B /* ConsulateLocationViewController.h */,
 				A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */,
 			);
@@ -613,6 +618,7 @@
 				81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */,
 				81A6D0A4149E43A800D0714A /* Consulate.m in Sources */,
 				A08627F514A361FA0075D4BE /* MainViewController.m in Sources */,
+				A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
