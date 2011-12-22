@@ -30,6 +30,7 @@
 		A086280114A3711B0075D4BE /* maibBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A08627FF14A3711B0075D4BE /* maibBg.png */; };
 		A086280214A3711B0075D4BE /* maibBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* maibBg@2x.png */; };
 		A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086280814A38EC40075D4BE /* ConsulateViewController.m */; };
+		A086280C14A39C510075D4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A086280B14A39C500075D4BE /* QuartzCore.framework */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0CBED34149DFCD0000C1A6F /* at.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0C149DFCD0000C1A6F /* at.png */; };
 		A0CBED35149DFCD0000C1A6F /* at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0D149DFCD0000C1A6F /* at@2x.png */; };
@@ -140,6 +141,7 @@
 		A086280014A3711B0075D4BE /* maibBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maibBg@2x.png"; sourceTree = "<group>"; };
 		A086280714A38EC40075D4BE /* ConsulateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsulateViewController.h; path = View/ConsulateViewController.h; sourceTree = "<group>"; };
 		A086280814A38EC40075D4BE /* ConsulateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsulateViewController.m; path = View/ConsulateViewController.m; sourceTree = "<group>"; };
+		A086280B14A39C500075D4BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
 		A0CBED0D149DFCD0000C1A6F /* at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "at@2x.png"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A086280C14A39C510075D4BE /* QuartzCore.framework in Frameworks */,
 				81A6D09E149E3E2200D0714A /* MapKit.framework in Frameworks */,
 				A0FE8617149CD9CE007C578B /* SystemConfiguration.framework in Frameworks */,
 				81A6D034149CC98F00D0714A /* CFNetwork.framework in Frameworks */,
@@ -372,6 +375,7 @@
 		A0FE8584149C9FEF007C578B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A086280B14A39C500075D4BE /* QuartzCore.framework */,
 				81A6D09D149E3E2200D0714A /* MapKit.framework */,
 				A0FE8616149CD9CE007C578B /* SystemConfiguration.framework */,
 				81A6D033149CC98F00D0714A /* CFNetwork.framework */,

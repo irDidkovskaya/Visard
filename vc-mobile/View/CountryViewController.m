@@ -259,17 +259,6 @@
     if (currSigmentControll == 0) {
         Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
-//        NSNumber *lalitude = currConsulate.latitude;
-//        NSNumber *longitude = currConsulate.longitude;
-//        
-//        
-//        ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
-//        vc.img = self.img;
-//        vc.address = currConsulate.address;
-//        vc.countryName = name;
-//        vc.cityName = currConsulate.city;
-
-        
         ConsulateViewController *vc = [[ConsulateViewController alloc] init];
         vc.consulate = currConsulate;
         vc.countryName = self.name;
