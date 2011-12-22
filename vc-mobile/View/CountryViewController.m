@@ -47,7 +47,27 @@
 
 #pragma mark - View lifecycle
 
-
+- (UIView *)headerView {
+    
+    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 70)] autorelease];
+    UILabel *countryName = [[[UILabel alloc] initWithFrame:CGRectMake(100, 25, 0, 0)] autorelease];
+    headerView.backgroundColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
+    countryName.text = self.name;
+    
+    countryName.backgroundColor = [UIColor clearColor];
+    
+    [countryName sizeToFit];
+    
+    
+    
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 66, 44)];
+    
+    [iv setImage:[UIImage imageNamed:self.img]];
+    
+    [headerView addSubview:iv];
+    [headerView addSubview:countryName];
+    return headerView;
+}
 
 
 - (void)viewDidLoad
@@ -61,7 +81,7 @@
     UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
     scView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     
-    NSArray *itemArray = [NSArray arrayWithObjects: @"Консульство", @"Требование", @"Советы", nil];
+    NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
     UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
     segmentedControl.frame = CGRectMake(50, 7, 250, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -80,10 +100,11 @@
     
     [self.view addSubview:scView];
     
+    [self.view addSubview:[self headerView]];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     if (segmentedControl.selectedSegmentIndex == 0) {
         
-        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
         tv.delegate = self;
         tv.dataSource = self;
         self.tableView = tv;
@@ -111,7 +132,7 @@
     
     switch (sc.selectedSegmentIndex) {
         case 0: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
             
             tv.delegate = self;
             tv.dataSource = self;
@@ -120,7 +141,7 @@
         }
             break;
         case 1: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
             
             tv.delegate = self;
             tv.dataSource = self;
@@ -131,7 +152,7 @@
         case 2: {
             
             [self.tableView removeFromSuperview];
-            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
+            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44+70, self.view.frame.size.width, self.view.frame.size.height)];
             tv.text = @"This app halp you find all information about the visa";
             [self.view addSubview:tv];
         }
@@ -212,10 +233,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
    [self configureCell:cell atIndexPath:indexPath];
     
@@ -354,9 +376,7 @@
     Consulate *consulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     cell.textLabel.text = consulate.city;
     
-    cell.imageView.image = [UIImage imageNamed:self.img];
-    
-    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
+    cell.detailTextLabel.text = consulate.address;
 }
 
 @end

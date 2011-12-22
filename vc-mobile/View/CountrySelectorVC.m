@@ -51,7 +51,7 @@
     searchBarTextField.enablesReturnKeyAutomatically = NO;
     searchBarTextField.returnKeyType = UIReturnKeyDone;
     self.countrySearchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.countrySearchBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.countrySearchBar.tintColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
     
     self.tableView.tableHeaderView = self.countrySearchBar;
     //self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
@@ -108,6 +108,9 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     [self configureCell:cell atIndexPath:indexPath];
 
     
