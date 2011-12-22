@@ -412,6 +412,8 @@
 				81A6D0A2149E43A800D0714A /* Consulate.h */,
 				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				81A6D0A2149E43A800D0714A /* Consulate.h */,
+				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				81A6D097149E2A6500D0714A /* Requirement.h */,
 				81A6D098149E2A6500D0714A /* Requirement.m */,
 				81A6D094149E2A6500D0714A /* Country.h */,
