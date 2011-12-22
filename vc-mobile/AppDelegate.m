@@ -50,18 +50,11 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
-    
-    
     DataController *dc = [DataController sharedDataController];
-    [dc updateCountriesList];
-    [dc updateConsulates];
+    [dc updateCoreData];
     if (![dc ifUserExist]) {
        [self showStartViewController];
     }
-    
-    
-    
-
     return YES;
 }
 
@@ -227,8 +220,6 @@
     
     //[nc release];
     [vc release];
-
-    
 }
 
 @end

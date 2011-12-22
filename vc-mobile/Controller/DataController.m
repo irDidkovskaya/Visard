@@ -65,12 +65,12 @@
     return ifUserExist;
 }
 
-- (void)updateCountriesList
+- (void)updateCoreData
 {
-    [[NetworkController sharedNetworkController] updateCountriesList];
+    [[NetworkController sharedNetworkController] loadData];
 }
 
-- (void)updateDBWithCountriesList:(NSArray *)updatedCountries
+- (void)updateCoreDataWithDataArray:(NSArray *)dataArray
 {
     NSEntityDescription *country = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
     
@@ -83,75 +83,39 @@
         return;
     }
     
-    for (NSDictionary *countryDict in updatedCountries) {
-        Country *newCountry = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
+    for (NSDictionary *countryDict in dataArray) {
         
+        // Country
+        Country *newCountry = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
         newCountry.name = [countryDict objectForKey:@"name"];
         newCountry.itemId = [countryDict objectForKey:@"code"];
         newCountry.image = [countryDict objectForKey:@"img"];
-    }
-    
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
-    }
-}
-
-- (void)updateConsulates
-{
-    [[NetworkController sharedNetworkController] updateConsulates];
-}
-
-- (void)updateDBWithConsulatesList:(NSArray *)updatedConsulates
-{
-    NSLog(@"updated consulates: %@", updatedConsulates);
-    
-    NSEntityDescription *consulate = [NSEntityDescription entityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];
-    
-    NSFetchRequest *consulateRequest = [[NSFetchRequest alloc] init];
-    [consulateRequest setEntity:consulate];
-    
-    NSError *error;
-    NSArray *results = [self.managedObjectContext executeFetchRequest:consulateRequest error:&error];
-    if ([results count]) {
-        return;
-    }
-    for (NSDictionary *consulateDict in updatedConsulates) {
-                
-        NSEntityDescription *country = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
-        NSFetchRequest *countryRequest = [[NSFetchRequest alloc] init];
-        [countryRequest setEntity:country];
         
-        NSPredicate *countryNamePredicate = [NSPredicate predicateWithFormat:@"itemId == %@", [consulateDict objectForKey:@"code"]];
-        [countryRequest setPredicate:countryNamePredicate];
-        NSError *error;
-        NSArray * results = [self.managedObjectContext executeFetchRequest:countryRequest error:&error];
-        
-        Country *tmpCountry = nil;
-        
-        if ([results lastObject]) {
-            tmpCountry = [results lastObject];
-        } else {
-            tmpCountry = [NSEntityDescription insertNewObjectForEntityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
-            tmpCountry.name = [consulateDict objectForKey:@"name"];
-            tmpCountry.itemId = [consulateDict objectForKey:@"code"];
-            tmpCountry.image = [consulateDict objectForKey:@"img"];
+        // Consulates
+        NSArray *consulates = [countryDict objectForKey:@"consulates"];
+        for (NSDictionary *consulateDict in consulates) {
+            Consulate *newConsulate = [NSEntityDescription insertNewObjectForEntityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];        
+            newConsulate.countryId = newCountry.itemId;
+            newConsulate.country = newCountry;
+            newConsulate.city = [consulateDict objectForKey:@"city"];
+            newConsulate.address = [consulateDict objectForKey:@"address"];
+            newConsulate.latitude = [consulateDict objectForKey:@"latitude"];
+            newConsulate.longitude = [consulateDict objectForKey:@"longitude"];
         }
         
-        NSArray *countryConsulates = [consulateDict objectForKey:@"consulates"];
-        for (NSDictionary *curConsulateDict in countryConsulates) {
-            
-            NSLog(@"new consulate dict: %@", curConsulateDict);
-            
-            Consulate *newConsulate = [NSEntityDescription insertNewObjectForEntityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];
-            
-            newConsulate.countryId = tmpCountry.itemId;
-            newConsulate.country = tmpCountry;
-            newConsulate.city = [curConsulateDict objectForKey:@"city"];
-            newConsulate.address = [curConsulateDict objectForKey:@"address"];
-            newConsulate.latitude = [curConsulateDict objectForKey:@"latitude"];
-            newConsulate.longitude = [curConsulateDict objectForKey:@"longitude"];
-
+        // Requirements
+        NSArray *requirements = [countryDict objectForKey:@"requirements"];
+        for (NSDictionary *requirementDict in requirements) {
+            Requirement *newRequirement = [NSEntityDescription insertNewObjectForEntityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];        
+            newRequirement.country = newCountry;
+            newRequirement.name = [requirementDict objectForKey:@"name"];
+            newRequirement.value = [requirementDict objectForKey:@"value"];
         }
+        
+        // Advice 
+        Advice *newAdvice = [NSEntityDescription insertNewObjectForEntityForName:@"Advice" inManagedObjectContext:self.managedObjectContext];
+        newAdvice.country = newCountry;
+        newAdvice.discriptionText = [countryDict objectForKey:@"advice"];
     }
     
     if (![self.managedObjectContext save:&error]) {

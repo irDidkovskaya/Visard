@@ -167,34 +167,20 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
 
 #pragma mark
 
-- (void)updateCountriesList
+- (void)loadData
 {
     // Заглушка
-    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"CountriesList2" ofType:@"json"];
+    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"Consulate" ofType:@"json"];
     NSData* jsonData = [NSData dataWithContentsOfFile:countriesListFilePath];
     
     // End Заглушка
     
     JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionNone];
     NSArray *countriesList = [decoder objectWithData:jsonData];
-
+//    NSLog(@"All the Data: %@", countriesList);
     if ([countriesList count]) {
-        [[DataController sharedDataController] updateDBWithCountriesList:countriesList];
+        [[DataController sharedDataController] updateCoreDataWithDataArray:countriesList];
     }
-}
-
-- (void)updateConsulates
-{
-    NSString *consulaesFilePath = [[NSBundle mainBundle] pathForResource:@"Consulate" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:consulaesFilePath];
-    
-    JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionNone];
-    NSArray *consulates = [decoder objectWithData:jsonData];
-    
-    if ([consulates count]) {
-        [[DataController sharedDataController] updateDBWithConsulatesList:consulates];
-    }
-    
 }
 
 @end

@@ -39,9 +39,7 @@ extern NSString * const baseURLString;
 
 #pragma mark - Calls
 
-- (void)updateCountriesList;
-- (void)updateConsulates;
-
+- (void)loadData;
 
 
 @end
