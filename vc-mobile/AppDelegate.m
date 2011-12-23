@@ -11,6 +11,7 @@
 #import "StartViewController.h"
 #import "MainViewController.h"
 #import "NetworkController.h"
+#import "ChackListsesViewController.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,7 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController = _navigationController;
+@synthesize tabBarController;
 
 - (void)dealloc
 {
@@ -27,6 +29,7 @@
     [__managedObjectModel release];
     [__persistentStoreCoordinator release];
     [_navigationController release];
+    self.tabBarController = nil;
     
     [super dealloc];
 }
@@ -39,15 +42,34 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
-    MainViewController *countrySelectorVC = [[MainViewController alloc] init];
+     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
+    
+    UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
+    
+    
+    
+    
+    
+    MainViewController *countrySelectorVC = [[[MainViewController alloc] init] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
-    [countrySelectorVC release];
+    self.navigationController.tabBarItem.title = @"Main";
     
-
-    [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    self.window.rootViewController = self.navigationController;
+    ChackListsesViewController *chackListesVC = [[[ChackListsesViewController alloc] init] autorelease];
+    
+    UINavigationController *navContr = [[[UINavigationController alloc] initWithRootViewController:chackListesVC] autorelease];
+    navContr.tabBarItem.title = @"Chack Listes";
+    
+    
+    NSArray* controllers = [NSArray arrayWithObjects:self.navigationController, navContr, nil];
+    tbc.viewControllers = controllers;
+    
+    
+    self.tabBarController = tbc;
+    [self.window addSubview:self.tabBarController.view];
+    //self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
     DataController *dc = [DataController sharedDataController];

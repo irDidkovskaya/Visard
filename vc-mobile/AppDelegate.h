@@ -20,7 +20,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 @property (strong, nonatomic) UINavigationController *navigationController;
-
+@property (nonatomic, retain) UITabBarController *tabBarController;
 
 - (void)showStartViewController;
 

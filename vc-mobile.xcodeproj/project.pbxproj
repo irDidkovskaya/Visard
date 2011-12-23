@@ -31,6 +31,7 @@
 		A086280214A3711B0075D4BE /* maibBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* maibBg@2x.png */; };
 		A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086280814A38EC40075D4BE /* ConsulateViewController.m */; };
 		A086280C14A39C510075D4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A086280B14A39C500075D4BE /* QuartzCore.framework */; };
+		A086286614A4F6E50075D4BE /* ChackListsesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286514A4F6E50075D4BE /* ChackListsesViewController.m */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0CBED34149DFCD0000C1A6F /* at.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0C149DFCD0000C1A6F /* at.png */; };
 		A0CBED35149DFCD0000C1A6F /* at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0D149DFCD0000C1A6F /* at@2x.png */; };
@@ -142,6 +143,8 @@
 		A086280714A38EC40075D4BE /* ConsulateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsulateViewController.h; path = View/ConsulateViewController.h; sourceTree = "<group>"; };
 		A086280814A38EC40075D4BE /* ConsulateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsulateViewController.m; path = View/ConsulateViewController.m; sourceTree = "<group>"; };
 		A086280B14A39C500075D4BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A086286414A4F6E50075D4BE /* ChackListsesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChackListsesViewController.h; path = View/ChackListsesViewController.h; sourceTree = "<group>"; };
+		A086286514A4F6E50075D4BE /* ChackListsesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChackListsesViewController.m; path = View/ChackListsesViewController.m; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
 		A0CBED0D149DFCD0000C1A6F /* at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "at@2x.png"; sourceTree = "<group>"; };
@@ -308,6 +311,36 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		A086286114A4F33C0075D4BE /* mainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A08627F314A361FA0075D4BE /* MainViewController.h */,
+				A08627F414A361FA0075D4BE /* MainViewController.m */,
+				A0FE85BF149CB592007C578B /* StartViewController.h */,
+				A0FE85C0149CB592007C578B /* StartViewController.m */,
+				A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */,
+				A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */,
+				A0FE862A149D158F007C578B /* OverlayViewController.h */,
+				A0FE862B149D158F007C578B /* OverlayViewController.m */,
+				A0FE85C5149CB615007C578B /* CountryViewController.h */,
+				A0FE85C6149CB615007C578B /* CountryViewController.m */,
+				A086280714A38EC40075D4BE /* ConsulateViewController.h */,
+				A086280814A38EC40075D4BE /* ConsulateViewController.m */,
+				A0FE85C8149CB665007C578B /* ConsulateLocationViewController.h */,
+				A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */,
+			);
+			name = mainTabBar;
+			sourceTree = "<group>";
+		};
+		A086286314A4F3510075D4BE /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				A086286414A4F6E50075D4BE /* ChackListsesViewController.h */,
+				A086286514A4F6E50075D4BE /* ChackListsesViewController.m */,
+			);
+			name = favorites;
+			sourceTree = "<group>";
+		};
 		A0CBED0B149DFCD0000C1A6F /* flags */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,20 +469,8 @@
 		A0FE85BD149CB4F7007C578B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A08627F314A361FA0075D4BE /* MainViewController.h */,
-				A08627F414A361FA0075D4BE /* MainViewController.m */,
-				A0FE85BF149CB592007C578B /* StartViewController.h */,
-				A0FE85C0149CB592007C578B /* StartViewController.m */,
-				A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */,
-				A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */,
-				A0FE862A149D158F007C578B /* OverlayViewController.h */,
-				A0FE862B149D158F007C578B /* OverlayViewController.m */,
-				A0FE85C5149CB615007C578B /* CountryViewController.h */,
-				A0FE85C6149CB615007C578B /* CountryViewController.m */,
-				A086280714A38EC40075D4BE /* ConsulateViewController.h */,
-				A086280814A38EC40075D4BE /* ConsulateViewController.m */,
-				A0FE85C8149CB665007C578B /* ConsulateLocationViewController.h */,
-				A0FE85C9149CB665007C578B /* ConsulateLocationViewController.m */,
+				A086286314A4F3510075D4BE /* favorites */,
+				A086286114A4F33C0075D4BE /* mainTabBar */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -623,6 +644,7 @@
 				81A6D0A4149E43A800D0714A /* Consulate.m in Sources */,
 				A08627F514A361FA0075D4BE /* MainViewController.m in Sources */,
 				A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */,
+				A086286614A4F6E50075D4BE /* ChackListsesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

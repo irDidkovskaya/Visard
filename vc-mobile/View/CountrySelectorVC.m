@@ -42,7 +42,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = NSLocalizedString(@"Страны от А до Я", nil);
+    self.navigationItem.title = NSLocalizedString(@"Поиск по странам", nil);
     
     UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.countrySearchBar = sb;

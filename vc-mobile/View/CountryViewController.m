@@ -310,8 +310,8 @@
         
         // Set the batch size to a suitable number.
         [fetchRequest setFetchBatchSize:20];
-        
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"country == %@", self.name];
+        NSLog(@"self.name = %@", self.name);
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"country.name == %@", self.name];
         
         [fetchRequest setPredicate:pred];
         
