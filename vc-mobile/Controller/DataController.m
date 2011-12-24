@@ -12,6 +12,7 @@
 
 #import "User.h"
 #import "Country.h"
+#import "Visa.h"
 #import "Requirement.h"
 #import "Advice.h"
 #import "Consulate.h"
@@ -103,13 +104,22 @@
             newConsulate.longitude = [consulateDict objectForKey:@"longitude"];
         }
         
-        // Requirements
-        NSArray *requirements = [countryDict objectForKey:@"requirements"];
-        for (NSDictionary *requirementDict in requirements) {
-            Requirement *newRequirement = [NSEntityDescription insertNewObjectForEntityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];        
-            newRequirement.country = newCountry;
-            newRequirement.name = [requirementDict objectForKey:@"name"];
-            newRequirement.value = [requirementDict objectForKey:@"value"];
+        // Visas
+        NSArray *visas = [countryDict objectForKey:@"visas"];
+        for (NSDictionary *visaDict in visas) {
+            Visa *newVisa = [NSEntityDescription insertNewObjectForEntityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
+            newVisa.country = newCountry;
+            newVisa.type = [visaDict objectForKey:@"type"];
+            newVisa.image = [visaDict objectForKey:@"img"];
+            
+            // Requirements
+            NSArray *requirements = [visaDict objectForKey:@"requirements"];
+            for (NSDictionary *requirementDict in requirements) {
+                Requirement *newRequirement = [NSEntityDescription insertNewObjectForEntityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];        
+                newRequirement.visa = newVisa;
+                newRequirement.name = [requirementDict objectForKey:@"name"];
+                newRequirement.value = [requirementDict objectForKey:@"value"];
+            }
         }
         
         // Advice 

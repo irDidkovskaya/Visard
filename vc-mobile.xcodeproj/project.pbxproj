@@ -19,13 +19,14 @@
 		81A6D034149CC98F00D0714A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A6D033149CC98F00D0714A /* CFNetwork.framework */; };
 		81A6D03B149CD58100D0714A /* ColorfulButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D03A149CD58100D0714A /* ColorfulButton.m */; };
 		81A6D04C149D153700D0714A /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 81A6D04B149D153700D0714A /* CountriesList.json */; };
-		81A6D08D149E296200D0714A /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D08C149E296200D0714A /* Advice.m */; };
-		81A6D090149E2A6500D0714A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D08F149E2A6500D0714A /* User.m */; };
-		81A6D096149E2A6500D0714A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D095149E2A6500D0714A /* Country.m */; };
-		81A6D099149E2A6500D0714A /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D098149E2A6500D0714A /* Requirement.m */; };
 		81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */; };
 		81A6D09E149E3E2200D0714A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A6D09D149E3E2200D0714A /* MapKit.framework */; };
-		81A6D0A4149E43A800D0714A /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D0A3149E43A800D0714A /* Consulate.m */; };
+		81CB81C014A6197E00091D90 /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81BF14A6197E00091D90 /* Consulate.m */; };
+		81CB81C314A6197E00091D90 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81C214A6197E00091D90 /* Country.m */; };
+		81CB81C614A6197E00091D90 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81C514A6197E00091D90 /* Requirement.m */; };
+		81CB81C914A6197E00091D90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81C814A6197E00091D90 /* User.m */; };
+		81CB81CF14A6197F00091D90 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81CE14A6197F00091D90 /* Advice.m */; };
+		81CB81D214A61C3B00091D90 /* Visa.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81D114A61C3B00091D90 /* Visa.m */; };
 		A08627F514A361FA0075D4BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08627F414A361FA0075D4BE /* MainViewController.m */; };
 		A086280114A3711B0075D4BE /* maibBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A08627FF14A3711B0075D4BE /* maibBg.png */; };
 		A086280214A3711B0075D4BE /* maibBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* maibBg@2x.png */; };
@@ -98,7 +99,6 @@
 		A0FE8621149CE8FA007C578B /* visard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE861D149CE8FA007C578B /* visard@2x.png */; };
 		A0FE8624149CF31B007C578B /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8622149CF31B007C578B /* splash.png */; };
 		A0FE8625149CF31B007C578B /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8623149CF31B007C578B /* splash@2x.png */; };
-		A0FE862C149D158F007C578B /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE862B149D158F007C578B /* OverlayViewController.m */; };
 		A0FE8651149D3964007C578B /* UISegmentedControl+CustomTintExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */; };
 /* End PBXBuildFile section */
 
@@ -125,19 +125,21 @@
 		81A6D039149CD58100D0714A /* ColorfulButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorfulButton.h; sourceTree = "<group>"; };
 		81A6D03A149CD58100D0714A /* ColorfulButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorfulButton.m; sourceTree = "<group>"; };
 		81A6D04B149D153700D0714A /* CountriesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList.json; path = Resources/CountriesList.json; sourceTree = "<group>"; };
-		81A6D08B149E296200D0714A /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
-		81A6D08C149E296200D0714A /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advice.m; path = Model/Advice.m; sourceTree = "<group>"; };
-		81A6D08E149E2A6500D0714A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
-		81A6D08F149E2A6500D0714A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
-		81A6D094149E2A6500D0714A /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
-		81A6D095149E2A6500D0714A /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
-		81A6D097149E2A6500D0714A /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
-		81A6D098149E2A6500D0714A /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
 		81A6D09A149E3DC000D0714A /* MyPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPinAnnotation.h; sourceTree = "<group>"; };
 		81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPinAnnotation.m; sourceTree = "<group>"; };
 		81A6D09D149E3E2200D0714A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		81A6D0A2149E43A800D0714A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
-		81A6D0A3149E43A800D0714A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
+		81CB81BE14A6197E00091D90 /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
+		81CB81BF14A6197E00091D90 /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
+		81CB81C114A6197E00091D90 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
+		81CB81C214A6197E00091D90 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
+		81CB81C414A6197E00091D90 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
+		81CB81C514A6197E00091D90 /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
+		81CB81C714A6197E00091D90 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
+		81CB81C814A6197E00091D90 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		81CB81CD14A6197F00091D90 /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
+		81CB81CE14A6197F00091D90 /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advice.m; path = Model/Advice.m; sourceTree = "<group>"; };
+		81CB81D014A61C3B00091D90 /* Visa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visa.h; path = Model/Visa.h; sourceTree = "<group>"; };
+		81CB81D114A61C3B00091D90 /* Visa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Visa.m; path = Model/Visa.m; sourceTree = "<group>"; };
 		A08627F314A361FA0075D4BE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = View/MainViewController.h; sourceTree = "<group>"; };
 		A08627F414A361FA0075D4BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = View/MainViewController.m; sourceTree = "<group>"; };
 		A08627FF14A3711B0075D4BE /* maibBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maibBg.png; sourceTree = "<group>"; };
@@ -225,8 +227,6 @@
 		A0FE861D149CE8FA007C578B /* visard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visard@2x.png"; sourceTree = "<group>"; };
 		A0FE8622149CF31B007C578B /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		A0FE8623149CF31B007C578B /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
-		A0FE862A149D158F007C578B /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = View/OverlayViewController.h; sourceTree = "<group>"; };
-		A0FE862B149D158F007C578B /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = View/OverlayViewController.m; sourceTree = "<group>"; };
 		A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISegmentedControl+CustomTintExtension.h"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.h"; sourceTree = "<group>"; };
 		A0FE8650149D3964007C578B /* UISegmentedControl+CustomTintExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISegmentedControl+CustomTintExtension.m"; path = "View/SegmentedControlExtension/UISegmentedControl+CustomTintExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,8 +326,6 @@
 				A0FE85C0149CB592007C578B /* StartViewController.m */,
 				A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */,
 				A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */,
-				A0FE862A149D158F007C578B /* OverlayViewController.h */,
-				A0FE862B149D158F007C578B /* OverlayViewController.m */,
 				A0FE85C5149CB615007C578B /* CountryViewController.h */,
 				A0FE85C6149CB615007C578B /* CountryViewController.m */,
 				A086286A14A5FE3F0075D4BE /* RequirementsViewController.h */,
@@ -459,19 +457,19 @@
 		A0FE85AD149CAB1F007C578B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				81A6D0A2149E43A800D0714A /* Consulate.h */,
-				81A6D0A3149E43A800D0714A /* Consulate.m */,
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
-				81A6D0A2149E43A800D0714A /* Consulate.h */,
-				81A6D0A3149E43A800D0714A /* Consulate.m */,
-				81A6D097149E2A6500D0714A /* Requirement.h */,
-				81A6D098149E2A6500D0714A /* Requirement.m */,
-				81A6D094149E2A6500D0714A /* Country.h */,
-				81A6D095149E2A6500D0714A /* Country.m */,
-				81A6D08E149E2A6500D0714A /* User.h */,
-				81A6D08F149E2A6500D0714A /* User.m */,
-				81A6D08B149E296200D0714A /* Advice.h */,
-				81A6D08C149E296200D0714A /* Advice.m */,
+				81CB81D014A61C3B00091D90 /* Visa.h */,
+				81CB81D114A61C3B00091D90 /* Visa.m */,
+				81CB81CD14A6197F00091D90 /* Advice.h */,
+				81CB81CE14A6197F00091D90 /* Advice.m */,
+				81CB81C714A6197E00091D90 /* User.h */,
+				81CB81C814A6197E00091D90 /* User.m */,
+				81CB81C414A6197E00091D90 /* Requirement.h */,
+				81CB81C514A6197E00091D90 /* Requirement.m */,
+				81CB81C114A6197E00091D90 /* Country.h */,
+				81CB81C214A6197E00091D90 /* Country.m */,
+				81CB81BE14A6197E00091D90 /* Consulate.h */,
+				81CB81BF14A6197E00091D90 /* Consulate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -644,19 +642,19 @@
 				81A6D02D149CC84000D0714A /* JSONKit.m in Sources */,
 				81A6D032149CC8BD00D0714A /* Reachability.m in Sources */,
 				81A6D03B149CD58100D0714A /* ColorfulButton.m in Sources */,
-				A0FE862C149D158F007C578B /* OverlayViewController.m in Sources */,
 				A0FE8651149D3964007C578B /* UISegmentedControl+CustomTintExtension.m in Sources */,
-				81A6D08D149E296200D0714A /* Advice.m in Sources */,
-				81A6D090149E2A6500D0714A /* User.m in Sources */,
-				81A6D096149E2A6500D0714A /* Country.m in Sources */,
-				81A6D099149E2A6500D0714A /* Requirement.m in Sources */,
 				81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */,
-				81A6D0A4149E43A800D0714A /* Consulate.m in Sources */,
 				A08627F514A361FA0075D4BE /* MainViewController.m in Sources */,
 				A086280914A38EC40075D4BE /* ConsulateViewController.m in Sources */,
 				A086286614A4F6E50075D4BE /* RequirementsCheckLists.m in Sources */,
 				A086286914A5FDDC0075D4BE /* CheckList.m in Sources */,
 				A086286C14A5FE410075D4BE /* RequirementsViewController.m in Sources */,
+				81CB81C014A6197E00091D90 /* Consulate.m in Sources */,
+				81CB81C314A6197E00091D90 /* Country.m in Sources */,
+				81CB81C614A6197E00091D90 /* Requirement.m in Sources */,
+				81CB81C914A6197E00091D90 /* User.m in Sources */,
+				81CB81CF14A6197F00091D90 /* Advice.m in Sources */,
+				81CB81D214A61C3B00091D90 /* Visa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

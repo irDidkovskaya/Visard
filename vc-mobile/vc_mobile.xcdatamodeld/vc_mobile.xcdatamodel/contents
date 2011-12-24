@@ -20,25 +20,32 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="advices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Advice" inverseName="country" inverseEntity="Advice" syncable="YES"/>
         <relationship name="consulates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consulate" inverseName="country" inverseEntity="Consulate" syncable="YES"/>
-        <relationship name="requirements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Requirement" inverseName="country" inverseEntity="Requirement" syncable="YES"/>
+        <relationship name="visas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Visa" inverseName="country" inverseEntity="Visa" syncable="YES"/>
     </entity>
     <entity name="Requirement" representedClassName="Requirement" syncable="YES">
         <attribute name="isDone" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isRequired" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="country" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="requirements" inverseEntity="Country" syncable="YES"/>
+        <relationship name="visa" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Visa" inverseName="requirements" inverseEntity="Visa" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="citezenShip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentCountry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Visa" representedClassName="Visa" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="country" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="visas" inverseEntity="Country" syncable="YES"/>
+        <relationship name="requirements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Requirement" inverseName="visa" inverseEntity="Requirement" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Advice" positionX="286" positionY="189" width="128" height="90"/>
-        <element name="Consulate" positionX="160" positionY="-45" width="128" height="120"/>
-        <element name="Country" positionX="97" positionY="189" width="128" height="135"/>
-        <element name="Requirement" positionX="-81" positionY="285" width="128" height="120"/>
-        <element name="User" positionX="277" positionY="342" width="128" height="90"/>
+        <element name="Advice" positionX="252" positionY="36" width="128" height="90"/>
+        <element name="Consulate" positionX="268" positionY="153" width="128" height="135"/>
+        <element name="Country" positionX="81" positionY="189" width="128" height="150"/>
+        <element name="Requirement" positionX="-92" positionY="249" width="128" height="120"/>
+        <element name="User" positionX="72" positionY="36" width="128" height="90"/>
+        <element name="Visa" positionX="-90" positionY="99" width="128" height="105"/>
     </elements>
 </model>
