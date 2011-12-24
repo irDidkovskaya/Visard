@@ -10,7 +10,7 @@
 #import "Requirement.h"
 #import "User.h"
 
-@interface CountryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate> {
+@interface CountryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIWebViewDelegate> {
     
     int currSigmentControll;
     

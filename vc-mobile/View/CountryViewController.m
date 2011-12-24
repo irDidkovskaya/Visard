@@ -15,6 +15,7 @@
 #import "ConsulateViewController.h"
 #import "RequirementsViewController.h"
 #import "Visa.h"
+#import "Advice.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -159,9 +160,18 @@
         case 2: {
             
             [self.tableView removeFromSuperview];
-            UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
-            tv.text = @"This app halp you find all information about the visa";
-            [self.view addSubview:tv];
+            self.fetchedResultsController = nil;
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
+            [self.view addSubview:webView];
+            
+            Advice *advice = [self.fetchedResultsController.fetchedObjects lastObject];
+            
+            [webView loadHTMLString:advice.discriptionText baseURL:nil];
+            
+            webView.delegate = self;
+            
+            
+            
         }
             break;
         default:
@@ -442,5 +452,19 @@
         
     }
 }
+
+
+#pragma mark UIWebView
+
+
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    
+    return YES;
+}
+
 
 @end
