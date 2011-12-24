@@ -13,7 +13,7 @@
 
 
 @implementation CountrySelectorVC
-@synthesize managedObjectContext, countrySearchBar, ovController;
+@synthesize managedObjectContext, countrySearchBar;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize searchPredicate;
 @synthesize filteredCountries;
@@ -69,7 +69,6 @@
 
 - (void)dealloc {
     self.managedObjectContext = nil;
-    self.ovController = nil;
     self.fetchedResultsController = nil;
     self.searchPredicate = nil;
     self.filteredCountries = nil;
