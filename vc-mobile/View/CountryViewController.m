@@ -161,7 +161,8 @@
             
             [self.tableView removeFromSuperview];
             self.fetchedResultsController = nil;
-            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
+            webView.backgroundColor = [UIColor whiteColor];
             [self.view addSubview:webView];
             
             Advice *advice = [self.fetchedResultsController.fetchedObjects lastObject];
