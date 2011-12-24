@@ -54,13 +54,16 @@
     MainViewController *countrySelectorVC = [[[MainViewController alloc] init] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
-    self.navigationController.tabBarItem.title = @"Main";
-    
+    UITabBarItem *aTabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:0];
+    aTabBarItem.title = NSLocalizedString(@"Главная", nil);
+    self.navigationController.tabBarItem = aTabBarItem;
+    //self.navigationController.tabBarItem = UITabBarSystemItemTopRated;
     
     ChackListsesViewController *chackListesVC = [[[ChackListsesViewController alloc] init] autorelease];
-    
+    UITabBarItem *aTabBarItem2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:1];
     UINavigationController *navContr = [[[UINavigationController alloc] initWithRootViewController:chackListesVC] autorelease];
-    navContr.tabBarItem.title = @"Chack Listes";
+    aTabBarItem2.title = NSLocalizedString(@"Выбранные", nil);
+    navContr.tabBarItem = aTabBarItem2;
     
     
     NSArray* controllers = [NSArray arrayWithObjects:self.navigationController, navContr, nil];
