@@ -271,15 +271,15 @@
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     } else {
-//        Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-//        
-//        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
-//        //vc.requirements = currConsulate;
-//        //vc.countryName = self.name;
-//        //vc.img = self.img;
-//        
-//        [self.navigationController pushViewController:vc animated:YES];
-//        [vc release];
+        Visa *currType = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        
+        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
+        vc.typeVisa = currType.type;
+        vc.countryName = self.name;
+        //vc.img = self.img;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
         
     }
 
@@ -352,8 +352,6 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors]; 
 
-        
-        
     }
     
     
