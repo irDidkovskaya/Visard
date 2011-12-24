@@ -10,10 +10,12 @@
 
 
 @implementation RequirementsViewController
-
+@synthesize typeVisa;
+@synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize managedObjectContext, requirements;
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         // Custom initialization
     }
@@ -29,6 +31,17 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)dealloc {
+    
+    self.typeVisa = nil;
+    self.fetchedResultsController = nil;
+    self.managedObjectContext = nil;
+    self.requirements = nil;
+    
+    [super dealloc];
+}
+
 
 - (void)viewDidLoad
 {
@@ -78,16 +91,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10 ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,62 +110,129 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
-    
+    cell.textLabel.text = requirements.name;
+    cell.detailTextLabel.text = requirements.value;
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+//    if (!indexPath.row) {
+//        
+//        return 44.0f;
+//    }
+//    else
+//    {
+//        NSDictionary *details = [NSDictionary dictionary];
+//        NSArray *list = [details objectForKey:@"analysisDetailsItems"];
+//        NSDictionary *obj = [list objectAtIndex:indexPath.section];
+//        NSArray *subItems = [obj objectForKey:@"subItems"];
+//        int index = 0;
+//        if ([subItems count] > 1) {
+//            index = indexPath.row-1;
+//        }
+//        NSDictionary *detail = [subItems objectAtIndex:index];
+//        NSString *cellText = @"";
+//        
+//        if ([detail objectForKey:@"headLine"]) {
+//            
+//            
+//            NSString *descript = [detail objectForKey:@"description"];
+//            NSString *headLine = [detail objectForKey:@"headLine"];
+//            if ([descript isEqual:[NSNull null]]) {
+//                descript = @"";
+//            }
+//            if ([headLine isEqual:[NSNull null]]) {
+//                headLine = @"";
+//            } else {
+//                headLine = [NSString stringWithFormat:@"%@\n", headLine];
+//            }
+//            NSString *text = [NSString stringWithFormat:@"%@%@", headLine, descript];
+//            cellText = text;
+//        }
+//        else
+//        {
+//            NSString *descript = [detail objectForKey:@"description"];
+//            if ([descript isEqual:[NSNull null]]) {
+//                descript = @"";
+//            }
+//            cellText = descript;
+//        }
+//        
+//        UIFont *cellFont = [UIFont systemFontOfSize:13.0];
+//        CGSize constraintSize = CGSizeMake(320.0f, MAXFLOAT);
+//        CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+//        
+//        return labelSize.height + 45.0f;
+//    }
+    
+    
+    
+    
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    
+//    if (!indexPath.row)
+//    {
+//        // only first row toggles exapand/collapse
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//        
+//        NSInteger section = indexPath.section;
+//        //BOOL currentlyExpanded = [expandedSections containsIndex:section];
+//        NSInteger rows;
+//        
+//        
+//        NSMutableArray *tmpArray = [NSMutableArray array];
+//        
+//        if (currentlyExpanded)
+//        {
+//            rows = [self tableView:tableView numberOfRowsInSection:section];
+//            [expandedSections removeIndex:section];
+//            
+//        }
+//        else
+//        {
+//            [expandedSections addIndex:section];
+//            rows = [self tableView:tableView numberOfRowsInSection:section];
+//        }
+//        
+//        NSLog(@"rows = %d", rows);
+//        for (int i=1; i<rows; i++)
+//        {
+//            NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i 
+//                                                           inSection:section];
+//            [tmpArray addObject:tmpIndexPath];
+//        }
+//        
+//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//        
+//        if (currentlyExpanded)
+//        {
+//            [tableView deleteRowsAtIndexPaths:tmpArray 
+//                             withRowAnimation:UITableViewRowAnimationTop];
+//            
+//            cell.accessoryView = [ISCustomAccessory accessoryWithColor:[UIColor grayColor] type:ISCustomAccessoryTypeDown];
+//            
+//        }
+//        else
+//        {
+//            [tableView insertRowsAtIndexPaths:tmpArray 
+//                             withRowAnimation:UITableViewRowAnimationTop];
+//            cell.accessoryView =  [ISCustomAccessory accessoryWithColor:[UIColor grayColor] type:ISCustomAccessoryTypeUp];
+//            
+//        }
+//    }
+    
 }
+
+
 
 @end

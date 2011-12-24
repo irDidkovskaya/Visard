@@ -13,6 +13,7 @@
 #import "Consulate.h"
 #import "Requirement.h"
 #import "ConsulateViewController.h"
+#import "RequirementsViewController.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -267,7 +268,15 @@
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     } else {
+        Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
+        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
+        //vc.requirements = currConsulate;
+        //vc.countryName = self.name;
+        //vc.img = self.img;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
         
     }
 

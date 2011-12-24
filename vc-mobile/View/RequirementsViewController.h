@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Requirement.h"
 
-@interface RequirementsViewController : UITableViewController
+@interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, retain) NSString *typeVisa;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) Requirement *requirements;
+
 
 @end
