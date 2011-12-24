@@ -6,10 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChackListsesViewController.h"
+#import "RequirementsCheckLists.h"
 
 
-@implementation ChackListsesViewController
+@implementation RequirementsCheckLists
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
