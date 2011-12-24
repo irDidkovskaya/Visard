@@ -169,9 +169,7 @@
             [webView loadHTMLString:advice.discriptionText baseURL:nil];
             
             webView.delegate = self;
-            
-            
-            
+
         }
             break;
         default:
