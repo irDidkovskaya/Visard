@@ -20,7 +20,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="advices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Advice" inverseName="country" inverseEntity="Advice" syncable="YES"/>
         <relationship name="consulates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consulate" inverseName="country" inverseEntity="Consulate" syncable="YES"/>
-        <relationship name="visas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Visa" inverseName="country" inverseEntity="Visa" syncable="YES"/>
+        <relationship name="visas" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Visa" inverseName="country" inverseEntity="Visa" syncable="YES"/>
     </entity>
     <entity name="Requirement" representedClassName="Requirement" syncable="YES">
         <attribute name="isDone" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -38,7 +38,7 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="country" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="visas" inverseEntity="Country" syncable="YES"/>
-        <relationship name="requirements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Requirement" inverseName="visa" inverseEntity="Requirement" syncable="YES"/>
+        <relationship name="requirements" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Requirement" inverseName="visa" inverseEntity="Requirement" syncable="YES"/>
     </entity>
     <elements>
         <element name="Advice" positionX="252" positionY="36" width="128" height="90"/>

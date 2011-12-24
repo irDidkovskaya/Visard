@@ -14,6 +14,7 @@
 #import "Requirement.h"
 #import "ConsulateViewController.h"
 #import "RequirementsViewController.h"
+#import "Visa.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -224,12 +225,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"[[self.fetchedResultsController sections] count] = %d", [[self.fetchedResultsController sections] count]);
      return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    NSLog(@"[sectionInfo numberOfObjects] = %d", [sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
 
 }
@@ -268,15 +271,15 @@
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     } else {
-        Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-        
-        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
-        //vc.requirements = currConsulate;
-        //vc.countryName = self.name;
-        //vc.img = self.img;
-        
-        [self.navigationController pushViewController:vc animated:YES];
-        [vc release];
+//        Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+//        
+//        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
+//        //vc.requirements = currConsulate;
+//        //vc.countryName = self.name;
+//        //vc.img = self.img;
+//        
+//        [self.navigationController pushViewController:vc animated:YES];
+//        [vc release];
         
     }
 
@@ -312,9 +315,9 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors];
         
-    } else {
+    } else if (currSigmentControll == 1){
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
         // Set the batch size to a suitable number.
@@ -325,10 +328,30 @@
         [fetchRequest setPredicate:pred];
         
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"type" ascending:NO] autorelease];
         NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
         
         [fetchRequest setSortDescriptors:sortDescriptors]; 
+        
+        
+    } else {
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Advice" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        NSLog(@"self.name = %@", self.name);
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"country.name == %@", self.name];
+        
+        [fetchRequest setPredicate:pred];
+        
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"discriptionText" ascending:YES] autorelease];
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors]; 
+
         
         
     }
@@ -413,10 +436,10 @@
         cell.detailTextLabel.text = consulate.address;
     } else {
         
-        Requirement *requir = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        Visa *visa = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
-        cell.textLabel.text = requir.name;
-        cell.detailTextLabel.text = requir.value;
+        cell.textLabel.text = visa.type;
+        cell.imageView.image = [UIImage imageNamed:visa.image];
         
     }
 }
