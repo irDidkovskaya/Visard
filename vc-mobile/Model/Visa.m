@@ -1,22 +1,21 @@
 //
-//  Consulate.m
+//  Visa.m
 //  vc-mobile
 //
 //  Created by Alexandr Fal' on 12/24/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Consulate.h"
+#import "Visa.h"
 #import "Country.h"
+#import "Requirement.h"
 
 
-@implementation Consulate
+@implementation Visa
 
-@dynamic address;
-@dynamic city;
-@dynamic countryId;
-@dynamic latitude;
-@dynamic longitude;
+@dynamic type;
+@dynamic image;
 @dynamic country;
+@dynamic requirements;
 
 @end

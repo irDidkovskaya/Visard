@@ -2,14 +2,14 @@
 //  Country.h
 //  vc-mobile
 //
-//  Created by Alexandr Fal' on 12/18/11.
+//  Created by Alexandr Fal' on 12/24/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Advice, Consulate, Requirement;
+@class Advice, Consulate;
 
 @interface Country : NSManagedObject
 
@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *advices;
 @property (nonatomic, retain) NSSet *consulates;
-@property (nonatomic, retain) NSSet *requirements;
+@property (nonatomic, retain) NSSet *visas;
 @end
 
 @interface Country (CoreDataGeneratedAccessors)
@@ -34,9 +34,9 @@
 - (void)addConsulates:(NSSet *)values;
 - (void)removeConsulates:(NSSet *)values;
 
-- (void)addRequirementsObject:(Requirement *)value;
-- (void)removeRequirementsObject:(Requirement *)value;
-- (void)addRequirements:(NSSet *)values;
-- (void)removeRequirements:(NSSet *)values;
+- (void)addVisasObject:(NSManagedObject *)value;
+- (void)removeVisasObject:(NSManagedObject *)value;
+- (void)addVisas:(NSSet *)values;
+- (void)removeVisas:(NSSet *)values;
 
 @end
