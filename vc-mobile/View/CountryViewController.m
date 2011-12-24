@@ -147,7 +147,7 @@
         }
             break;
         case 1: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
             self.fetchedResultsController = nil;
             tv.delegate = self;
             tv.dataSource = self;
@@ -276,6 +276,7 @@
         RequirementsViewController *vc = [[RequirementsViewController alloc] init];
         vc.typeVisa = currType.type;
         vc.countryName = self.name;
+        vc.managedObjectContext = self.managedObjectContext;
         //vc.img = self.img;
         
         [self.navigationController pushViewController:vc animated:YES];

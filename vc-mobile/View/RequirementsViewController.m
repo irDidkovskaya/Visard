@@ -92,13 +92,17 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    NSLog(@"[[self.fetchedResultsController sections] count] = %d", [[self.fetchedResultsController sections] count]);
+    return [[self.fetchedResultsController sections] count];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10 ;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    NSLog(@"[sectionInfo numberOfObjects] = %d", [sectionInfo numberOfObjects]);
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,17 +111,17 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
     
 //    if (!indexPath.row) {
 //        
@@ -171,7 +175,7 @@
     
     
     
-}
+//}
 
 
 #pragma mark - Table view delegate
@@ -252,13 +256,13 @@
         // Set the batch size to a suitable number.
         [fetchRequest setFetchBatchSize:20];
         
-    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"country.name == %@ AND visa.type == %@", self.countryName, self.typeVisa];
-    //NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa.type == %@", self.typeVisa];
-        
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"visa.country.name == %@", self.countryName];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa.type == %@", self.typeVisa];
+    NSPredicate *comp = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
     
     //NSCompoundPredicate *compPred = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
     
-        [fetchRequest setPredicate:predCountry];
+        [fetchRequest setPredicate:comp];
         
         // Edit the sort key as appropriate.
         NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
@@ -341,6 +345,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
         Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+    NSLog(@"requirement.name = %@", requirement.name);
         cell.textLabel.text = requirement.name;
         cell.detailTextLabel.text = requirement.value;
 }
