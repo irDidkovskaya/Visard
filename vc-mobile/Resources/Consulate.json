@@ -40,6 +40,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -81,6 +82,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -122,6 +124,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -163,6 +166,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -302,6 +306,7 @@
   "requirements": [
                    {
                    "typeVisa": "Travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -340,72 +345,10 @@
                                  "value": "Страховая сумма должна быть 30000 евро. Страховая компания, выписавшая вам страховку, должна входить в список аккредитованных страховых компаний, который всегда можно найти на сайте соответствующего консульского учреждения."
                                  }
                                  ]
-                   }
-                   ],
-  "advice": "Копии всех документов необходимо выполнять на листах формата А4, даже если вы делаете копию с разворота паспорта или трудовой книжки - не обрезайте лист до формата А5: это не принято в делопроизводстве, а кроме того, обрезанные листы усложняют работу сотрудников консульства, что может негативно повлиять на решение об открытии вам визы. Кроме того, если копии делаются с документов формата А5 (паспорта, трудовые книжки и т.п.), располагайте копию каждого последующего разворота под копией предыдущего разворота и делайте копии с двух сторон одного листа, т.е. если например имеется 3 разворота, то делайте копию 3-го разворота не на 2-м листе формата А4, а на обратной стороне уже начатого листа. Кроме того, копии должны быть качественными, легкочитаемыми, а листы – не помятыми."
-  },
-  {
-  "name": "Молдавия",
-  "code": "MD",
-  "img": "md.png",
-  "consulates": [
-                 {
-                 "city": " Киев",
-                 "address": "blah blah",
-                 "latitude": 30.00023,
-                 "longitude": 50.0024
-                 },
-                 {
-                 "city": " Киев",
-                 "address": "blah blah",
-                 "latitude": 30.00023,
-                 "longitude": 50.0024
-                 }
-                 ],
-  "requirements": [
-                   {
-                   "typeVisa": "travel",
-                   "documents": [
-                                 {
-                                 "name": "Загранпаспорт",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Анкета",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Фотография",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Копия заполненных страниц из украинского загранпаспорта",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Подтверждение цели поездки",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Подтверждение финансового обеспечения поездки",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Подтверждение трудоустройства в Украине",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Подтверждение семейных связей в Украине",
-                                 "value": "<...>"
-                                 },
-                                 {
-                                 "name": "Страховка",
-                                 "value": "<...>"
-                                 }
-                                 ]
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -447,6 +390,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -488,6 +432,197 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
+                   "documents": [
+                                 {
+                                 "name": "Загранпаспорт",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Анкета",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Фотография",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Копия заполненных страниц из украинского загранпаспорта",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение цели поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение финансового обеспечения поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение трудоустройства в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение семейных связей в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Страховка",
+                                 "value": "<...>"
+                                 }
+                                 ]
+                   }
+                   ],
+  "advice": "Копии всех документов необходимо выполнять на листах формата А4, даже если вы делаете копию с разворота паспорта или трудовой книжки - не обрезайте лист до формата А5: это не принято в делопроизводстве, а кроме того, обрезанные листы усложняют работу сотрудников консульства, что может негативно повлиять на решение об открытии вам визы. Кроме того, если копии делаются с документов формата А5 (паспорта, трудовые книжки и т.п.), располагайте копию каждого последующего разворота под копией предыдущего разворота и делайте копии с двух сторон одного листа, т.е. если например имеется 3 разворота, то делайте копию 3-го разворота не на 2-м листе формата А4, а на обратной стороне уже начатого листа. Кроме того, копии должны быть качественными, легкочитаемыми, а листы – не помятыми."
+  },
+  {
+  "name": "Молдавия",
+  "code": "MD",
+  "img": "md.png",
+  "consulates": [
+                 {
+                 "city": " Киев",
+                 "address": "blah blah",
+                 "latitude": 30.00023,
+                 "longitude": 50.0024
+                 },
+                 {
+                 "city": " Киев",
+                 "address": "blah blah",
+                 "latitude": 30.00023,
+                 "longitude": 50.0024
+                 }
+                 ],
+  "requirements": [
+                   {
+                   "typeVisa": "travel",
+                   "img": "travel.png",
+                   "documents": [
+                                 {
+                                 "name": "Загранпаспорт",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Анкета",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Фотография",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Копия заполненных страниц из украинского загранпаспорта",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение цели поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение финансового обеспечения поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение трудоустройства в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение семейных связей в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Страховка",
+                                 "value": "<...>"
+                                 }
+                                 ]
+                   },
+                   {
+                   "typeVisa": "work",
+                   "img": "work.png",
+                   "documents": [
+                                 {
+                                 "name": "Загранпаспорт",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Анкета",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Фотография",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Копия заполненных страниц из украинского загранпаспорта",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение цели поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение финансового обеспечения поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение трудоустройства в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение семейных связей в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Страховка",
+                                 "value": "<...>"
+                                 }
+                                 ]
+                   },
+                   {
+                   "typeVisa": "study",
+                   "img": "study.png",
+                   "documents": [
+                                 {
+                                 "name": "Загранпаспорт",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Анкета",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Фотография",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Копия заполненных страниц из украинского загранпаспорта",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение цели поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение финансового обеспечения поездки",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение трудоустройства в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Подтверждение семейных связей в Украине",
+                                 "value": "<...>"
+                                 },
+                                 {
+                                 "name": "Страховка",
+                                 "value": "<...>"
+                                 }
+                                 ]
+                   },
+                   {
+                   "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -551,6 +686,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -592,6 +728,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -633,6 +770,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -674,6 +812,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -737,6 +876,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -778,6 +918,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -819,6 +960,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -860,6 +1002,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -923,6 +1066,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -964,6 +1108,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1005,6 +1150,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1046,6 +1192,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1109,6 +1256,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1150,6 +1298,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1191,6 +1340,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1232,6 +1382,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1295,6 +1446,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1336,6 +1488,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1377,6 +1530,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1418,6 +1572,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1481,6 +1636,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1522,6 +1678,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1563,6 +1720,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1604,6 +1762,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1667,6 +1826,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1708,6 +1868,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1749,6 +1910,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1790,6 +1952,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1853,6 +2016,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1894,6 +2058,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1935,6 +2100,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -1976,6 +2142,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2039,6 +2206,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2080,6 +2248,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2121,6 +2290,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2162,6 +2332,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2231,6 +2402,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2272,6 +2444,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2313,6 +2486,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2354,6 +2528,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2417,6 +2592,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2458,6 +2634,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2499,6 +2676,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2540,6 +2718,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2603,6 +2782,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2644,6 +2824,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2685,6 +2866,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2726,6 +2908,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2789,6 +2972,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2830,6 +3014,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2871,6 +3056,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2912,6 +3098,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -2975,6 +3162,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3016,6 +3204,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3057,6 +3246,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3098,6 +3288,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3161,6 +3352,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3202,6 +3394,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3243,6 +3436,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3284,6 +3478,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3347,6 +3542,7 @@
   "requirements": [
                    {
                    "typeVisa": "travel",
+                   "img": "travel.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3388,6 +3584,7 @@
                    },
                    {
                    "typeVisa": "work",
+                   "img": "work.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3429,6 +3626,7 @@
                    },
                    {
                    "typeVisa": "study",
+                   "img": "study.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
@@ -3470,6 +3668,7 @@
                    },
                    {
                    "typeVisa": "children",
+                   "img": "children.png",
                    "documents": [
                                  {
                                  "name": "Загранпаспорт",
