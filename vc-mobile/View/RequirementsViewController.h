@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Requirement.h"
+#import "VCustomAccessory.h"
 
-@interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+    
+    NSMutableIndexSet *expandedSections;
+}
 
 @property (nonatomic, retain) NSString *typeVisa;
 @property (nonatomic, retain) NSString *countryName;
