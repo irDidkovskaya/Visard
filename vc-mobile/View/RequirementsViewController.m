@@ -359,6 +359,7 @@
         // first row
         //cell.textLabel.text = @"Expandable"; // only top row showing
         cell.textLabel.text = requirement.name;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
         if ([expandedSections containsIndex:indexPath.section])
         {
@@ -374,6 +375,7 @@
         // all other rows
         cell.textLabel.text = requirement.value;
         cell.accessoryView = nil;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 }
