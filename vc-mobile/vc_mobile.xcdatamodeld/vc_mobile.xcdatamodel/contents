@@ -36,6 +36,7 @@
     </entity>
     <entity name="Visa" representedClassName="Visa" syncable="YES">
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="visas" inverseEntity="Country" syncable="YES"/>
         <relationship name="requirements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Requirement" inverseName="visa" inverseEntity="Requirement" syncable="YES"/>
@@ -46,6 +47,6 @@
         <element name="Country" positionX="81" positionY="189" width="128" height="150"/>
         <element name="Requirement" positionX="-92" positionY="249" width="128" height="120"/>
         <element name="User" positionX="72" positionY="36" width="128" height="90"/>
-        <element name="Visa" positionX="-90" positionY="99" width="128" height="105"/>
+        <element name="Visa" positionX="-90" positionY="99" width="128" height="120"/>
     </elements>
 </model>

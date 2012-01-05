@@ -2,8 +2,8 @@
 //  Visa.m
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 24.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 1/5/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Visa.h"
@@ -15,6 +15,7 @@
 
 @dynamic image;
 @dynamic type;
+@dynamic isFavorite;
 @dynamic country;
 @dynamic requirements;
 

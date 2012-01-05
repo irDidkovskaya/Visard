@@ -24,6 +24,7 @@
 		81CB81C014A6197E00091D90 /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81BF14A6197E00091D90 /* Consulate.m */; };
 		81CB81C914A6197E00091D90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81C814A6197E00091D90 /* User.m */; };
 		81CB81CF14A6197F00091D90 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81CE14A6197F00091D90 /* Advice.m */; };
+		81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DDD95514B5D40E00ED5A5D /* Visa.m */; };
 		A08627F514A361FA0075D4BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08627F414A361FA0075D4BE /* MainViewController.m */; };
 		A086280114A3711B0075D4BE /* maibBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A08627FF14A3711B0075D4BE /* maibBg.png */; };
 		A086280214A3711B0075D4BE /* maibBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* maibBg@2x.png */; };
@@ -32,7 +33,6 @@
 		A086286614A4F6E50075D4BE /* RequirementsCheckLists.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286514A4F6E50075D4BE /* RequirementsCheckLists.m */; };
 		A086286914A5FDDC0075D4BE /* CheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286814A5FDDC0075D4BE /* CheckList.m */; };
 		A086286C14A5FE410075D4BE /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286B14A5FE400075D4BE /* RequirementsViewController.m */; };
-		A0A9995E14A628FE00695AE9 /* Visa.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9995D14A628FE00695AE9 /* Visa.m */; };
 		A0A9996114A628FE00695AE9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996014A628FE00695AE9 /* Country.m */; };
 		A0A9996414A628FF00695AE9 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996314A628FF00695AE9 /* Requirement.m */; };
 		A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */; };
@@ -135,6 +135,8 @@
 		81CB81C814A6197E00091D90 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		81CB81CD14A6197F00091D90 /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
 		81CB81CE14A6197F00091D90 /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advice.m; path = Model/Advice.m; sourceTree = "<group>"; };
+		81DDD95414B5D40E00ED5A5D /* Visa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visa.h; path = Model/Visa.h; sourceTree = "<group>"; };
+		81DDD95514B5D40E00ED5A5D /* Visa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Visa.m; path = Model/Visa.m; sourceTree = "<group>"; };
 		A08627F314A361FA0075D4BE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = View/MainViewController.h; sourceTree = "<group>"; };
 		A08627F414A361FA0075D4BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = View/MainViewController.m; sourceTree = "<group>"; };
 		A08627FF14A3711B0075D4BE /* maibBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maibBg.png; sourceTree = "<group>"; };
@@ -148,13 +150,11 @@
 		A086286814A5FDDC0075D4BE /* CheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckList.m; path = View/CheckList.m; sourceTree = "<group>"; };
 		A086286A14A5FE3F0075D4BE /* RequirementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequirementsViewController.h; path = View/RequirementsViewController.h; sourceTree = "<group>"; };
 		A086286B14A5FE400075D4BE /* RequirementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequirementsViewController.m; path = View/RequirementsViewController.m; sourceTree = "<group>"; };
-		A0A9995C14A628FE00695AE9 /* Visa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visa.h; path = Model/Visa.h; sourceTree = "<group>"; };
-		A0A9995D14A628FE00695AE9 /* Visa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Visa.m; path = Model/Visa.m; sourceTree = "<group>"; };
 		A0A9995F14A628FE00695AE9 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
 		A0A9996014A628FE00695AE9 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		A0A9996214A628FF00695AE9 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
 		A0A9996314A628FF00695AE9 /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
-		A0CB4E9B14A7A0DA007E3D75 /* VCustomAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VCustomAccessory.h; sourceTree = "<group>"; };
+		A0CB4E9B14A7A0DA007E3D75 /* VCustomAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCustomAccessory.h; sourceTree = "<group>"; };
 		A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCustomAccessory.m; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
 		A0CBED0C149DFCD0000C1A6F /* at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = at.png; sourceTree = "<group>"; };
@@ -463,12 +463,12 @@
 			isa = PBXGroup;
 			children = (
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				81DDD95414B5D40E00ED5A5D /* Visa.h */,
+				81DDD95514B5D40E00ED5A5D /* Visa.m */,
 				A0A9996214A628FF00695AE9 /* Requirement.h */,
 				A0A9996314A628FF00695AE9 /* Requirement.m */,
 				A0A9995F14A628FE00695AE9 /* Country.h */,
 				A0A9996014A628FE00695AE9 /* Country.m */,
-				A0A9995C14A628FE00695AE9 /* Visa.h */,
-				A0A9995D14A628FE00695AE9 /* Visa.m */,
 				81CB81CD14A6197F00091D90 /* Advice.h */,
 				81CB81CE14A6197F00091D90 /* Advice.m */,
 				81CB81C714A6197E00091D90 /* User.h */,
@@ -657,10 +657,10 @@
 				81CB81C014A6197E00091D90 /* Consulate.m in Sources */,
 				81CB81C914A6197E00091D90 /* User.m in Sources */,
 				81CB81CF14A6197F00091D90 /* Advice.m in Sources */,
-				A0A9995E14A628FE00695AE9 /* Visa.m in Sources */,
 				A0A9996114A628FE00695AE9 /* Country.m in Sources */,
 				A0A9996414A628FF00695AE9 /* Requirement.m in Sources */,
 				A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */,
+				81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +726,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vc-mobile/vc-mobile-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "vc-mobile/vc-mobile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -737,6 +738,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vc-mobile/vc-mobile-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "vc-mobile/vc-mobile-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
