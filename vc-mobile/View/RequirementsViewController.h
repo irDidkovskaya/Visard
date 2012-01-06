@@ -10,17 +10,19 @@
 #import "Requirement.h"
 #import "VCustomAccessory.h"
 
-@interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate> {
     
     NSMutableIndexSet *expandedSections;
 }
 
-@property (nonatomic, retain) NSString *typeVisa;
+@property (nonatomic, retain) NSString *visaType;
 @property (nonatomic, retain) NSString *countryName;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+- (void)addVisaToFavorites;
 
 @end

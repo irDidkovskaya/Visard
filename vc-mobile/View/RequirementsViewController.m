@@ -8,9 +8,10 @@
 
 #import "RequirementsViewController.h"
 #import "Requirement.h"
+#import "DataController.h"
 
 @implementation RequirementsViewController
-@synthesize typeVisa;
+@synthesize visaType;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext, countryName;
 - (id)initWithStyle:(UITableViewStyle)style
@@ -34,7 +35,7 @@
 
 - (void)dealloc {
     
-    self.typeVisa = nil;
+    self.visaType = nil;
     self.fetchedResultsController = nil;
     self.managedObjectContext = nil;
     self.countryName = nil;
@@ -53,6 +54,13 @@
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
 
+    // Add button
+    UIBarButtonItem *addBtn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                             target:self 
+                                                                             action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
+    
+    self.navigationItem.rightBarButtonItem = addBtn;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -263,7 +271,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"visa.country.name == %@", self.countryName];
-    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa.type == %@", self.typeVisa];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa.type == %@", self.visaType];
     NSPredicate *comp = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
     
     //NSCompoundPredicate *compPred = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
@@ -380,7 +388,32 @@
     }
 }
     
-        
+#pragma mark - Nav Bar button actions
+
+- (void)showAddToFavoritesConfirmationAlert
+{
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add to Favorites?", nil) 
+                                                    message:nil
+                                                   delegate:self 
+                                          cancelButtonTitle:NSLocalizedString(@"No", nil) 
+                                          otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] autorelease];
+    [alert show];
+}
+
+#pragma mark - Alert View Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex) {
+        [self addVisaToFavorites];
+    }
+}
+
+- (void)addVisaToFavorites
+{
+    NSLog(@"visa to favorites adding");
+    [[DataController sharedDataController] addToFavoritesVisaWithCountry:self.countryName andType:self.visaType];
+}
 
 
 

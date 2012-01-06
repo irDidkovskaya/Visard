@@ -18,4 +18,6 @@
 - (void)updateCoreData;
 - (void)updateCoreDataWithDataArray:(NSArray *)dataArray;
 
+- (void)addToFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
+
 @end

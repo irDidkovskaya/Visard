@@ -234,14 +234,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"[[self.fetchedResultsController sections] count] = %d", [[self.fetchedResultsController sections] count]);
-     return [[self.fetchedResultsController sections] count];
+//    NSLog(@"[[self.fetchedResultsController sections] count] = %d", [[self.fetchedResultsController sections] count]);
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    NSLog(@"[sectionInfo numberOfObjects] = %d", [sectionInfo numberOfObjects]);
+//    NSLog(@"[sectionInfo numberOfObjects] = %d", [sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
 
 }
@@ -283,7 +283,7 @@
         Visa *currType = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
         RequirementsViewController *vc = [[RequirementsViewController alloc] init];
-        vc.typeVisa = currType.type;
+        vc.visaType = currType.type;
         vc.countryName = self.name;
         vc.managedObjectContext = self.managedObjectContext;
         //vc.img = self.img;

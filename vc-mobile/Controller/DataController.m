@@ -133,4 +133,28 @@
     }
 }
 
+- (void)addToFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"country.name == %@", countryName];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"type == %@", visaType];
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
+        
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *error = nil;
+    Visa *targetVisa = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
+    
+    if (targetVisa) {
+        targetVisa.isFavorite = [NSNumber numberWithBool:YES];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+        }
+        NSLog(@"visa with type: %@ for country: %@ added to favorites", visaType, countryName);
+    }    
+}
+
 @end
