@@ -11,7 +11,7 @@
 #import "StartViewController.h"
 #import "MainViewController.h"
 #import "NetworkController.h"
-#import "RequirementsCheckLists.h"
+#import "CheckList.h"
 
 @implementation AppDelegate
 
@@ -59,9 +59,9 @@
     self.navigationController.tabBarItem = aTabBarItem;
     //self.navigationController.tabBarItem = UITabBarSystemItemTopRated;
     
-    RequirementsCheckLists *chackListesVC = [[[RequirementsCheckLists alloc] init] autorelease];
+    CheckList *chackListVC = [[[CheckList alloc] init] autorelease];
     UITabBarItem *aTabBarItem2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:1];
-    UINavigationController *navContr = [[[UINavigationController alloc] initWithRootViewController:chackListesVC] autorelease];
+    UINavigationController *navContr = [[[UINavigationController alloc] initWithRootViewController:chackListVC] autorelease];
     aTabBarItem2.title = NSLocalizedString(@"Выбранные", nil);
     navContr.tabBarItem = aTabBarItem2;
     

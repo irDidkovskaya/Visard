@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckList : UITableViewController
+@interface CheckList : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

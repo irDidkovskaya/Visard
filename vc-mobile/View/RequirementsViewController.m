@@ -358,9 +358,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-        Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
+    Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
     NSLog(@"requirement.name = %@", requirement.name);
-    
     
     if (!indexPath.row)
     {
@@ -369,17 +368,12 @@
         cell.textLabel.text = requirement.name;
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
-        if ([expandedSections containsIndex:indexPath.section])
-        {
+        if ([expandedSections containsIndex:indexPath.section]) {
             cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeUp];
-        }
-        else
-        {
+        } else {
             cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeDown];
         }
-    }
-    else
-    {
+    } else {
         // all other rows
         cell.textLabel.text = requirement.value;
         cell.accessoryView = nil;

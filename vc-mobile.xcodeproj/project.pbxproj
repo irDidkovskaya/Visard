@@ -343,7 +343,7 @@
 			name = mainTabBar;
 			sourceTree = "<group>";
 		};
-		A086286314A4F3510075D4BE /* ChackList */ = {
+		A086286314A4F3510075D4BE /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
 				A086286714A5FDDC0075D4BE /* CheckList.h */,
@@ -351,7 +351,7 @@
 				A086286414A4F6E50075D4BE /* RequirementsCheckLists.h */,
 				A086286514A4F6E50075D4BE /* RequirementsCheckLists.m */,
 			);
-			name = ChackList;
+			name = CheckList;
 			sourceTree = "<group>";
 		};
 		A0CBED0B149DFCD0000C1A6F /* flags */ = {
@@ -482,7 +482,7 @@
 		A0FE85BD149CB4F7007C578B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A086286314A4F3510075D4BE /* ChackList */,
+				A086286314A4F3510075D4BE /* CheckList */,
 				A086286114A4F33C0075D4BE /* mainTabBar */,
 			);
 			name = ViewController;
