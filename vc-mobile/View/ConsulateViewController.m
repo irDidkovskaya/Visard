@@ -10,7 +10,7 @@
 #import "ConsulateLocationViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ColorfulButton.h"
-
+#import "AppStyle.h"
 @implementation ConsulateViewController
 @synthesize consulate, countryName, img;
 
@@ -172,7 +172,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     self.navigationItem.title = self.countryName;
     
     UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 132, 88)] autorelease];

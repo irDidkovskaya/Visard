@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "RequirementsCheckList.h"
 #import "DataController.h"
-
+#import "AppStyle.h"
 @implementation FavoriteVisas
 
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -51,7 +51,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = NSLocalizedString(@"Favorite Visas", nil);
-
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

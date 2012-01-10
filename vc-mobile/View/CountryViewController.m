@@ -16,6 +16,7 @@
 #import "CountryRequirementsViewController.h"
 #import "Visa.h"
 #import "Advice.h"
+#import "AppStyle.h"
 
 @implementation CountryViewController
 @synthesize requirement, user, tableView = tableView_;
@@ -79,14 +80,14 @@
     self.navigationItem.title = self.name;
     
     UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
-    scView.backgroundColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
+    scView.backgroundColor = [AppStyle colorForSearchBar];
     
     NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
     UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
     segmentedControl.frame = CGRectMake(50, 7, 250, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    segmentedControl.tintColor = [AppStyle colorForNavigationBar];
     [segmentedControl addTarget:self
 	                     action:@selector(pickOne:)
 	           forControlEvents:UIControlEventValueChanged];
@@ -101,7 +102,7 @@
     [self.view addSubview:scView];
     
     //[self.view addSubview:[self headerView]];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     if (segmentedControl.selectedSegmentIndex == 0) {
         
         UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];

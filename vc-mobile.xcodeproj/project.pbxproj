@@ -34,6 +34,8 @@
 		A086286614A4F6E50075D4BE /* RequirementsCheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286514A4F6E50075D4BE /* RequirementsCheckList.m */; };
 		A086286914A5FDDC0075D4BE /* FavoriteVisas.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286814A5FDDC0075D4BE /* FavoriteVisas.m */; };
 		A086286C14A5FE410075D4BE /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286B14A5FE400075D4BE /* RequirementsViewController.m */; };
+		A0893C7114BCDD7B00237ECD /* CountriesList3.json in Resources */ = {isa = PBXBuildFile; fileRef = A0893C7014BCDD7B00237ECD /* CountriesList3.json */; };
+		A0893C7514BCE08E00237ECD /* AppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A0893C7414BCE08E00237ECD /* AppStyle.m */; };
 		A0A9996114A628FE00695AE9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996014A628FE00695AE9 /* Country.m */; };
 		A0A9996414A628FF00695AE9 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996314A628FF00695AE9 /* Requirement.m */; };
 		A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */; };
@@ -151,6 +153,9 @@
 		A086286814A5FDDC0075D4BE /* FavoriteVisas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteVisas.m; path = View/FavoriteVisas.m; sourceTree = "<group>"; };
 		A086286A14A5FE3F0075D4BE /* RequirementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequirementsViewController.h; path = View/RequirementsViewController.h; sourceTree = "<group>"; };
 		A086286B14A5FE400075D4BE /* RequirementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequirementsViewController.m; path = View/RequirementsViewController.m; sourceTree = "<group>"; };
+		A0893C7014BCDD7B00237ECD /* CountriesList3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList3.json; path = Resources/CountriesList3.json; sourceTree = "<group>"; };
+		A0893C7314BCE08E00237ECD /* AppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyle.h; sourceTree = "<group>"; };
+		A0893C7414BCE08E00237ECD /* AppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStyle.m; sourceTree = "<group>"; };
 		A0A9995F14A628FE00695AE9 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
 		A0A9996014A628FE00695AE9 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		A0A9996214A628FF00695AE9 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
@@ -312,6 +317,7 @@
 		81A6D049149D10E300D0714A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0893C7014BCDD7B00237ECD /* CountriesList3.json */,
 				81A6D04B149D153700D0714A /* CountriesList.json */,
 				A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */,
 				A0CBED5C149DFDC2000C1A6F /* Consulate.json */,
@@ -351,6 +357,15 @@
 				A086286514A4F6E50075D4BE /* RequirementsCheckList.m */,
 			);
 			name = CheckList;
+			sourceTree = "<group>";
+		};
+		A0893C7214BCE08E00237ECD /* AppStyle */ = {
+			isa = PBXGroup;
+			children = (
+				A0893C7314BCE08E00237ECD /* AppStyle.h */,
+				A0893C7414BCE08E00237ECD /* AppStyle.m */,
+			);
+			path = AppStyle;
 			sourceTree = "<group>";
 		};
 		A0CBED0B149DFCD0000C1A6F /* flags */ = {
@@ -433,6 +448,7 @@
 		A0FE858D149C9FEF007C578B /* vc-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				A0893C7214BCE08E00237ECD /* AppStyle */,
 				81A6D049149D10E300D0714A /* Resources */,
 				81A6D011149CBBC600D0714A /* Libraries */,
 				A0FE85BE149CB513007C578B /* Controller */,
@@ -615,6 +631,7 @@
 				A0CBED5F149E1A13000C1A6F /* Requirements.json in Resources */,
 				A086280114A3711B0075D4BE /* mainBg.png in Resources */,
 				A086280214A3711B0075D4BE /* mainBg@2x.png in Resources */,
+				A0893C7114BCDD7B00237ECD /* CountriesList3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +676,7 @@
 				A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */,
 				81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */,
 				81DDD95D14BCAC7300ED5A5D /* CountryRequirementsViewController.m in Sources */,
+				A0893C7514BCE08E00237ECD /* AppStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #import "ColorfulButton.h"
 #import "CountrySelectorVC.h"
 #import "DataController.h"
-
+#import "AppStyle.h"
 
 @implementation StartViewController
 @synthesize nameField, countryField;

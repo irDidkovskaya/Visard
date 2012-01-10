@@ -8,7 +8,7 @@
 
 #import "CountryRequirementsViewController.h"
 #import "DataController.h"
-
+#import "AppStyle.h"
 
 @implementation CountryRequirementsViewController
 
@@ -39,6 +39,7 @@
     UIBarButtonItem *addBtn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                                                              target:self 
                                                                              action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     
     self.navigationItem.rightBarButtonItem = addBtn;
     

@@ -10,6 +10,7 @@
 #import "Country.h"
 #import "CountryViewController.h"
 #import "User.h"
+#import "AppStyle.h"
 
 
 @implementation CountrySelectorVC
@@ -51,14 +52,14 @@
     searchBarTextField.enablesReturnKeyAutomatically = NO;
     searchBarTextField.returnKeyType = UIReturnKeyDone;
     self.countrySearchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.countrySearchBar.tintColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
+    self.countrySearchBar.tintColor = [AppStyle colorForSearchBar];
     
     self.tableView.tableHeaderView = self.countrySearchBar;
     //self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     searching = NO;
     letUserSelectRow = YES;
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;

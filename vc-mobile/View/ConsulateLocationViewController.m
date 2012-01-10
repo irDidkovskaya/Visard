@@ -9,7 +9,7 @@
 #import "ConsulateLocationViewController.h"
 #import <MapKit/MapKit.h>
 #import "MyPinAnnotation.h"
-
+#import "AppStyle.h"
 @implementation ConsulateLocationViewController
 @synthesize mapView, address, img, countryName, cityName;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,7 +59,7 @@
     self.mapView = [[[MKMapView alloc] initWithFrame:self.view.frame] autorelease]; 
     self.mapView.delegate = self; 
     self.mapView.showsUserLocation = YES;
-    
+    self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     
     MyPinAnnotation *ann = [[MyPinAnnotation alloc] initWithCoordinate:coord title:address];
     ann.tag = 0;
