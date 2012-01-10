@@ -17,6 +17,12 @@
 #import "Advice.h"
 #import "Consulate.h"
 
+@interface DataController () 
+
+- (void)updateIsFavoriteState:(BOOL)isFavorite forVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
+
+@end
+
 @implementation DataController
 
 @synthesize managedObjectContext;
@@ -133,7 +139,7 @@
     }
 }
 
-- (void)addToFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
+- (void)updateIsFavoriteState:(BOOL)isFavorite forVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
@@ -142,19 +148,30 @@
     NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"country.name == %@", countryName];
     NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"type == %@", visaType];
     NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
-        
+    
     [fetchRequest setPredicate:compoundPredicate];
     
     NSError *error = nil;
     Visa *targetVisa = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
     
     if (targetVisa) {
-        targetVisa.isFavorite = [NSNumber numberWithBool:YES];
+        targetVisa.isFavorite = [NSNumber numberWithBool:isFavorite];
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
         }
         NSLog(@"visa with type: %@ for country: %@ added to favorites", visaType, countryName);
-    }    
+    }
+}
+
+- (void)addToFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
+{
+    [self updateIsFavoriteState:YES forVisaWithCountry:countryName andType:visaType];
+}
+
+- (void)removeFromFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
+{
+    [self updateIsFavoriteState:NO forVisaWithCountry:countryName andType:visaType];
+
 }
 
 @end
