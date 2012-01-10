@@ -14,6 +14,7 @@
 @synthesize visaType;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext, countryName;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:UITableViewStylePlain];
@@ -53,46 +54,12 @@
     {
         expandedSections = [[NSMutableIndexSet alloc] init];
     }
-
-    // Add button
-    UIBarButtonItem *addBtn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                                                             target:self 
-                                                                             action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
-    
-    self.navigationItem.rightBarButtonItem = addBtn;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -142,10 +109,6 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    //cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.numberOfLines = 1000;
-    cell.textLabel.font = [UIFont systemFontOfSize:13.0];
-    
     //cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
     //cell.detailTextLabel.numberOfLines = 1000;
     
@@ -167,9 +130,8 @@
         CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
         
         return labelSize.height + 20.0f;
-    }
-    else
-    {
+        
+    } else {
         
         Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
         NSString *cellText = requirement.value;
@@ -180,10 +142,6 @@
         
         return labelSize.height + 45.0f;
     }
-    
-    
-    
-    
 }
 
 
@@ -246,8 +204,7 @@
         }
     }
     //}
-            
-               
+                           
 }
 
 
@@ -380,35 +337,10 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-}
     
-#pragma mark - Nav Bar button actions
-
-- (void)showAddToFavoritesConfirmationAlert
-{
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Add to Favorites?", nil) 
-                                                    message:nil
-                                                   delegate:self 
-                                          cancelButtonTitle:NSLocalizedString(@"No", nil) 
-                                          otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] autorelease];
-    [alert show];
+    //cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:13.0];
 }
-
-#pragma mark - Alert View Delegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex) {
-        [self addVisaToFavorites];
-    }
-}
-
-- (void)addVisaToFavorites
-{
-    NSLog(@"visa to favorites adding");
-    [[DataController sharedDataController] addToFavoritesVisaWithCountry:self.countryName andType:self.visaType];
-}
-
-
 
 @end

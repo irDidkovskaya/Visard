@@ -13,7 +13,7 @@
 #import "Consulate.h"
 #import "Requirement.h"
 #import "ConsulateViewController.h"
-#import "RequirementsViewController.h"
+#import "CountryRequirementsViewController.h"
 #import "Visa.h"
 #import "Advice.h"
 
@@ -52,25 +52,20 @@
 
 #pragma mark - View lifecycle
 
-- (UIView *)headerView {
+- (UIView *)headerView 
+{
     
     UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 70)] autorelease];
     UILabel *countryName = [[[UILabel alloc] initWithFrame:CGRectMake(100, 25, 0, 0)] autorelease];
     headerView.backgroundColor = [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
     countryName.text = self.name;
-    
     countryName.backgroundColor = [UIColor clearColor];
-    
     [countryName sizeToFit];
-    
-    
-    
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 66, 44)];
-    
     [iv setImage:[UIImage imageNamed:self.img]];
-    
     [headerView addSubview:iv];
     [headerView addSubview:countryName];
+    
     return headerView;
 }
 
@@ -117,23 +112,18 @@
         currSigmentControll = 0;
     }
     
-    
-    
-   
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)setTextColorsForSegmentedControl:(UISegmentedControl*)segmented {
+-(void)setTextColorsForSegmentedControl:(UISegmentedControl*)segmented 
+{
    [segmented setTextColor:[UIColor blackColor] forTag:0]; 
 
 }
 
-- (void) pickOne:(id)sender{
+- (void) pickOne:(id)sender
+{
     UISegmentedControl *sc = (UISegmentedControl *)sender;
     currSigmentControll = sc.selectedSegmentIndex;
     switch (sc.selectedSegmentIndex) {
@@ -176,15 +166,12 @@
         default:
             break;
     }
-    
-    
-    
     //label.text = [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
 }
 
 
-- (void)dealloc {
-    
+- (void)dealloc 
+{
     self.requirement = nil;
     self.user = nil;
     self.tableView = nil;
@@ -194,6 +181,7 @@
     self.img = nil;
     self.name = nil;
     self.text = nil;
+    
     [super dealloc];
 }
 
@@ -270,6 +258,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (currSigmentControll == 0) {
+        
         Consulate *currConsulate = (Consulate *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
         ConsulateViewController *vc = [[ConsulateViewController alloc] init];
@@ -280,10 +269,11 @@
         [self.navigationController pushViewController:vc animated:YES];
         [vc release];
     } else {
-        Visa *currType = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         
-        RequirementsViewController *vc = [[RequirementsViewController alloc] init];
-        vc.visaType = currType.type;
+        Visa *currVisa = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        
+        CountryRequirementsViewController *vc = [[CountryRequirementsViewController alloc] init];
+        vc.visaType = currVisa.type;
         vc.countryName = self.name;
         vc.managedObjectContext = self.managedObjectContext;
         //vc.img = self.img;
@@ -292,7 +282,7 @@
         [vc release];
         
     }
-
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -325,7 +315,7 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors];
         
-    } else if (currSigmentControll == 1){
+    } else if (currSigmentControll == 1) {
         
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
@@ -452,11 +442,10 @@
     }
 }
 
-
 #pragma mark UIWebView
 
-
--(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+-(BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType 
+{
     if ( inType == UIWebViewNavigationTypeLinkClicked ) {
         [[UIApplication sharedApplication] openURL:[inRequest URL]];
         return NO;

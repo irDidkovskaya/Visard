@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RequirementsViewController.h"
 
-@interface RequirementsCheckLists : UITableViewController
+@interface RequirementsCheckList : RequirementsViewController
 
 @end

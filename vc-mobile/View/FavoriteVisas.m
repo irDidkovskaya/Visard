@@ -6,16 +6,16 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CheckList.h"
+#import "FavoriteVisas.h"
 #import "Visa.h"
+#import "Country.h"
 #import "AppDelegate.h"
+#import "RequirementsCheckList.h"
 
-
-@implementation CheckList
+@implementation FavoriteVisas
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext;
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -56,33 +56,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -107,7 +80,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
@@ -120,7 +93,10 @@
 {
     Visa *visa = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = visa.type;
+    cell.textLabel.text = visa.country.name;
+    cell.detailTextLabel.text = visa.type;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 /*
@@ -146,34 +122,20 @@
 }
 */
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    Visa *currVisa = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+    
+    RequirementsCheckList *vc = [[RequirementsCheckList alloc] init];
+    vc.visaType = currVisa.type;
+    vc.countryName = currVisa.country.name;
+    vc.managedObjectContext = self.managedObjectContext;
+    //vc.img = self.img;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 #pragma mark - Fetched results controller

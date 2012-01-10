@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckList : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface FavoriteVisas : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
