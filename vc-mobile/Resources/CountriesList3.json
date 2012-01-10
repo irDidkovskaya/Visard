@@ -1,0 +1,1360 @@
+ [
+  {
+  "name": "Андорра",
+  "code": "AD",
+  "img": "ad.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Австрия",
+  "code": "AT",
+  "img": "at.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Бельгия",
+  "code": "BE",
+  "img": "be.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Болгария",
+  "code": "BG",
+  "img": "bg.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Ватикан",
+  "code": "VA",
+  "img": "va.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Великобритания",
+  "code": "GB",
+  "img": "gb.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Венгрия",
+  "code": "HU",
+  "img": "hu.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Германия",
+  "code": "DE",
+  "img": "de.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Греция",
+  "code": "GR",
+  "img": "gr.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Дания",
+  "code": "DK",
+  "img": "dk.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Ирландия",
+  "code": "IE",
+  "img": "ie.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Исландия",
+  "code": "IS",
+  "img": "is.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Испания",
+  "code": "ES",
+  "img": "es.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Италия",
+  "code": "IT",
+  "img": "it.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Республика Кипр",
+  "code": "CY",
+  "img": "cy.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Латвия",
+  "code": "LV",
+  "img": "lv.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Литва",
+  "code": "LT",
+  "img": "lt.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Лихтенштейн",
+  "code": "LI",
+  "img": "li.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Люксембург",
+  "code": "LU",
+  "img": "lu.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Мальта",
+  "code": "MT",
+  "img": "mt.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Монако",
+  "code": "MC",
+  "img": "mc.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Нидерланды",
+  "code": "NL",
+  "img": "nl.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Норвегия",
+  "code": "NO",
+  "img": "no.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Португалия",
+  "code": "PT",
+  "img": "pt.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Польша",
+  "code": "PL",
+  "img": "pl.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Румыния",
+  "code": "RM",
+  "img": "rm.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Сан-Марино",
+  "code": "CM",
+  "img": "cm.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Словакия",
+  "code": "SL",
+  "img": "sl.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Словения",
+  "code": "SI",
+  "img": "si.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Финляндия",
+  "code": "FI",
+  "img": "fi.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Франция",
+  "code": "FR",
+  "img": "fr.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Эстония",
+  "code": "EE",
+  "img": "ee.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Чехия",
+  "code": "CZ",
+  "img": "cz.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Швейцария",
+  "code": "CH",
+  "img": "ch.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Швеция",
+  "code": "SE",
+  "img": "se.png",
+  "group": 0,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Россия",
+  "code": "RU",
+  "img": "ru.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Азия"
+  },
+  {
+  "name": "Азербайджан",
+  "code": "AZ",
+  "img": "az.png",
+  "group": 1,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Аргентина",
+  "code": "AR",
+  "img": "ar.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Албания",
+  "code": "AL",
+  "img": "al.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Антигуа и Барбудая",
+  "code": "AG",
+  "img": "ag.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Сен Винесент и Гренадины",
+  "code": "VC",
+  "img": "vc.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Сент-Люсия",
+  "code": "LC",
+  "img": "lc.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Сент-Китс и Невис",
+  "code": "KN",
+  "img": "kn.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Гайана",
+  "code": "GY",
+  "img": "gy.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Армения",
+  "code": "AM",
+  "img": "am.png",
+  "group": 1,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Беларуссия",
+  "code": "BY",
+  "img": "by.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Босния и Герцоговина",
+  "code": "BA",
+  "img": "ba.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Гватемала",
+  "code": "GT",
+  "img": "gt.png",
+  "group": 1,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Гонконг",
+  "code": "HK",
+  "img": "hk.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Гренада",
+  "code": "GD",
+  "img": "gd.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Грузия",
+  "code": "GE",
+  "img": "ge.png",
+  "group": 1,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Израиль",
+  "code": "IL",
+  "img": "il.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Казахстан",
+  "code": "KZ",
+  "img": "kz.png",
+  "group": 1,
+  "partOfTheWorld": "Средняя Азия"
+  },
+  {
+  "name": "Киргизия",
+  "code": "KG",
+  "img": "kg.png",
+  "group": 1,
+  "partOfTheWorld": "Средняя Азия"
+  },
+  {
+  "name": "Корейская Народно-Демократическая Республика",
+  "code": "KP",
+  "img": "kp.png",
+  "group": 1,
+  "partOfTheWorld": "Восточная Азия"
+  },
+  {
+  "name": "Куба",
+  "code": "CU",
+  "img": "cu.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Республика Македония",
+  "code": "MK",
+  "img": "mk.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Малайзия",
+  "code": "MY",
+  "img": "my.png",
+  "group": 1,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Мальдивы",
+  "code": "MV",
+  "img": "mv.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Молдавия",
+  "code": "MD",
+  "img": "md.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Монголия",
+  "code": "MN",
+  "img": "mn.png",
+  "group": 1,
+  "partOfTheWorld": "Восточная Азия"
+  },
+  {
+  "name": "Намибия",
+  "code": "NA",
+  "img": "na.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Никарагуа",
+  "code": "NI",
+  "img": "ni.png",
+  "group": 1,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Острова Кука",
+  "code": "CK",
+  "img": "ck.png",
+  "group": 1,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Перу",
+  "code": "PE",
+  "img": "pe.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Палау",
+  "code": "PW",
+  "img": "pw.png",
+  "group": 3,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Парагвай",
+  "code": "PY",
+  "img": "py.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Сальвадор",
+  "code": "SV",
+  "img": "sv.png",
+  "group": 1,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Свазиленд",
+  "code": "SZ",
+  "img": "sz.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Сейшельские острова",
+  "code": "SC",
+  "img": "sc.png",
+  "group": 1,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Самоа",
+  "code": "WS",
+  "img": "ws.png",
+  "group": 1,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Тунис",
+  "code": "TN",
+  "img": "tn.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Таджикистан",
+  "code": "TJ",
+  "img": "tj.png",
+  "group": 1,
+  "partOfTheWorld": "Средняя Азия"
+  },
+  {
+  "name": "Шри-Ланка",
+  "code": "LK",
+  "img": "lk.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Ямайка",
+  "code": "JM",
+  "img": "jm.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Узбекистан",
+  "code": "UZ",
+  "img": "uz.png",
+  "group": 1,
+  "partOfTheWorld": "Средняя Азия"
+  },
+  {
+  "name": "Хорватия",
+  "code": "HR",
+  "img": "hr.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Черногория",
+  "code": "CS",
+  "img": "cs.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Эквадор",
+  "code": "EC",
+  "img": "ec.png",
+  "group": 1,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Барбадос",
+  "code": "BB",
+  "img": "bb.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Бахрейн",
+  "code": "BH",
+  "img": "bh.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Бангладеш",
+  "code": "BD",
+  "img": "bd.png",
+  "group": 3,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Буркина-Фасо",
+  "code": "BF",
+  "img": "bf.png",
+  "group": 3,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Бурунди",
+  "code": "BI",
+  "img": "bi.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Вануату",
+  "code": "VU",
+  "img": "vu.png",
+  "group": 3,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Восточный Тимор",
+  "code": "TL",
+  "img": "tl.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Джибути",
+  "code": "DG",
+  "img": "gj.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Доминика",
+  "code": "DM",
+  "img": "dm.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Иордания",
+  "code": "JO",
+  "img": "jo.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Тринидад и Тобаго",
+  "code": "TT",
+  "img": "tt.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Иран",
+  "code": "IR",
+  "img": "ir.png",
+  "group": 3,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Йемен",
+  "code": "YE",
+  "img": "ye.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Кабо-Верде",
+  "code": "CV",
+  "img": "cv.png",
+  "group": 3,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Камбоджа",
+  "code": "KH",
+  "img": "kh.png",
+  "group": 3,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Камерун",
+  "code": "CM",
+  "img": "cm.png",
+  "group": 3,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Кувейт",
+  "code": "KW",
+  "img": "kw.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Лаос",
+  "code": "LA",
+  "img": "la.png",
+  "group": 3,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Ливан",
+  "code": "LB",
+  "img": "lb.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Мадагаскар",
+  "code": "MG",
+  "img": "mg.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Макао",
+  "code": "MO",
+  "img": "mo.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Азия"
+  },
+  {
+  "name": "Мозамбик",
+  "code": "MZ",
+  "img": "mg.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Непал",
+  "code": "NP",
+  "img": "np.png",
+  "group": 3,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Оман",
+  "code": "OM",
+  "img": "om.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Таиланд",
+  "code": "TH",
+  "img": "th.png",
+  "group": 3,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Танзания",
+  "code": "TZ",
+  "img": "tz.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Тонга",
+  "code": "TO",
+  "img": "to.png",
+  "group": 3,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Турция",
+  "code": "TR",
+  "img": "tr.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Уганда",
+  "code": "UG",
+  "img": "ug.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Эфиопия",
+  "code": "ET",
+  "img": "et.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Республика Корея",
+  "code": "KR",
+  "img": "kr.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Азия"
+  },
+  {
+  "name": "Египет",
+  "code": "EG",
+  "img": "eg.png",
+  "group": 3,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Замбия",
+  "code": "ZM",
+  "img": "zm.png",
+  "group": 3,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Абхазия",
+  "code": "AB",
+  "img": "ab.png",
+  "group": 3,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Австралия",
+  "code": "AU",
+  "img": "au.png",
+  "group": 2,
+  "partOfTheWorld": "Австралия"
+  },
+  {
+  "name": "Азорские острова",
+  "code": "PTA",
+  "img": "pta.png",
+  "group": 2,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Алжир",
+  "code": "DZ",
+  "img": "dz.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Ангола",
+  "code": "AO",
+  "img": "ao.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Афганистан",
+  "code": "AF",
+  "img": "af.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Багамы",
+  "code": "BS",
+  "img": "bs.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Белиз",
+  "code": "BZ",
+  "img": "dz.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Бенин",
+  "code": "BJ",
+  "img": "bj.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Бермудские острова",
+  "code": "BM",
+  "img": "bm.png",
+  "group": 2,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Боливия",
+  "code": "BO",
+  "img": "bo.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Ботсвана",
+  "code": "BW",
+  "img": "bw.png",
+  "group": 3,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Бразилия",
+  "code": "BZ",
+  "img": "bz.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Бруней",
+  "code": "BN",
+  "img": "bn.png",
+  "group": 1,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Бутан",
+  "code": "BT",
+  "img": "bt.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Венесуэла",
+  "code": "VE",
+  "img": "ve.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Вьетнам",
+  "code": "VN",
+  "img": "vn.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Габон",
+  "code": "GA",
+  "img": "ga.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Гавайи",
+  "code": "GAV",
+  "img": "gav.png",
+  "group": 2,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Гаити",
+  "code": "HT",
+  "img": "ht.png",
+  "group": 3,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Гамбия",
+  "code": "GM",
+  "img": "gm.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Гана",
+  "code": "GH",
+  "img": "gh.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Гвинея",
+  "code": "GN",
+  "img": "gn.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Гибралтар",
+  "code": "GI",
+  "img": "gi.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Гондурас",
+  "code": "HN",
+  "img": "hn.png",
+  "group": 3,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Гренландия",
+  "code": "GL",
+  "img": "gl.png",
+  "group": 2,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Зимбабве",
+  "code": "ZW",
+  "img": "zw.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Индия",
+  "code": "IN",
+  "img": "in.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Индонезия",
+  "code": "ID",
+  "img": "id.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Ирак",
+  "code": "IQ",
+  "img": "iq.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Канада",
+  "code": "CA",
+  "img": "ca.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Катар",
+  "code": "QA",
+  "img": "qa.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Кения",
+  "code": "KE",
+  "img": "ke.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Кирибати",
+  "code": "KI",
+  "img": "ki.png",
+  "group": 2,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Китай",
+  "code": "CN",
+  "img": "cn.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Азия"
+  },
+  {
+  "name": "Колумбия",
+  "code": "CO",
+  "img": "co.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Коста-Рика",
+  "code": "CR",
+  "img": "cr.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Лесото",
+  "code": "LS",
+  "img": "ls.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Либерия",
+  "code": "LR",
+  "img": "lr.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Ливия",
+  "code": "LY",
+  "img": "ly.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Маврикий",
+  "code": "MU",
+  "img": "mu.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Мавритания",
+  "code": "MR",
+  "img": "mr.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Малави",
+  "code": "MW",
+  "img": "mw.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Мали",
+  "code": "ML",
+  "img": "ml.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Марокко",
+  "code": "MA",
+  "img": "ma.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Мексика",
+  "code": "MX",
+  "img": "mx.png",
+  "group": 1,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Науру",
+  "code": "NR",
+  "img": "nr.png",
+  "group": 2,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Нигер",
+  "code": "NE",
+  "img": "ne.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Нигерия",
+  "code": "NR",
+  "img": "nr.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Новая Зеландия",
+  "code": "NZ",
+  "img": "nz.png",
+  "group": 2,
+  "partOfTheWorld": ""
+  },
+  {
+  "name": "Объединённые Арабские Эмираты",
+  "code": "AE",
+  "img": "ae.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Пакистан",
+  "code": "PK",
+  "img": "pk.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Палестина",
+  "code": "PS",
+  "img": "ps.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Азия"
+  },
+  {
+  "name": "Панама",
+  "code": "PA",
+  "img": "pa.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Папуа — Новая Гвинея",
+  "code": "PG",
+  "img": "pg.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Пуэрто-Рико",
+  "code": "PR",
+  "img": "pr.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Руанда",
+  "code": "RW",
+  "img": "rw.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Саудовская Аравия",
+  "code": "SA",
+  "img": "sa.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "Сенегал",
+  "code": "SN",
+  "img": "sn.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Сен-Мартен",
+  "code": "MX",
+  "img": "mx.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Америка"
+  },
+  {
+  "name": "Сербия",
+  "code": "RS",
+  "img": "rs.png",
+  "group": 1,
+  "partOfTheWorld": "Европа"
+  },
+  {
+  "name": "Сингапур",
+  "code": "SG",
+  "img": "sg.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Сирия",
+  "code": "SY",
+  "img": "sy.png",
+  "group": 2,
+  "partOfTheWorld": "Азия"
+  },
+  {
+  "name": "США",
+  "code": "US",
+  "img": "us.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Америка"
+  },
+  {
+  "name": "Сомали",
+  "code": "SO",
+  "img": "so.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Судан",
+  "code": "SD",
+  "img": "sd.png",
+  "group": 2,
+  "partOfTheWorld": "Северная Африка"
+  },
+  {
+  "name": "Суринам",
+  "code": "SR",
+  "img": "sr.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Сьерра-Леоне",
+  "code": "SL",
+  "img": "sl.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Того",
+  "code": "TG",
+  "img": "tg.png",
+  "group": 2,
+  "partOfTheWorld": "Западная Африка"
+  },
+  {
+  "name": "Тувалу",
+  "code": "TV",
+  "img": "tv.png",
+  "group": 1,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Туркмения",
+  "code": "TM",
+  "img": "tm.png",
+  "group": 2,
+  "partOfTheWorld": "Средняя Азия"
+  },
+  {
+  "name": "Уругвай",
+  "code": "UY",
+  "img": "uy.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Фиджи",
+  "code": "FJ",
+  "img": "fj.png",
+  "group": 1,
+  "partOfTheWorld": "Острова"
+  },
+  {
+  "name": "Филиппины",
+  "code": "PH",
+  "img": "ph.png",
+  "group": 2,
+  "partOfTheWorld": "Юго-Восточная Азия"
+  },
+  {
+  "name": "Центральноафриканская Республика",
+  "code": "CF",
+  "img": "cf.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Чад",
+  "code": "TD",
+  "img": "td.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Чили",
+  "code": "CL",
+  "img": "cl.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Америка"
+  },
+  {
+  "name": "Экваториальная Гвинея",
+  "code": "GQ",
+  "img": "gq.png",
+  "group": 2,
+  "partOfTheWorld": "Центральная Африка"
+  },
+  {
+  "name": "Эритрея",
+  "code": "ER",
+  "img": "er.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Южно-Африканская Республика",
+  "code": "ZA",
+  "img": "za.png",
+  "group": 2,
+  "partOfTheWorld": "Южная Африка"
+  },
+  {
+  "name": "Южный Судан",
+  "code": "SS",
+  "img": "ss.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Африка"
+  },
+  {
+  "name": "Япония",
+  "code": "JP",
+  "img": "jp.png",
+  "group": 2,
+  "partOfTheWorld": "Восточная Азия"
+  }
+  ]
