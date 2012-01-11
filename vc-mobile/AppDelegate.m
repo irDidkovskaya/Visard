@@ -34,9 +34,6 @@
     [super dealloc];
 }
 
-
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
@@ -46,16 +43,13 @@
     
     
     UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
-    
-    
-    
-    
-    
+
     MainViewController *countrySelectorVC = [[[MainViewController alloc] init] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
-    UITabBarItem *aTabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:0];
+    UITabBarItem *aTabBarItem = [[UITabBarItem alloc] init];
     aTabBarItem.title = NSLocalizedString(@"Главная", nil);
+    aTabBarItem.image = [UIImage imageNamed:@"earth1.png"];
     self.navigationController.tabBarItem = aTabBarItem;
     //self.navigationController.tabBarItem = UITabBarSystemItemTopRated;
     

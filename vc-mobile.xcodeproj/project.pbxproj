@@ -36,6 +36,9 @@
 		A086286C14A5FE410075D4BE /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086286B14A5FE400075D4BE /* RequirementsViewController.m */; };
 		A0893C7114BCDD7B00237ECD /* CountriesList3.json in Resources */ = {isa = PBXBuildFile; fileRef = A0893C7014BCDD7B00237ECD /* CountriesList3.json */; };
 		A0893C7514BCE08E00237ECD /* AppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A0893C7414BCE08E00237ECD /* AppStyle.m */; };
+		A0893C9514BDDE6400237ECD /* earth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9414BDDE6400237ECD /* earth@2x.png */; };
+		A0893C9914BDE11400237ECD /* earth1.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9714BDE11400237ECD /* earth1.png */; };
+		A0893C9A14BDE11400237ECD /* earth1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9814BDE11400237ECD /* earth1@2x.png */; };
 		A0A9996114A628FE00695AE9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996014A628FE00695AE9 /* Country.m */; };
 		A0A9996414A628FF00695AE9 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996314A628FF00695AE9 /* Requirement.m */; };
 		A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */; };
@@ -156,6 +159,9 @@
 		A0893C7014BCDD7B00237ECD /* CountriesList3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList3.json; path = Resources/CountriesList3.json; sourceTree = "<group>"; };
 		A0893C7314BCE08E00237ECD /* AppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyle.h; sourceTree = "<group>"; };
 		A0893C7414BCE08E00237ECD /* AppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStyle.m; sourceTree = "<group>"; };
+		A0893C9414BDDE6400237ECD /* earth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth@2x.png"; sourceTree = "<group>"; };
+		A0893C9714BDE11400237ECD /* earth1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth1.png; sourceTree = "<group>"; };
+		A0893C9814BDE11400237ECD /* earth1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth1@2x.png"; sourceTree = "<group>"; };
 		A0A9995F14A628FE00695AE9 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
 		A0A9996014A628FE00695AE9 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		A0A9996214A628FF00695AE9 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
@@ -517,6 +523,9 @@
 		A0FE8619149CE8FA007C578B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A0893C9714BDE11400237ECD /* earth1.png */,
+				A0893C9814BDE11400237ECD /* earth1@2x.png */,
+				A0893C9414BDDE6400237ECD /* earth@2x.png */,
 				A08627FF14A3711B0075D4BE /* mainBg.png */,
 				A086280014A3711B0075D4BE /* mainBg@2x.png */,
 				A0CBED0B149DFCD0000C1A6F /* flags */,
@@ -632,6 +641,9 @@
 				A086280114A3711B0075D4BE /* mainBg.png in Resources */,
 				A086280214A3711B0075D4BE /* mainBg@2x.png in Resources */,
 				A0893C7114BCDD7B00237ECD /* CountriesList3.json in Resources */,
+				A0893C9514BDDE6400237ECD /* earth@2x.png in Resources */,
+				A0893C9914BDE11400237ECD /* earth1.png in Resources */,
+				A0893C9A14BDE11400237ECD /* earth1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
