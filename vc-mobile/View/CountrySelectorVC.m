@@ -14,11 +14,11 @@
 
 
 @implementation CountrySelectorVC
+
 @synthesize managedObjectContext, countrySearchBar;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize searchPredicate;
 @synthesize filteredCountries;
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

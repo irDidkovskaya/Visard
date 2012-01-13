@@ -97,6 +97,9 @@
         newCountry.name = [countryDict objectForKey:@"name"];
         newCountry.itemId = [countryDict objectForKey:@"code"];
         newCountry.image = [countryDict objectForKey:@"img"];
+        newCountry.group = [countryDict objectForKey:@"group"];
+        newCountry.partOfTheWorld = [countryDict objectForKey:@"partOfTheWorld"];
+        newCountry.isFavorite = [NSNumber numberWithBool:NO];
         
         // Consulates
         NSArray *consulates = [countryDict objectForKey:@"consulates"];
