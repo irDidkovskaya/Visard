@@ -83,31 +83,16 @@
     
     
     
-    UILabel *labelName = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 25, self.view.frame.size.width, 20)] autorelease];
-    labelName.text = NSLocalizedString(@"Имя Генерального Консула", nil);
-    [labelName setFont:[UIFont boldSystemFontOfSize:13]];
-    [labelName sizeToFit];
-    [self.view addSubview:labelName];
     
     
-    UILabel *name = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 40, self.view.frame.size.width, 20)] autorelease];
-    name.text = NSLocalizedString(@"Вася Иванов", nil);
-    [name setFont:[UIFont systemFontOfSize:13]];
-    [name sizeToFit];
-    [self.view addSubview:name];
-    
-    
-    
-    
-    
-    UILabel *lablePhone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
+    UILabel *lablePhone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 40, self.view.frame.size.width, 20)] autorelease];
     lablePhone.text = NSLocalizedString(@"Телефон", nil);
     [lablePhone setFont:[UIFont boldSystemFontOfSize:13]];
     [lablePhone sizeToFit];
     [self.view addSubview:lablePhone];
     
     
-    UILabel *phone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 80, self.view.frame.size.width, 20)] autorelease];
+    UILabel *phone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
     phone.text = NSLocalizedString(@"123 456 789 10", nil);
     [phone setFont:[UIFont systemFontOfSize:13]];
     [phone sizeToFit];
@@ -116,14 +101,14 @@
     
     
     
-    UILabel *lableMail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
+    UILabel *lableMail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 80, self.view.frame.size.width, 20)] autorelease];
     lableMail.text = NSLocalizedString(@"E-mail", nil);
     [lableMail setFont:[UIFont boldSystemFontOfSize:13]];
     [lableMail sizeToFit];
     [self.view addSubview:lableMail];
     
     
-    UILabel *mail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 120, self.view.frame.size.width, 20)] autorelease];
+    UILabel *mail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
     mail.text = NSLocalizedString(@"bla@bla.com", nil);
     [mail setFont:[UIFont systemFontOfSize:13]];
     [mail sizeToFit];
@@ -131,14 +116,14 @@
 
     
     
-    UILabel *lableSite = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 145, self.view.frame.size.width, 20)] autorelease];
+    UILabel *lableSite = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 125, self.view.frame.size.width, 20)] autorelease];
     lableSite.text = NSLocalizedString(@"Site", nil);
     [lableSite setFont:[UIFont boldSystemFontOfSize:13]];
     [lableSite sizeToFit];
     [self.view addSubview:lableSite];
     
     
-    UILabel *site = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 160, self.view.frame.size.width, 20)] autorelease];
+    UILabel *site = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 140, self.view.frame.size.width, 20)] autorelease];
     site.text = NSLocalizedString(@"www.bla-bla-bla.com", nil);
     [site setFont:[UIFont systemFontOfSize:13]];
     [site sizeToFit];
@@ -153,7 +138,7 @@
 
 - (void)finedOnMap {
     
-    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 370, 200, 30)] autorelease];
+    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 330, 200, 30)] autorelease];
     
     btnShowMap.titleLabel.font = [UIFont systemFontOfSize:13];
     //btnShowMap = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
@@ -192,7 +177,6 @@
     [headerLabel setFont:[UIFont boldSystemFontOfSize:15]];
     
     [headerLabel sizeToFit];
-    
     
     [self addMainPartOfInformation];
     [self finedOnMap];

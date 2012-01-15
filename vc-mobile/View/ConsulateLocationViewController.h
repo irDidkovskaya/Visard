@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString *img;
 @property (nonatomic, retain) NSString *countryName;
 @property (nonatomic, retain) NSString *cityName;
+@property (nonatomic, retain) UIToolbar *toolBar;
 
 - (id)initWithLocationLatitute:(double)latitude longitude:(double)longitude;
 @end
