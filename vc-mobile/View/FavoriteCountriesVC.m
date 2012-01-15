@@ -7,6 +7,9 @@
 //
 
 #import "FavoriteCountriesVC.h"
+#import "VCountryViewController.h"
+#import "Country.h"
+#import "DataController.h"
 
 
 @implementation FavoriteCountriesVC
@@ -36,11 +39,66 @@
 {
     [super viewDidLoad];
 
+    self.navigationItem.title = NSLocalizedString(@"Favorites", nil);
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    
+    VCountryViewController *vc = [[VCountryViewController alloc] init];
+    
+    NSString *code = nil;
+    NSString *img = nil;
+    NSString *name = nil;
+    NSString *text = nil;
+    
+    if (self.filteredCountries) {
+        Country *currCountry = (Country *)[self.filteredCountries objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    } else {
+        Country *currCountry = (Country *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    }
+    NSLog(@"code = %@", code);
+    vc.code = code;
+    vc.img = img;
+    vc.name = name;
+    vc.text = text;
+    
+    // ...
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
+    
+}
+
+#pragma mark - Table View Editing
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        Country *country = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        
+        [[DataController sharedDataController] removeFromFavoritesCountryWithName:country.name];
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
 }
 
 #pragma mark - Fetched results controller

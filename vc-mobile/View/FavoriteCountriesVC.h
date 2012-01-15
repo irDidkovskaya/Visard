@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CountrySelectorVC.h"
+#import "CountriesViewController.h"
 
-@interface FavoriteCountriesVC : CountrySelectorVC
+@interface FavoriteCountriesVC : CountriesViewController
 
 @end

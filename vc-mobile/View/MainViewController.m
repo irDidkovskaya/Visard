@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "CountrySelectorVC.h"
+#import "FavoriteCountriesVC.h"
 #import "AppStyle.h"
 
 @implementation MainViewController
@@ -149,35 +150,37 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0: {
+        case 0: // All countries
+        {  
             CountrySelectorVC *vc = [[CountrySelectorVC alloc] init];
             vc.managedObjectContext = self.managedObjectContext;
             [self.navigationController pushViewController:vc animated:YES];
             [vc release];
         }
             break;
-        case 1: {
+        case 1: // No Visa countries
+        {
             
         }
             break;
-        case 2: {
+        case 2: // Visa countries
+        {
             
         }
             break;
-        case 3: {
-            
-        }
-            break;
-            
-        case 4: {
-            
-        }
-            break;
-        case 5: {
+        case 3: // Shengen
+        {
             
         }
             break;
             
+        case 4: // Favorite countries
+        {
+            FavoriteCountriesVC *vc = [[[FavoriteCountriesVC alloc] init] autorelease];
+            vc.managedObjectContext = self.managedObjectContext;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         default:
             break;
     }

@@ -1,29 +1,30 @@
 //
-//  CheckList.m
+//  CountriesViewController.m
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 24.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 1/13/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FavoriteVisas.h"
-#import "Visa.h"
+#import "CountriesViewController.h"
 #import "Country.h"
-#import "AppDelegate.h"
-#import "RequirementsCheckList.h"
-#import "DataController.h"
+#import "CountryViewController.h"
+#import "User.h"
 #import "AppStyle.h"
-@implementation FavoriteVisas
 
+
+@implementation CountriesViewController
+
+@synthesize managedObjectContext, countrySearchBar;
 @synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext;
+@synthesize searchPredicate;
+@synthesize filteredCountries;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     }
     return self;
 }
@@ -36,27 +37,46 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)dealloc
-{
-    self.fetchedResultsController = nil;
-    self.managedObjectContext = nil;
-    
-    [super dealloc];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = NSLocalizedString(@"Favorite Visas", nil);
+    UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    self.countrySearchBar = sb;
+    self.countrySearchBar.delegate = self;
+    UITextField *searchBarTextField = [[self.countrySearchBar subviews] objectAtIndex:1];
+    searchBarTextField.enablesReturnKeyAutomatically = NO;
+    searchBarTextField.returnKeyType = UIReturnKeyDone;
+    self.countrySearchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.countrySearchBar.tintColor = [AppStyle colorForSearchBar];
+    
+    self.tableView.tableHeaderView = self.countrySearchBar;
+    //self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    searching = NO;
+    letUserSelectRow = YES;
+    
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
+    
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
+    self.clearsSelectionOnViewWillAppear = YES;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)dealloc 
+{
+    
+    self.managedObjectContext = nil;
+    self.fetchedResultsController = nil;
+    self.searchPredicate = nil;
+    self.filteredCountries = nil;
+    
+    [super dealloc];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -69,12 +89,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.fetchedResultsController.fetchedObjects count];
+    if (self.filteredCountries) {
+        return [filteredCountries count];
+    }
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,64 +107,63 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    // Configure the cell...
     [self configureCell:cell atIndexPath:indexPath];
+    
     
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    Visa *visa = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+- (NSIndexPath *)tableView :(UITableView *)theTableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    cell.textLabel.text = visa.country.name;
-    cell.detailTextLabel.text = visa.type;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    if(letUserSelectRow)
+        return indexPath;
+    else
+        return nil;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        Visa *visa = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-        
-        [[DataController sharedDataController] removeFromFavoritesVisaWithCountry:visa.country.name andType:visa.type];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Visa *currVisa = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+    // Navigation logic may go here. Create and push another view controller.
     
-    RequirementsCheckList *vc = [[RequirementsCheckList alloc] init];
-    vc.visaType = currVisa.type;
-    vc.countryName = currVisa.country.name;
-    vc.managedObjectContext = self.managedObjectContext;
-    //vc.img = self.img;
+    CountryViewController *vc = [[CountryViewController alloc] init];
     
+    NSString *code = nil;
+    NSString *img = nil;
+    NSString *name = nil;
+    NSString *text = nil;
+    if (self.filteredCountries) {
+        Country *currCountry = (Country *)[self.filteredCountries objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    } else {
+        Country *currCountry = (Country *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+        code = currCountry.itemId;
+        img = currCountry.image;
+        name = currCountry.name;
+        //text = currCountry.advices;
+    }
+    NSLog(@"code = %@", code);
+    vc.code = code;
+    vc.img = img;
+    vc.name = name;
+    vc.text = text;
+    
+    // ...
+    // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
+    
 }
+
 
 #pragma mark - Fetched results controller
 
@@ -154,21 +177,17 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     // Edit the entity name as appropriate.
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"isFavorite == %@", [NSNumber numberWithBool:YES]];        
-    [fetchRequest setPredicate:pred];
-    
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"country.name" ascending:YES] autorelease];
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
     
+    [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -188,7 +207,8 @@
 	}
     
     return __fetchedResultsController;
-}
+}    
+
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -238,6 +258,46 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    //    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+    Country *currentContry = nil;
+    if (self.filteredCountries) {
+        currentContry = [self.filteredCountries objectAtIndex:indexPath.row];
+    } else {
+        currentContry = (Country *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
+    cell.textLabel.text = currentContry.name;
+    cell.imageView.image = [UIImage imageNamed:currentContry.image];
+    
+    // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
+}
+
+#pragma mark - SearchBar delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""]) {
+        self.searchPredicate = nil;
+        self.filteredCountries = nil;
+    } else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
+        self.searchPredicate = predicate;
+        NSArray *searchResult = [self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate];
+        self.filteredCountries = searchResult;
+        NSLog(@"search text: %@", searchText);
+        NSLog(@"filtered countries: %@", searchResult);
+    }
+    [self.tableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 @end
