@@ -10,7 +10,7 @@
 
 @interface AppStyle : NSObject
 
-+(UIColor *)colorForNavigationBar;
++ (UIColor *)colorForNavigationBar;
++ (UIColor *)colorForSearchBar;
 
-+(UIColor *)colorForSearchBar;
 @end

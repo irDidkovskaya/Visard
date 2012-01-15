@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811B196C14C0761100721152 /* FavoriteCountriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B196B14C0761100721152 /* FavoriteCountriesVC.m */; };
+		811B197014C080A300721152 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B196F14C080A300721152 /* Country.m */; };
+		811B197314C089D500721152 /* CountriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B197214C089D500721152 /* CountriesViewController.m */; };
+		811B197614C3814600721152 /* VCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B197514C3814600721152 /* VCountryViewController.m */; };
 		81A6D022149CBC0100D0714A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D013149CBC0100D0714A /* AFHTTPClient.m */; };
 		81A6D023149CBC0100D0714A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D015149CBC0100D0714A /* AFHTTPRequestOperation.m */; };
 		81A6D024149CBC0100D0714A /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D017149CBC0100D0714A /* AFImageCache.m */; };
@@ -39,7 +43,6 @@
 		A0893C9514BDDE6400237ECD /* earth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9414BDDE6400237ECD /* earth@2x.png */; };
 		A0893C9914BDE11400237ECD /* earth1.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9714BDE11400237ECD /* earth1.png */; };
 		A0893C9A14BDE11400237ECD /* earth1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9814BDE11400237ECD /* earth1@2x.png */; };
-		A0A9996114A628FE00695AE9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996014A628FE00695AE9 /* Country.m */; };
 		A0A9996414A628FF00695AE9 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9996314A628FF00695AE9 /* Requirement.m */; };
 		A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
@@ -108,6 +111,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		811B196A14C0761100721152 /* FavoriteCountriesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteCountriesVC.h; path = View/FavoriteCountriesVC.h; sourceTree = "<group>"; };
+		811B196B14C0761100721152 /* FavoriteCountriesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteCountriesVC.m; path = View/FavoriteCountriesVC.m; sourceTree = "<group>"; };
+		811B196E14C080A300721152 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
+		811B196F14C080A300721152 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
+		811B197114C089D400721152 /* CountriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountriesViewController.h; path = View/CountriesViewController.h; sourceTree = "<group>"; };
+		811B197214C089D500721152 /* CountriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountriesViewController.m; path = View/CountriesViewController.m; sourceTree = "<group>"; };
+		811B197414C3814600721152 /* VCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCountryViewController.h; path = View/VCountryViewController.h; sourceTree = "<group>"; };
+		811B197514C3814600721152 /* VCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCountryViewController.m; path = View/VCountryViewController.m; sourceTree = "<group>"; };
 		81A6D012149CBC0100D0714A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		81A6D013149CBC0100D0714A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		81A6D014149CBC0100D0714A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -162,8 +173,6 @@
 		A0893C9414BDDE6400237ECD /* earth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth@2x.png"; sourceTree = "<group>"; };
 		A0893C9714BDE11400237ECD /* earth1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth1.png; sourceTree = "<group>"; };
 		A0893C9814BDE11400237ECD /* earth1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth1@2x.png"; sourceTree = "<group>"; };
-		A0A9995F14A628FE00695AE9 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Country.h; path = Model/Country.h; sourceTree = "<group>"; };
-		A0A9996014A628FE00695AE9 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Country.m; path = Model/Country.m; sourceTree = "<group>"; };
 		A0A9996214A628FF00695AE9 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Requirement.h; path = Model/Requirement.h; sourceTree = "<group>"; };
 		A0A9996314A628FF00695AE9 /* Requirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Requirement.m; path = Model/Requirement.m; sourceTree = "<group>"; };
 		A0CB4E9B14A7A0DA007E3D75 /* VCustomAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCustomAccessory.h; sourceTree = "<group>"; };
@@ -342,6 +351,8 @@
 				A0FE85C0149CB592007C578B /* StartViewController.m */,
 				A0FE85C2149CB5CE007C578B /* CountrySelectorVC.h */,
 				A0FE85C3149CB5CE007C578B /* CountrySelectorVC.m */,
+				811B196A14C0761100721152 /* FavoriteCountriesVC.h */,
+				811B196B14C0761100721152 /* FavoriteCountriesVC.m */,
 				A0FE85C5149CB615007C578B /* CountryViewController.h */,
 				A0FE85C6149CB615007C578B /* CountryViewController.m */,
 				81DDD95B14BCAC7200ED5A5D /* CountryRequirementsViewController.h */,
@@ -361,6 +372,8 @@
 				A086286814A5FDDC0075D4BE /* FavoriteVisas.m */,
 				A086286414A4F6E50075D4BE /* RequirementsCheckList.h */,
 				A086286514A4F6E50075D4BE /* RequirementsCheckList.m */,
+				811B197414C3814600721152 /* VCountryViewController.h */,
+				811B197514C3814600721152 /* VCountryViewController.m */,
 			);
 			name = CheckList;
 			sourceTree = "<group>";
@@ -482,12 +495,12 @@
 			isa = PBXGroup;
 			children = (
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				811B196E14C080A300721152 /* Country.h */,
+				811B196F14C080A300721152 /* Country.m */,
 				81DDD95414B5D40E00ED5A5D /* Visa.h */,
 				81DDD95514B5D40E00ED5A5D /* Visa.m */,
 				A0A9996214A628FF00695AE9 /* Requirement.h */,
 				A0A9996314A628FF00695AE9 /* Requirement.m */,
-				A0A9995F14A628FE00695AE9 /* Country.h */,
-				A0A9996014A628FE00695AE9 /* Country.m */,
 				81CB81CD14A6197F00091D90 /* Advice.h */,
 				81CB81CE14A6197F00091D90 /* Advice.m */,
 				81CB81C714A6197E00091D90 /* User.h */,
@@ -503,6 +516,8 @@
 			children = (
 				A086286A14A5FE3F0075D4BE /* RequirementsViewController.h */,
 				A086286B14A5FE400075D4BE /* RequirementsViewController.m */,
+				811B197114C089D400721152 /* CountriesViewController.h */,
+				811B197214C089D500721152 /* CountriesViewController.m */,
 				A086286314A4F3510075D4BE /* CheckList */,
 				A086286114A4F33C0075D4BE /* mainTabBar */,
 			);
@@ -683,12 +698,15 @@
 				81CB81C014A6197E00091D90 /* Consulate.m in Sources */,
 				81CB81C914A6197E00091D90 /* User.m in Sources */,
 				81CB81CF14A6197F00091D90 /* Advice.m in Sources */,
-				A0A9996114A628FE00695AE9 /* Country.m in Sources */,
 				A0A9996414A628FF00695AE9 /* Requirement.m in Sources */,
 				A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */,
 				81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */,
 				81DDD95D14BCAC7300ED5A5D /* CountryRequirementsViewController.m in Sources */,
 				A0893C7514BCE08E00237ECD /* AppStyle.m in Sources */,
+				811B196C14C0761100721152 /* FavoriteCountriesVC.m in Sources */,
+				811B197014C080A300721152 /* Country.m in Sources */,
+				811B197314C089D500721152 /* CountriesViewController.m in Sources */,
+				811B197614C3814600721152 /* VCountryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

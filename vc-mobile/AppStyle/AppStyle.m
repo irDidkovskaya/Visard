@@ -15,12 +15,12 @@
 //group = 2 - визовые
 //group = 3 - условно безвизовые
 
-+(UIColor *)colorForNavigationBar {
++ (UIColor *)colorForNavigationBar {
     
     return [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
 }
 
-+(UIColor *)colorForSearchBar {
++ (UIColor *)colorForSearchBar {
     
     return [UIColor colorWithRed:215/255.0 green:250/255.0 blue:232/255.0 alpha:1];
 }

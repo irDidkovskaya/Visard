@@ -19,6 +19,7 @@
 
 @interface DataController () 
 
+- (void)updateIsFavoriteState:(BOOL)isFavorite forCountry:(NSString *)countryName;
 - (void)updateIsFavoriteState:(BOOL)isFavorite forVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
 
 @end
@@ -72,6 +73,8 @@
     return ifUserExist;
 }
 
+#pragma mark - DB filling
+
 - (void)updateCoreData
 {
     [[NetworkController sharedNetworkController] loadData];
@@ -97,6 +100,9 @@
         newCountry.name = [countryDict objectForKey:@"name"];
         newCountry.itemId = [countryDict objectForKey:@"code"];
         newCountry.image = [countryDict objectForKey:@"img"];
+        newCountry.group = [countryDict objectForKey:@"group"];
+        newCountry.partOfTheWorld = [countryDict objectForKey:@"partOfTheWorld"];
+        newCountry.isFavorite = [NSNumber numberWithBool:NO];
         
         // Consulates
         NSArray *consulates = [countryDict objectForKey:@"consulates"];
@@ -138,6 +144,41 @@
         NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
     }
 }
+
+#pragma mark - Adding Country to/Removing from Favorites
+
+- (void)updateIsFavoriteState:(BOOL)isFavorite forCountry:(NSString *)countryName
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"name == %@", countryName];
+    [fetchRequest setPredicate:predCountry];
+    
+    NSError *error = nil;
+    Country *targetCountry = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
+    
+    if (targetCountry) {
+        targetCountry.isFavorite = [NSNumber numberWithBool:isFavorite];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+        }
+        NSLog(@"country: %@ added to favorites", countryName);
+    }
+}
+
+- (void)addToFavoritesCountryWithName:(NSString *)countryName
+{
+    [self updateIsFavoriteState:YES forCountry:countryName];
+}
+
+- (void)removeFromFavoritesCountryWithName:(NSString *)countryName
+{
+    [self updateIsFavoriteState:NO forCountry:countryName];
+}
+
+#pragma mark - Adding Visa to/Removing from Favorites
 
 - (void)updateIsFavoriteState:(BOOL)isFavorite forVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType
 {

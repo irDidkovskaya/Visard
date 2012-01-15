@@ -2,8 +2,8 @@
 //  Country.m
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 24.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 1/13/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Country.h"
@@ -18,6 +18,8 @@
 @dynamic isFavorite;
 @dynamic itemId;
 @dynamic name;
+@dynamic group;
+@dynamic partOfTheWorld;
 @dynamic advices;
 @dynamic consulates;
 @dynamic visas;

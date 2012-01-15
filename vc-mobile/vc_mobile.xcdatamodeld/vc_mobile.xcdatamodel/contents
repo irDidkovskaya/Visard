@@ -14,10 +14,12 @@
         <relationship name="country" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="consulates" inverseEntity="Country" syncable="YES"/>
     </entity>
     <entity name="Country" representedClassName="Country" syncable="YES">
+        <attribute name="group" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isFavorite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partOfTheWorld" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="advices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Advice" inverseName="country" inverseEntity="Advice" syncable="YES"/>
         <relationship name="consulates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consulate" inverseName="country" inverseEntity="Consulate" syncable="YES"/>
         <relationship name="visas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Visa" inverseName="country" inverseEntity="Visa" syncable="YES"/>
@@ -44,7 +46,7 @@
     <elements>
         <element name="Advice" positionX="252" positionY="36" width="128" height="90"/>
         <element name="Consulate" positionX="268" positionY="153" width="128" height="135"/>
-        <element name="Country" positionX="81" positionY="189" width="128" height="150"/>
+        <element name="Country" positionX="81" positionY="189" width="128" height="180"/>
         <element name="Requirement" positionX="-92" positionY="249" width="128" height="120"/>
         <element name="User" positionX="72" positionY="36" width="128" height="90"/>
         <element name="Visa" positionX="-90" positionY="99" width="128" height="120"/>
