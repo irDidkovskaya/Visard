@@ -11,4 +11,8 @@
 
 @interface CountrySelectorVC : CountriesViewController <UIAlertViewDelegate>
 
+@property (nonatomic, retain) NSNumber *group;
+
+- (id)initWithGroupNumber:(NSNumber *)groupNumber;
+
 @end

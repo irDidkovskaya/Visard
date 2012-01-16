@@ -152,25 +152,30 @@
     switch (indexPath.row) {
         case 0: // All countries
         {  
-            CountrySelectorVC *vc = [[CountrySelectorVC alloc] init];
+            CountrySelectorVC *vc = [[[CountrySelectorVC alloc] init] autorelease];
             vc.managedObjectContext = self.managedObjectContext;
             [self.navigationController pushViewController:vc animated:YES];
-            [vc release];
         }
             break;
         case 1: // No Visa countries
         {
-            
+            CountrySelectorVC *vc = [[[CountrySelectorVC alloc] initWithGroupNumber:[NSNumber numberWithInt:1]] autorelease];
+            vc.managedObjectContext = self.managedObjectContext;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 2: // Visa countries
         {
-            
+            CountrySelectorVC *vc = [[[CountrySelectorVC alloc] initWithGroupNumber:[NSNumber numberWithInt:2]] autorelease];
+            vc.managedObjectContext = self.managedObjectContext;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3: // Shengen
         {
-            
+            CountrySelectorVC *vc = [[[CountrySelectorVC alloc] initWithGroupNumber:[NSNumber numberWithInt:0]] autorelease];
+            vc.managedObjectContext = self.managedObjectContext;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             

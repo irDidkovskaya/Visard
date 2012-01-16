@@ -13,6 +13,11 @@
 #import "AppStyle.h"
 #import "DataController.h"
 
+@interface CountrySelectorVC () {
+@private
+    
+}
+@end
 
 @implementation CountrySelectorVC
 
@@ -21,6 +26,8 @@
 @synthesize searchPredicate;
 @synthesize filteredCountries;
 
+@synthesize group;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,6 +35,22 @@
         // Custom initialization
     }
     return self;
+}
+
+- (id)initWithGroupNumber:(NSNumber *)groupNumber
+{
+    self = [super init];
+    if (self) {
+        self.group = groupNumber;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    self.group = nil;
+    
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +88,12 @@
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
+    // Set Predicate
+    if (self.group) {
+        NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"group == %@", self.group];
+        [fetchRequest setPredicate:groupPredicate];
+    }
+    
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
@@ -90,14 +119,5 @@
     
     return __fetchedResultsController;
 }    
-
-#pragma mark - Alert View Delegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex) {
-        
-    }
-}
 
 @end

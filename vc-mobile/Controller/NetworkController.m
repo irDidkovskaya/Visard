@@ -170,7 +170,7 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
 - (void)loadData
 {
     // Заглушка
-    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"Consulate" ofType:@"json"];
+    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"CountriesList3" ofType:@"json"];
     NSData* jsonData = [NSData dataWithContentsOfFile:countriesListFilePath];
     
     // End Заглушка

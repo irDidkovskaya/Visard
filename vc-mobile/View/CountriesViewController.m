@@ -66,10 +66,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
 - (void)dealloc 
 {
-    
     self.managedObjectContext = nil;
     self.fetchedResultsController = nil;
     self.searchPredicate = nil;
@@ -95,7 +93,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.filteredCountries) {
-        return [filteredCountries count];
+        return [self.filteredCountries count];
     }
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
@@ -288,9 +286,9 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
         self.searchPredicate = predicate;
         NSArray *searchResult = [self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate];
-        self.filteredCountries = searchResult;
+        self.filteredCountries = [NSArray arrayWithArray:searchResult];
         NSLog(@"search text: %@", searchText);
-        NSLog(@"filtered countries: %@", searchResult);
+        NSLog(@"filtered countries: %@", self.filteredCountries);
     }
     [self.tableView reloadData];
 }
