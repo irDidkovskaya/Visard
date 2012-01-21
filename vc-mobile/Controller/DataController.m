@@ -106,6 +106,7 @@
         
         // Consulates
         NSArray *consulates = [countryDict objectForKey:@"consulates"];
+//        NSLog(@"counslulates for %@: %@", newCountry.name, consulates);
         for (NSDictionary *consulateDict in consulates) {
             Consulate *newConsulate = [NSEntityDescription insertNewObjectForEntityForName:@"Consulate" inManagedObjectContext:self.managedObjectContext];        
             newConsulate.countryId = newCountry.itemId;

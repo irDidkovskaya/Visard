@@ -45,7 +45,7 @@
 
 - (void)addCountryToFavorites
 {
-    NSLog(@"visa to favorites adding");
+    NSLog(@"country to favorites adding");
     [[DataController sharedDataController] addToFavoritesCountryWithName:self.name];
 }
 

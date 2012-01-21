@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CountriesViewController:UITableViewController <NSFetchedResultsControllerDelegate, UISearchBarDelegate> {
+@interface CountriesViewController:UITableViewController </*NSFetchedResultsControllerDelegate, */UISearchBarDelegate> {
     
     BOOL searching;
     BOOL letUserSelectRow;    
