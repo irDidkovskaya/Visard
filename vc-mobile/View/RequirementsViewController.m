@@ -116,7 +116,6 @@
     return cell;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -143,8 +142,6 @@
         return labelSize.height + 45.0f;
     }
 }
-
-
 
 #pragma mark - Table view delegate
 

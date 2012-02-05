@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Visa.h"
 
 @interface DataController : NSObject
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -23,5 +24,7 @@
 
 - (void)addToFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
 - (void)removeFromFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
+
+- (void)updateRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withDoneOption:(BOOL)isDone;
 
 @end

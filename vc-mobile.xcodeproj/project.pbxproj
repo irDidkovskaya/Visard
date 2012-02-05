@@ -30,6 +30,10 @@
 		81CB81CF14A6197F00091D90 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81CE14A6197F00091D90 /* Advice.m */; };
 		81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DDD95514B5D40E00ED5A5D /* Visa.m */; };
 		81DDD95D14BCAC7300ED5A5D /* CountryRequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DDD95C14BCAC7300ED5A5D /* CountryRequirementsViewController.m */; };
+		81DF2CF214CC5C9200F097CD /* Checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CEE14CC5C9200F097CD /* Checkbox_checked.png */; };
+		81DF2CF314CC5C9200F097CD /* Checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CEF14CC5C9200F097CD /* Checkbox_checked@2x.png */; };
+		81DF2CF414CC5C9200F097CD /* Checkbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CF014CC5C9200F097CD /* Checkbox_unchecked.png */; };
+		81DF2CF514CC5C9200F097CD /* Checkbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */; };
 		A08627F514A361FA0075D4BE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08627F414A361FA0075D4BE /* MainViewController.m */; };
 		A086280114A3711B0075D4BE /* mainBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A08627FF14A3711B0075D4BE /* mainBg.png */; };
 		A086280214A3711B0075D4BE /* mainBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A086280014A3711B0075D4BE /* mainBg@2x.png */; };
@@ -154,6 +158,10 @@
 		81DDD95514B5D40E00ED5A5D /* Visa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Visa.m; path = Model/Visa.m; sourceTree = "<group>"; };
 		81DDD95B14BCAC7200ED5A5D /* CountryRequirementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryRequirementsViewController.h; sourceTree = "<group>"; };
 		81DDD95C14BCAC7300ED5A5D /* CountryRequirementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryRequirementsViewController.m; sourceTree = "<group>"; };
+		81DF2CEE14CC5C9200F097CD /* Checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbox_checked.png; sourceTree = "<group>"; };
+		81DF2CEF14CC5C9200F097CD /* Checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		81DF2CF014CC5C9200F097CD /* Checkbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbox_unchecked.png; sourceTree = "<group>"; };
+		81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_unchecked@2x.png"; sourceTree = "<group>"; };
 		A08627F314A361FA0075D4BE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = View/MainViewController.h; sourceTree = "<group>"; };
 		A08627F414A361FA0075D4BE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = View/MainViewController.m; sourceTree = "<group>"; };
 		A08627FF14A3711B0075D4BE /* mainBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBg.png; sourceTree = "<group>"; };
@@ -550,6 +558,10 @@
 				A0FE861B149CE8FA007C578B /* icon@2x.png */,
 				A0FE861C149CE8FA007C578B /* visard.png */,
 				A0FE861D149CE8FA007C578B /* visard@2x.png */,
+				81DF2CEE14CC5C9200F097CD /* Checkbox_checked.png */,
+				81DF2CEF14CC5C9200F097CD /* Checkbox_checked@2x.png */,
+				81DF2CF014CC5C9200F097CD /* Checkbox_unchecked.png */,
+				81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -659,6 +671,10 @@
 				A0893C9514BDDE6400237ECD /* earth@2x.png in Resources */,
 				A0893C9914BDE11400237ECD /* earth1.png in Resources */,
 				A0893C9A14BDE11400237ECD /* earth1@2x.png in Resources */,
+				81DF2CF214CC5C9200F097CD /* Checkbox_checked.png in Resources */,
+				81DF2CF314CC5C9200F097CD /* Checkbox_checked@2x.png in Resources */,
+				81DF2CF414CC5C9200F097CD /* Checkbox_unchecked.png in Resources */,
+				81DF2CF514CC5C9200F097CD /* Checkbox_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

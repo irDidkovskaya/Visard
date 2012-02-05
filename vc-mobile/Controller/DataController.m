@@ -216,4 +216,29 @@
 
 }
 
+- (void)updateRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withDoneOption:(BOOL)isDone
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"name == %@", requirementName];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa == %@", targetVisa];
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
+    
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *error = nil;
+    Requirement *targetRequirement = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
+    
+    if (targetRequirement) {
+        targetRequirement.isDone = [NSNumber numberWithBool:isDone];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+        }
+        NSLog(@"Requirement with name: %@ for visa:%@ for country: %@ is Done: %@", requirementName, targetVisa.type, targetVisa.country.name, [NSNumber numberWithBool:isDone]);
+    }
+}
+
+
 @end
