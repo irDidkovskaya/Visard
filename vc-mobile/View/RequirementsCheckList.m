@@ -85,7 +85,7 @@
     Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     NSString *cellText = requirement.name;
     
-    UIFont *cellFont = [UIFont boldSystemFontOfSize:17.0];
+    UIFont *cellFont = [UIFont systemFontOfSize:17.0];
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
     
@@ -125,7 +125,7 @@
     // Label
     UILabel *cellLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, 0, 280, curCellHeight)] autorelease];
     cellLabel.backgroundColor = [UIColor clearColor];
-    cellLabel.font = [UIFont boldSystemFontOfSize:17];
+    cellLabel.font = [UIFont systemFontOfSize:17];
     cellLabel.text = requirement.name;
     cellLabel.numberOfLines = 4;
     cellLabel.lineBreakMode = UILineBreakModeWordWrap;
