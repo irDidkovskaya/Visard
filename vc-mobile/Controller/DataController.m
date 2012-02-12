@@ -113,6 +113,11 @@
             newConsulate.country = newCountry;
             newConsulate.city = [consulateDict objectForKey:@"city"];
             newConsulate.address = [consulateDict objectForKey:@"address"];
+            newConsulate.email = [consulateDict objectForKey:@"e-mail"];
+            newConsulate.phone = [consulateDict objectForKey:@"phone"];
+            newConsulate.site = [consulateDict objectForKey:@"site"];
+            newConsulate.price = [consulateDict objectForKey:@"price"];
+            newConsulate.workTime = [consulateDict objectForKey:@"timeWork"];
             newConsulate.latitude = [consulateDict objectForKey:@"latitude"];
             newConsulate.longitude = [consulateDict objectForKey:@"longitude"];
         }

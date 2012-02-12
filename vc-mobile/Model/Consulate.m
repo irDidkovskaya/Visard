@@ -2,8 +2,8 @@
 //  Consulate.m
 //  vc-mobile
 //
-//  Created by Alexandr Fal' on 12/24/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 2/12/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Consulate.h"
@@ -17,6 +17,11 @@
 @dynamic countryId;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic email;
+@dynamic phone;
+@dynamic workTime;
+@dynamic site;
+@dynamic price;
 @dynamic country;
 
 @end

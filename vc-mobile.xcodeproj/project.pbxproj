@@ -11,6 +11,7 @@
 		811B197014C080A300721152 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B196F14C080A300721152 /* Country.m */; };
 		811B197314C089D500721152 /* CountriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B197214C089D500721152 /* CountriesViewController.m */; };
 		811B197614C3814600721152 /* VCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B197514C3814600721152 /* VCountryViewController.m */; };
+		819097C714E7D5F600FA7D9A /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 819097C614E7D5F600FA7D9A /* Consulate.m */; };
 		81A6D022149CBC0100D0714A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D013149CBC0100D0714A /* AFHTTPClient.m */; };
 		81A6D023149CBC0100D0714A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D015149CBC0100D0714A /* AFHTTPRequestOperation.m */; };
 		81A6D024149CBC0100D0714A /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D017149CBC0100D0714A /* AFImageCache.m */; };
@@ -25,7 +26,6 @@
 		81A6D04C149D153700D0714A /* CountriesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 81A6D04B149D153700D0714A /* CountriesList.json */; };
 		81A6D09C149E3DC000D0714A /* MyPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */; };
 		81A6D09E149E3E2200D0714A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A6D09D149E3E2200D0714A /* MapKit.framework */; };
-		81CB81C014A6197E00091D90 /* Consulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81BF14A6197E00091D90 /* Consulate.m */; };
 		81CB81C914A6197E00091D90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81C814A6197E00091D90 /* User.m */; };
 		81CB81CF14A6197F00091D90 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB81CE14A6197F00091D90 /* Advice.m */; };
 		81DDD95614B5D40E00ED5A5D /* Visa.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DDD95514B5D40E00ED5A5D /* Visa.m */; };
@@ -473,6 +473,8 @@
 		811B197214C089D500721152 /* CountriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountriesViewController.m; path = View/CountriesViewController.m; sourceTree = "<group>"; };
 		811B197414C3814600721152 /* VCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCountryViewController.h; path = View/VCountryViewController.h; sourceTree = "<group>"; };
 		811B197514C3814600721152 /* VCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCountryViewController.m; path = View/VCountryViewController.m; sourceTree = "<group>"; };
+		819097C514E7D5F600FA7D9A /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
+		819097C614E7D5F600FA7D9A /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
 		81A6D012149CBC0100D0714A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		81A6D013149CBC0100D0714A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		81A6D014149CBC0100D0714A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -498,8 +500,6 @@
 		81A6D09A149E3DC000D0714A /* MyPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPinAnnotation.h; sourceTree = "<group>"; };
 		81A6D09B149E3DC000D0714A /* MyPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPinAnnotation.m; sourceTree = "<group>"; };
 		81A6D09D149E3E2200D0714A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		81CB81BE14A6197E00091D90 /* Consulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consulate.h; path = Model/Consulate.h; sourceTree = "<group>"; };
-		81CB81BF14A6197E00091D90 /* Consulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Consulate.m; path = Model/Consulate.m; sourceTree = "<group>"; };
 		81CB81C714A6197E00091D90 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		81CB81C814A6197E00091D90 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		81CB81CD14A6197F00091D90 /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advice.h; path = Model/Advice.h; sourceTree = "<group>"; };
@@ -1553,6 +1553,8 @@
 			isa = PBXGroup;
 			children = (
 				A0FE8599149C9FEF007C578B /* vc_mobile.xcdatamodeld */,
+				819097C514E7D5F600FA7D9A /* Consulate.h */,
+				819097C614E7D5F600FA7D9A /* Consulate.m */,
 				811B196E14C080A300721152 /* Country.h */,
 				811B196F14C080A300721152 /* Country.m */,
 				81DDD95414B5D40E00ED5A5D /* Visa.h */,
@@ -1563,8 +1565,6 @@
 				81CB81CE14A6197F00091D90 /* Advice.m */,
 				81CB81C714A6197E00091D90 /* User.h */,
 				81CB81C814A6197E00091D90 /* User.m */,
-				81CB81BE14A6197E00091D90 /* Consulate.h */,
-				81CB81BF14A6197E00091D90 /* Consulate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2111,7 +2111,6 @@
 				A086286614A4F6E50075D4BE /* RequirementsCheckList.m in Sources */,
 				A086286914A5FDDC0075D4BE /* FavoriteVisas.m in Sources */,
 				A086286C14A5FE410075D4BE /* RequirementsViewController.m in Sources */,
-				81CB81C014A6197E00091D90 /* Consulate.m in Sources */,
 				81CB81C914A6197E00091D90 /* User.m in Sources */,
 				81CB81CF14A6197F00091D90 /* Advice.m in Sources */,
 				A0A9996414A628FF00695AE9 /* Requirement.m in Sources */,
@@ -2123,6 +2122,7 @@
 				811B197014C080A300721152 /* Country.m in Sources */,
 				811B197314C089D500721152 /* CountriesViewController.m in Sources */,
 				811B197614C3814600721152 /* VCountryViewController.m in Sources */,
+				819097C714E7D5F600FA7D9A /* Consulate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
