@@ -154,9 +154,11 @@
     annView.animatesDrop = YES;
     annView.canShowCallout = YES;
     annView.calloutOffset = CGPointMake(-5, 5);
-    
+    MKCoordinateRegion counsLocation;
+    counsLocation.center.latitude = coord.latitude;
+    counsLocation.center.longitude = coord.longitude;
     //[self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.1, 0.1))];
-    
+     [self.mapView setRegion:counsLocation animated:YES];
     
     if (ann.thumb) {
         //NSString *file = [ann.thumb stringByAppendingPathExtension:@"jpg"];
@@ -188,8 +190,8 @@
     CLLocation *userLocation = mapView.userLocation.location;
     float latitude = userLocation.coordinate.latitude;
     float longitude = userLocation.coordinate.latitude;
-    newRegion.center.latitude = latitude;
-    newRegion.center.longitude = longitude;
+    newRegion.center.latitude = (latitude + coord.latitude)/2;
+    newRegion.center.longitude = (longitude + coord.longitude)/2;
     
     [self.mapView setRegion:newRegion animated:YES];
 }
