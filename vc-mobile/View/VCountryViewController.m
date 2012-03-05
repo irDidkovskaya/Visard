@@ -22,6 +22,7 @@
 
 @synthesize requirement, user, tableView = tableView_;
 @synthesize fetchedResultsController = __fetchedResultsController, managedObjectContext, code, img, name, text;
+@synthesize viewForSegmContr;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +31,7 @@
     if (self) {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         self.managedObjectContext = appDelegate.managedObjectContext;
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -80,12 +82,12 @@
     
     self.navigationItem.title = self.name;
     
-    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
-    scView.backgroundColor = [AppStyle colorForSearchBar];
-    
+    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-100, 320, 44)] autorelease];
+    scView.backgroundColor = [AppStyle colorForNavigationBar];
+    self.viewForSegmContr = scView;
     NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
     UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
-    segmentedControl.frame = CGRectMake(50, 7, 250, 30);
+    segmentedControl.frame = CGRectMake(10, 7, 300, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [AppStyle colorForNavigationBar];
@@ -97,22 +99,22 @@
     [segmentedControl setTag:0 forSegmentAtIndex:1];
     [segmentedControl setTag:0 forSegmentAtIndex:2];
     [self setTextColorsForSegmentedControl:segmentedControl];
-    [scView addSubview:segmentedControl];
+    [self.viewForSegmContr addSubview:segmentedControl];
     
-    
-    [self.view addSubview:scView];
     
     //[self.view addSubview:[self headerView]];
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     if (segmentedControl.selectedSegmentIndex == 0) {
         
-        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-100) style:UITableViewStylePlain];
         tv.delegate = self;
         tv.dataSource = self;
         self.tableView = tv;
         [self.view addSubview:self.tableView];
         currSigmentControll = 0;
     }
+    
+    [self.view addSubview:self.viewForSegmContr];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -126,11 +128,12 @@
 
 - (void) pickOne:(id)sender
 {
+    [self.viewForSegmContr removeFromSuperview];
     UISegmentedControl *sc = (UISegmentedControl *)sender;
     currSigmentControll = sc.selectedSegmentIndex;
     switch (sc.selectedSegmentIndex) {
         case 0: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44) style:UITableViewStylePlain];
             self.fetchedResultsController = nil;
             tv.delegate = self;
             tv.dataSource = self;
@@ -140,7 +143,7 @@
         }
             break;
         case 1: {
-            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+            UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44) style:UITableViewStylePlain];
             self.fetchedResultsController = nil;
             tv.delegate = self;
             tv.dataSource = self;
@@ -153,7 +156,7 @@
             
             [self.tableView removeFromSuperview];
             self.fetchedResultsController = nil;
-            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
             webView.backgroundColor = [UIColor whiteColor];
             [self.view addSubview:webView];
             
@@ -168,6 +171,8 @@
         default:
             break;
     }
+    
+    [self.view addSubview:self.viewForSegmContr];
     //label.text = [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
 }
 
@@ -183,6 +188,7 @@
     self.img = nil;
     self.name = nil;
     self.text = nil;
+    self.viewForSegmContr = nil;
     
     [super dealloc];
 }
