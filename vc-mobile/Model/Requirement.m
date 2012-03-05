@@ -2,8 +2,8 @@
 //  Requirement.m
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 24.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 2/12/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Requirement.h"
@@ -16,6 +16,7 @@
 @dynamic isRequired;
 @dynamic name;
 @dynamic value;
+@dynamic reminderDate;
 @dynamic visa;
 
 @end

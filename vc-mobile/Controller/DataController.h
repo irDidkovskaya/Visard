@@ -26,5 +26,7 @@
 - (void)removeFromFavoritesVisaWithCountry:(NSString *)countryName andType:(NSString *)visaType;
 
 - (void)updateRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withDoneOption:(BOOL)isDone;
+- (void)updateRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withRemiderDate:(NSDate *)reminderDate;
+- (void)scheduleRemiderForRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withRemiderDate:(NSDate *)remiderDate; 
 
 @end

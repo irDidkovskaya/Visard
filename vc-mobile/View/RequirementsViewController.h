@@ -12,13 +12,13 @@
 
 @interface RequirementsViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
     
-    NSMutableIndexSet *expandedSections;
 }
 
 @property (nonatomic, retain) NSString *visaType;
 @property (nonatomic, retain) NSString *countryName;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSMutableIndexSet *expandedSections;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

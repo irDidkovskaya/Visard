@@ -8,7 +8,10 @@
 
 #import "RequirementsCheckList.h"
 #import "AppStyle.h"
+#import "AppDelegate.h"
 #import "DataController.h"
+#import "ReminderSetupViewController.h"
+#import "Country.h"
 
 @interface RequirementsCheckList() {
 @private
@@ -16,6 +19,8 @@
 }
 
 @property (nonatomic, retain) NSArray *cellHeights;
+
+- (void)updateTableView;
 
 @end
 
@@ -30,6 +35,19 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+- (id)initWithVisa:(Visa *)visa
+{
+    self = [super init];
+    if (self) {
+        self.countryName = visa.country.name;
+        self.visaType = visa.type;
+        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableView) name:@"AppDidReceiveLocalNotification" object:nil];
     }
     return self;
 }
@@ -61,7 +79,13 @@
     self.navigationItem.backBarButtonItem.title = NSLocalizedString(@"Back", nil);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.cellHeights = [NSArray array];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateTableView];
+    
+    [super viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -86,29 +110,33 @@
     NSString *cellText = requirement.name;
     
     UIFont *cellFont = [UIFont systemFontOfSize:17.0];
-    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize constraintSize = CGSizeMake(250.0f, MAXFLOAT);
     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
     
-    CGFloat heightForCell = labelSize.height + 20.0f;
+    CGFloat heightForCell = labelSize.height + 10.0f;
+    
+    if (requirement.reminderDate) {
+        heightForCell += 20;
+    }
+
     if (heightForCell < 44) {
         heightForCell = 44;
     }
-//    NSLog(@"heightForCell: %f", heightForCell);
+    NSLog(@"heightForCell: %f", heightForCell);
     
     self.cellHeights = [self.cellHeights arrayByAddingObject:[NSNumber numberWithFloat:heightForCell]];
-    
     return heightForCell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"Cell";
+    
+    //static NSString *CellIdentifier = @"CellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nil];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
     }
-    
     [self configureCell:cell atIndexPath:indexPath];
         
     return cell;
@@ -117,17 +145,23 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat curCellHeight = [[self.cellHeights objectAtIndex:indexPath.row] floatValue];
-    UIView *cellView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, curCellHeight)] autorelease];
-    cellView.backgroundColor = [UIColor clearColor];
+    NSLog(@"curCellHeight: %f", curCellHeight);
+    
+    UIView *cellView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 290, curCellHeight)] autorelease];
+//    cellView.backgroundColor = [UIColor clearColor];
     
     Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     
-    // Label
-    UILabel *cellLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, 0, 280, curCellHeight)] autorelease];
+    // Requirement name Label
+    CGFloat labelHeight = curCellHeight;
+    if (requirement.reminderDate) {
+        labelHeight -= 20;
+    }
+    UILabel *cellLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, 0, 250, labelHeight)] autorelease];
     cellLabel.backgroundColor = [UIColor clearColor];
     cellLabel.font = [UIFont systemFontOfSize:17];
     cellLabel.text = requirement.name;
-    cellLabel.numberOfLines = 4;
+    cellLabel.numberOfLines = 0;
     cellLabel.lineBreakMode = UILineBreakModeWordWrap;
     cellLabel.textAlignment = UITextAlignmentLeft;
     [cellView addSubview:cellLabel];
@@ -135,7 +169,6 @@
     // Checkbox button
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(5, (curCellHeight - 30)/2, 30, 30);
-    //[smsBtn setImage:[UIImage imageNamed:@"checkbox_sms_grey.png"] forState:UIControlStateHighlighted];
     if ([requirement.isDone boolValue]) {
         [btn setImage:[UIImage imageNamed:@"Checkbox_checked.png"] forState:UIControlStateNormal];
     } else { 
@@ -145,12 +178,40 @@
     [btn addTarget:self action:@selector(changeisDoneOption:) forControlEvents:UIControlEventTouchUpInside];
     [cellView addSubview:btn];
     
-    cell.accessoryView = cellView;
+    // Requirement reminder date label
+    if (requirement.reminderDate) {
+        UILabel *remiderLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, labelHeight, 250, 14)] autorelease];
+        remiderLabel.backgroundColor = [UIColor clearColor];
+        remiderLabel.font = [UIFont systemFontOfSize:12];
+        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        [dateFormatter setDateFormat: @"dd.MM.yyyy, HH:mm"];
+        NSString *str = [NSLocalizedString(@"Remind me: ", nil) stringByAppendingFormat:@"%@", [dateFormatter  stringFromDate:requirement.reminderDate]];
+        remiderLabel.text = str;
+        remiderLabel.numberOfLines = 0;
+        remiderLabel.lineBreakMode = UILineBreakModeWordWrap;
+        remiderLabel.textAlignment = UITextAlignmentLeft;
+        [cellView addSubview:remiderLabel];
+    }
+    
+//    cell.accessoryView = cellView;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [cell addSubview:cellView];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ReminderSetupViewController *reminderVeiwController = [[[ReminderSetupViewController alloc] initWithRequirement:[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row]] autorelease];
+    [self.navigationController pushViewController:reminderVeiwController animated:YES];
+}
+
+- (void)updateTableView
+{
+    if (self.cellHeights) {
+        self.cellHeights = nil;
+    }
+    self.cellHeights = [NSArray array];
+    [self.tableView reloadData];
 }
 
 #pragma mark - NSFetchedResultsController

@@ -2,8 +2,8 @@
 //  Requirement.h
 //  vc-mobile
 //
-//  Created by Ирина Дидковская on 24.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Alexandr Fal' on 2/12/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * isRequired;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * value;
+@property (nonatomic, retain) NSDate * reminderDate;
 @property (nonatomic, retain) Visa *visa;
 
 @end
