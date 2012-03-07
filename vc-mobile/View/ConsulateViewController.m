@@ -55,105 +55,70 @@
 
 - (void)addMainPartOfInformation {
     
-    
-    UILabel *labelAddress = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120, self.view.frame.size.width, 15)] autorelease];
-    labelAddress.text = NSLocalizedString(@"Адресс", nil);
-    [labelAddress setFont:[UIFont boldSystemFontOfSize:13]];
-    [labelAddress sizeToFit];
-    [self.view addSubview:labelAddress];
-    
-    UILabel *address = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height, self.view.frame.size.width, 25)] autorelease];
-    
-    [address setFont:[UIFont systemFontOfSize:13]];
-    address.text = self.consulate.address;
-    [address sizeToFit];
-    
-    [self.view addSubview:address];
-    
-    UILabel *labelTimeWork = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height, self.view.frame.size.width, 20)] autorelease];
-    labelTimeWork.text = NSLocalizedString(@"Часы работы", nil);
-    [labelTimeWork setFont:[UIFont boldSystemFontOfSize:13]];
-    [labelTimeWork sizeToFit];
-    [self.view addSubview:labelTimeWork];
+    NSArray *labelsTitleName = [NSArray arrayWithObjects:NSLocalizedString(@"Адресс", nil), NSLocalizedString(@"Часы работы", nil), NSLocalizedString(@"Цена", nil), NSLocalizedString(@"Телефон", nil), NSLocalizedString(@"E-mail", nil), NSLocalizedString(@"Site", nil), nil];
     
     
-    UILabel *timeWork = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height, self.view.frame.size.width, 20)] autorelease];
-    timeWork.text = NSLocalizedString(@"10:00 - 18:00", nil);
-    [timeWork setFont:[UIFont systemFontOfSize:13]];
-    [timeWork sizeToFit];
-    [self.view addSubview:timeWork];
+    NSArray *labelsDescriptionName = [NSArray arrayWithObjects:self.consulate.address, self.consulate.workTime,  self.consulate.price, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
     
+    CGRect rect = CGRectMake(15, 120, 0, 20);
     
-    
-    
-    
-    UILabel *lablePhone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 40, self.view.frame.size.width, 20)] autorelease];
-    lablePhone.text = NSLocalizedString(@"Телефон", nil);
-    [lablePhone setFont:[UIFont boldSystemFontOfSize:13]];
-    [lablePhone sizeToFit];
-    [self.view addSubview:lablePhone];
-    
-    
-    UIButton *phone = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
-    phone.titleLabel.font = [UIFont systemFontOfSize:13];
-    [phone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [phone setTitle:NSLocalizedString(@"123 456 789 10", nil) forState:UIControlStateNormal];
-    [phone addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
-    phone.tag = 2;
-    [phone sizeToFit];
-    [self.view addSubview:phone];
-    
-    
-    
-    
-    UILabel *lableMail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 80, self.view.frame.size.width, 20)] autorelease];
-    lableMail.text = NSLocalizedString(@"E-mail", nil);
-    [lableMail setFont:[UIFont boldSystemFontOfSize:13]];
-    [lableMail sizeToFit];
-    [self.view addSubview:lableMail];
-    
-    
-    UIButton *mail = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
-    [mail setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [mail setTitle:NSLocalizedString(@"bla@bla.com", nil) forState:UIControlStateNormal];
-    [mail addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
-    mail.tag = 3;
-    [mail sizeToFit];
-    [self.view addSubview:mail];
+    for (int i = 0; i < [labelsTitleName count]; i++) 
+    {
 
+        UILabel *titleName = [[[UILabel alloc] initWithFrame:rect] autorelease];
+        titleName.textColor = [UIColor blackColor];
+        titleName.backgroundColor = [UIColor clearColor];
+        titleName.text = [labelsTitleName objectAtIndex:i];
+        [titleName setFont:[UIFont boldSystemFontOfSize:14]];
+        [titleName sizeToFit];
+        [self.view addSubview:titleName];
+        
+        rect.origin.y += titleName.frame.size.height + 2;
+        
+        if (i > 2) 
+        {
+            
+            UIButton *descriptionText = [[[UIButton alloc] initWithFrame:rect] autorelease];
+            descriptionText.titleLabel.font = [UIFont systemFontOfSize:14];
+            [descriptionText setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [descriptionText setTitle:[labelsDescriptionName objectAtIndex:i] forState:UIControlStateNormal];
+            [descriptionText addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
+            descriptionText.tag = i;
+            [descriptionText sizeToFit];
+            [self.view addSubview:descriptionText];
+            
+            rect.origin.y += descriptionText.frame.size.height + 10;
+        } 
+        else 
+        {
+            UILabel *descriptionText = [[[UILabel alloc] initWithFrame:rect] autorelease];
+            descriptionText.textColor = [UIColor blackColor];
+            [descriptionText setFont:[UIFont systemFontOfSize:14]];
+            descriptionText.text = [labelsDescriptionName objectAtIndex:i];
+            [descriptionText sizeToFit];
+            
+            [self.view addSubview:descriptionText];
+            
+            rect.origin.y += descriptionText.frame.size.height + 10;
+            
+        }
+        
+    }
     
-    
-    UILabel *lableSite = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 125, self.view.frame.size.width, 20)] autorelease];
-    lableSite.text = NSLocalizedString(@"Site", nil);
-    [lableSite setFont:[UIFont boldSystemFontOfSize:13]];
-    [lableSite sizeToFit];
-    [self.view addSubview:lableSite];
-    
-    
-    UIButton *site = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 140, self.view.frame.size.width, 20)] autorelease];
-    site.titleLabel.font = [UIFont systemFontOfSize:13];
-    [site setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [site setTitle:NSLocalizedString(@"www.bla-bla-bla.com", nil) forState:UIControlStateNormal];
-    [site addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
-    site.backgroundColor = [UIColor clearColor];
-    site.tag = 1;
-    [site sizeToFit];
-    [self.view addSubview:site];
-    
-    
+     
 }
  
 - (void)openURL:(UIButton *)sender 
 {
-    if (sender.tag == 1) 
+    if (sender.tag == 5) 
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
     } 
-    else if (sender.tag == 2) 
+    else if (sender.tag == 3) 
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
     }
-    else if (sender.tag == 3)
+    else if (sender.tag == 4)
     {
         MailSender *sendEmail = [MailSender sharedMailSender];
         sendEmail.vcId = self;
@@ -204,9 +169,14 @@
     [headerLabel sizeToFit];
     
     [self addMainPartOfInformation];
-    [self finedOnMap];
+    //[self finedOnMap];
     [self.view addSubview:headerLabel];
     [self.view addSubview:iv];
+    
+    
+    UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithTitle:@"Show Map" style:UIBarButtonItemStyleBordered target:self action:@selector(showConsulateOnTheMap)] autorelease];
+    
+    self.navigationItem.rightBarButtonItem = showMapBtn;
     
     
     
