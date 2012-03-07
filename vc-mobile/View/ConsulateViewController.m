@@ -11,6 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ColorfulButton.h"
 #import "AppStyle.h"
+#import "MailSender.h"
+
 @implementation ConsulateViewController
 @synthesize consulate, countryName, img;
 
@@ -92,9 +94,12 @@
     [self.view addSubview:lablePhone];
     
     
-    UILabel *phone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
-    phone.text = NSLocalizedString(@"123 456 789 10", nil);
-    [phone setFont:[UIFont systemFontOfSize:13]];
+    UIButton *phone = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
+    phone.titleLabel.font = [UIFont systemFontOfSize:13];
+    [phone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [phone setTitle:NSLocalizedString(@"123 456 789 10", nil) forState:UIControlStateNormal];
+    [phone addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
+    phone.tag = 2;
     [phone sizeToFit];
     [self.view addSubview:phone];
     
@@ -108,9 +113,11 @@
     [self.view addSubview:lableMail];
     
     
-    UILabel *mail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
-    mail.text = NSLocalizedString(@"bla@bla.com", nil);
-    [mail setFont:[UIFont systemFontOfSize:13]];
+    UIButton *mail = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
+    [mail setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [mail setTitle:NSLocalizedString(@"bla@bla.com", nil) forState:UIControlStateNormal];
+    [mail addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
+    mail.tag = 3;
     [mail sizeToFit];
     [self.view addSubview:mail];
 
@@ -123,19 +130,40 @@
     [self.view addSubview:lableSite];
     
     
-    UILabel *site = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 140, self.view.frame.size.width, 20)] autorelease];
-    site.text = NSLocalizedString(@"www.bla-bla-bla.com", nil);
-    [site setFont:[UIFont systemFontOfSize:13]];
+    UIButton *site = [[[UIButton alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 140, self.view.frame.size.width, 20)] autorelease];
+    site.titleLabel.font = [UIFont systemFontOfSize:13];
+    [site setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [site setTitle:NSLocalizedString(@"www.bla-bla-bla.com", nil) forState:UIControlStateNormal];
+    [site addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
+    site.backgroundColor = [UIColor clearColor];
+    site.tag = 1;
     [site sizeToFit];
     [self.view addSubview:site];
     
     
 }
-
+ 
+- (void)openURL:(UIButton *)sender 
+{
+    if (sender.tag == 1) 
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
+    } 
+    else if (sender.tag == 2) 
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
+    }
+    else if (sender.tag == 3)
+    {
+        MailSender *sendEmail = [MailSender sharedMailSender];
+        sendEmail.vcId = self;
+        [sendEmail sendLogsToMail:@"bla@bla.com"];
+    }
+}
 
 - (void)finedOnMap {
     
-    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 330, 200, 30)] autorelease];
+    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 350, 200, 30)] autorelease];
     
     btnShowMap.titleLabel.font = [UIFont systemFontOfSize:13];
     //btnShowMap = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
