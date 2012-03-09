@@ -78,13 +78,13 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"fetched objects: %@", self.fetchedResultsController.fetchedObjects);
+    //NSLog(@"fetched objects: %@", self.fetchedResultsController.fetchedObjects);
     
     self.navigationItem.title = self.name;
-    
-    UIView *scView = [[[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-100, 320, 44)] autorelease];
-    scView.backgroundColor = [AppStyle colorForNavigationBar];
-    self.viewForSegmContr = scView;
+    UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 372, self.view.frame.size.width, 44)] autorelease];
+    tb.tintColor = [AppStyle colorForNavigationBar];
+
+    self.viewForSegmContr = tb;
     NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
     UISegmentedControl *segmentedControl = [[[UISegmentedControl alloc] initWithItems:itemArray] autorelease];
     segmentedControl.frame = CGRectMake(10, 7, 300, 30);
@@ -106,7 +106,7 @@
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     if (segmentedControl.selectedSegmentIndex == 0) {
         
-        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-100) style:UITableViewStylePlain];
+        UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80) style:UITableViewStylePlain];
         tv.delegate = self;
         tv.dataSource = self;
         self.tableView = tv;
