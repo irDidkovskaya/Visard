@@ -14,7 +14,7 @@
 #import "MailSender.h"
 
 @implementation ConsulateViewController
-@synthesize consulate, countryName, img;
+@synthesize consulate, countryName, img, toolBar, numbersList;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,6 +48,8 @@
     self.consulate = nil;
     self.countryName = nil;
     self.img = nil;
+    self.toolBar = nil;
+    self.numbersList = nil;
     
     [super dealloc];
     
@@ -60,7 +62,8 @@
     
     NSArray *labelsDescriptionName = [NSArray arrayWithObjects:self.consulate.address, self.consulate.workTime,  self.consulate.price, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
     
-    CGRect rect = CGRectMake(15, 120, 0, 20);
+    CGRect rect = CGRectMake(15, 0, 0, 20);
+    UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height - 120)] autorelease];
     
     for (int i = 0; i < [labelsTitleName count]; i++) 
     {
@@ -71,58 +74,57 @@
         titleName.text = [labelsTitleName objectAtIndex:i];
         [titleName setFont:[UIFont boldSystemFontOfSize:14]];
         [titleName sizeToFit];
-        [self.view addSubview:titleName];
+        [scrollView addSubview:titleName];
         
         rect.origin.y += titleName.frame.size.height + 2;
         
-        if (i > 2) 
-        {
-            
-            UIButton *descriptionText = [[[UIButton alloc] initWithFrame:rect] autorelease];
-            descriptionText.titleLabel.font = [UIFont systemFontOfSize:14];
-            [descriptionText setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [descriptionText setTitle:[labelsDescriptionName objectAtIndex:i] forState:UIControlStateNormal];
-            [descriptionText addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
-            descriptionText.tag = i;
-            [descriptionText sizeToFit];
-            [self.view addSubview:descriptionText];
-            
-            rect.origin.y += descriptionText.frame.size.height + 10;
-        } 
-        else 
-        {
-            UILabel *descriptionText = [[[UILabel alloc] initWithFrame:rect] autorelease];
-            descriptionText.textColor = [UIColor blackColor];
-            [descriptionText setFont:[UIFont systemFontOfSize:14]];
-            descriptionText.text = [labelsDescriptionName objectAtIndex:i];
-            [descriptionText sizeToFit];
-            
-            [self.view addSubview:descriptionText];
-            
-            rect.origin.y += descriptionText.frame.size.height + 10;
-            
-        }
+        UILabel *descriptionText = [[[UILabel alloc] initWithFrame:rect] autorelease];
+        descriptionText.textColor = [UIColor blackColor];
+        [descriptionText setFont:[UIFont systemFontOfSize:14]];
+        descriptionText.text = [labelsDescriptionName objectAtIndex:i];
+        [descriptionText sizeToFit];
+        
+        [scrollView addSubview:descriptionText];
+        
+        rect.origin.y += descriptionText.frame.size.height + 10;
         
     }
     
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, rect.origin.y+80);
+    [self.view addSubview:scrollView];
      
 }
- 
+
+- (void)showActionSheet 
+{
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:self cancelButtonTitle:@"Cancel Button" destructiveButtonTitle:nil otherButtonTitles: nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+   self.numbersList = [self.consulate.phone componentsSeparatedByString:@","];
+
+    for (NSString *btnName in self.numbersList) {
+        [popupQuery addButtonWithTitle:btnName];
+    }
+    [popupQuery showInView:self.view];
+    [popupQuery release];
+
+}
+
 - (void)openURL:(UIButton *)sender 
 {
     if (sender.tag == 5) 
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.consulate.site]];
     } 
     else if (sender.tag == 3) 
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
+        [self showActionSheet];
     }
     else if (sender.tag == 4)
     {
         MailSender *sendEmail = [MailSender sharedMailSender];
         sendEmail.vcId = self;
-        [sendEmail sendLogsToMail:@"bla@bla.com"];
+        [sendEmail sendLogsToMail:self.consulate.email];
     }
 }
 
@@ -131,12 +133,35 @@
     UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 350, 200, 30)] autorelease];
     
     btnShowMap.titleLabel.font = [UIFont systemFontOfSize:13];
-    //btnShowMap = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+
     [btnShowMap setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btnShowMap setTitle:NSLocalizedString(@"Посмотреть адресс на карте", nil) forState:UIControlStateNormal];
     [btnShowMap addTarget:self action:@selector(showConsulateOnTheMap) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:btnShowMap];
+    
+}
+
+- (void)addToolBarOnTheView
+{
+    
+    UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 376, self.view.frame.size.width, 40)] autorelease];
+    tb.tintColor = [AppStyle colorForNavigationBar];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *phoneBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    phoneBtn.tag = 3;
+    
+    UIBarButtonItem *emailBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    emailBtn.tag = 4;
+    
+    UIBarButtonItem *openUrlBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    openUrlBtn.tag = 5;
+    
+    [tb setItems:[NSArray arrayWithObjects:flexibleSpace, phoneBtn,flexibleSpace, emailBtn,flexibleSpace, openUrlBtn, flexibleSpace, nil]];
+    
+    
+    self.toolBar = tb;
+    [self.view addSubview:self.toolBar];
     
 }
 
@@ -178,7 +203,7 @@
     
     self.navigationItem.rightBarButtonItem = showMapBtn;
     
-    
+    [self addToolBarOnTheView];
     
 }
 
@@ -186,6 +211,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.toolBar = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -212,6 +238,22 @@
     
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+#pragma makr ActionSheet delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex > 0) {
+        NSString *phoneNumber = [self.numbersList objectAtIndex:buttonIndex-1];
+        NSCharacterSet *backSpace = [NSCharacterSet characterSetWithCharactersInString:@" "];
+        NSCharacterSet *dash = [NSCharacterSet characterSetWithCharactersInString:@"-"];
+        phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:backSpace] componentsJoinedByString:@""];
+        phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet: dash] componentsJoinedByString:@""];
+
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phoneNumber]]];
+    }
+
 }
 
 
