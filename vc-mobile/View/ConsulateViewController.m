@@ -11,8 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ColorfulButton.h"
 #import "AppStyle.h"
+#import "MailSender.h"
+
 @implementation ConsulateViewController
-@synthesize consulate, countryName, img;
+@synthesize consulate, countryName, img, toolBar, numbersList;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +48,8 @@
     self.consulate = nil;
     self.countryName = nil;
     self.img = nil;
+    self.toolBar = nil;
+    self.numbersList = nil;
     
     [super dealloc];
     
@@ -53,97 +57,111 @@
 
 - (void)addMainPartOfInformation {
     
-    
-    UILabel *labelAddress = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120, self.view.frame.size.width, 15)] autorelease];
-    labelAddress.text = NSLocalizedString(@"Адресс", nil);
-    [labelAddress setFont:[UIFont boldSystemFontOfSize:13]];
-    [labelAddress sizeToFit];
-    [self.view addSubview:labelAddress];
-    
-    UILabel *address = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height, self.view.frame.size.width, 25)] autorelease];
-    
-    [address setFont:[UIFont systemFontOfSize:13]];
-    address.text = self.consulate.address;
-    [address sizeToFit];
-    
-    [self.view addSubview:address];
-    
-    UILabel *labelTimeWork = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height, self.view.frame.size.width, 20)] autorelease];
-    labelTimeWork.text = NSLocalizedString(@"Часы работы", nil);
-    [labelTimeWork setFont:[UIFont boldSystemFontOfSize:13]];
-    [labelTimeWork sizeToFit];
-    [self.view addSubview:labelTimeWork];
+    NSArray *labelsTitleName = [NSArray arrayWithObjects:NSLocalizedString(@"Адресс", nil), NSLocalizedString(@"Часы работы", nil), NSLocalizedString(@"Цена", nil), NSLocalizedString(@"Телефон", nil), NSLocalizedString(@"E-mail", nil), NSLocalizedString(@"Site", nil), nil];
     
     
-    UILabel *timeWork = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height, self.view.frame.size.width, 20)] autorelease];
-    timeWork.text = NSLocalizedString(@"10:00 - 18:00", nil);
-    [timeWork setFont:[UIFont systemFontOfSize:13]];
-    [timeWork sizeToFit];
-    [self.view addSubview:timeWork];
+    NSArray *labelsDescriptionName = [NSArray arrayWithObjects:self.consulate.address, self.consulate.workTime,  self.consulate.price, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
     
+    CGRect rect = CGRectMake(15, 0, 0, 20);
+    UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height - 120)] autorelease];
     
-    
-    
-    
-    UILabel *lablePhone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 40, self.view.frame.size.width, 20)] autorelease];
-    lablePhone.text = NSLocalizedString(@"Телефон", nil);
-    [lablePhone setFont:[UIFont boldSystemFontOfSize:13]];
-    [lablePhone sizeToFit];
-    [self.view addSubview:lablePhone];
-    
-    
-    UILabel *phone = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 65, self.view.frame.size.width, 20)] autorelease];
-    phone.text = NSLocalizedString(@"123 456 789 10", nil);
-    [phone setFont:[UIFont systemFontOfSize:13]];
-    [phone sizeToFit];
-    [self.view addSubview:phone];
-    
-    
-    
-    
-    UILabel *lableMail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 80, self.view.frame.size.width, 20)] autorelease];
-    lableMail.text = NSLocalizedString(@"E-mail", nil);
-    [lableMail setFont:[UIFont boldSystemFontOfSize:13]];
-    [lableMail sizeToFit];
-    [self.view addSubview:lableMail];
-    
-    
-    UILabel *mail = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 105, self.view.frame.size.width, 20)] autorelease];
-    mail.text = NSLocalizedString(@"bla@bla.com", nil);
-    [mail setFont:[UIFont systemFontOfSize:13]];
-    [mail sizeToFit];
-    [self.view addSubview:mail];
+    for (int i = 0; i < [labelsTitleName count]; i++) 
+    {
 
+        UILabel *titleName = [[[UILabel alloc] initWithFrame:rect] autorelease];
+        titleName.textColor = [UIColor blackColor];
+        titleName.backgroundColor = [UIColor clearColor];
+        titleName.text = [labelsTitleName objectAtIndex:i];
+        [titleName setFont:[UIFont boldSystemFontOfSize:14]];
+        [titleName sizeToFit];
+        [scrollView addSubview:titleName];
+        
+        rect.origin.y += titleName.frame.size.height + 2;
+        
+        UILabel *descriptionText = [[[UILabel alloc] initWithFrame:rect] autorelease];
+        descriptionText.textColor = [UIColor blackColor];
+        [descriptionText setFont:[UIFont systemFontOfSize:14]];
+        descriptionText.text = [labelsDescriptionName objectAtIndex:i];
+        [descriptionText sizeToFit];
+        
+        [scrollView addSubview:descriptionText];
+        
+        rect.origin.y += descriptionText.frame.size.height + 10;
+        
+    }
     
-    
-    UILabel *lableSite = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 125, self.view.frame.size.width, 20)] autorelease];
-    lableSite.text = NSLocalizedString(@"Site", nil);
-    [lableSite setFont:[UIFont boldSystemFontOfSize:13]];
-    [lableSite sizeToFit];
-    [self.view addSubview:lableSite];
-    
-    
-    UILabel *site = [[[UILabel alloc] initWithFrame:CGRectMake(15, 120 + labelAddress.frame.size.height+10 + address.frame.size.height + labelTimeWork.frame.size.height + 140, self.view.frame.size.width, 20)] autorelease];
-    site.text = NSLocalizedString(@"www.bla-bla-bla.com", nil);
-    [site setFont:[UIFont systemFontOfSize:13]];
-    [site sizeToFit];
-    [self.view addSubview:site];
-    
-    
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, rect.origin.y+80);
+    [self.view addSubview:scrollView];
+     
 }
 
+- (void)showActionSheet 
+{
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:self cancelButtonTitle:@"Cancel Button" destructiveButtonTitle:nil otherButtonTitles: nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+   self.numbersList = [self.consulate.phone componentsSeparatedByString:@","];
+
+    for (NSString *btnName in self.numbersList) {
+        [popupQuery addButtonWithTitle:btnName];
+    }
+    [popupQuery showInView:self.view];
+    [popupQuery release];
+
+}
+
+- (void)openURL:(UIButton *)sender 
+{
+    if (sender.tag == 5) 
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.consulate.site]];
+    } 
+    else if (sender.tag == 3) 
+    {
+        [self showActionSheet];
+    }
+    else if (sender.tag == 4)
+    {
+        MailSender *sendEmail = [MailSender sharedMailSender];
+        sendEmail.vcId = self;
+        [sendEmail sendLogsToMail:self.consulate.email];
+    }
+}
 
 - (void)finedOnMap {
     
-    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 330, 200, 30)] autorelease];
+    UIButton *btnShowMap = [[[UIButton alloc] initWithFrame:CGRectMake(15, 350, 200, 30)] autorelease];
     
     btnShowMap.titleLabel.font = [UIFont systemFontOfSize:13];
-    //btnShowMap = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+
     [btnShowMap setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btnShowMap setTitle:NSLocalizedString(@"Посмотреть адресс на карте", nil) forState:UIControlStateNormal];
     [btnShowMap addTarget:self action:@selector(showConsulateOnTheMap) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:btnShowMap];
+    
+}
+
+- (void)addToolBarOnTheView
+{
+    
+    UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 376, self.view.frame.size.width, 40)] autorelease];
+    tb.tintColor = [AppStyle colorForNavigationBar];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *phoneBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    phoneBtn.tag = 3;
+    
+    UIBarButtonItem *emailBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    emailBtn.tag = 4;
+    
+    UIBarButtonItem *openUrlBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    openUrlBtn.tag = 5;
+    
+    [tb setItems:[NSArray arrayWithObjects:flexibleSpace, phoneBtn,flexibleSpace, emailBtn,flexibleSpace, openUrlBtn, flexibleSpace, nil]];
+    
+    
+    self.toolBar = tb;
+    [self.view addSubview:self.toolBar];
     
 }
 
@@ -176,11 +194,16 @@
     [headerLabel sizeToFit];
     
     [self addMainPartOfInformation];
-    [self finedOnMap];
+    //[self finedOnMap];
     [self.view addSubview:headerLabel];
     [self.view addSubview:iv];
     
     
+    UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithTitle:@"Show Map" style:UIBarButtonItemStyleBordered target:self action:@selector(showConsulateOnTheMap)] autorelease];
+    
+    self.navigationItem.rightBarButtonItem = showMapBtn;
+    
+    [self addToolBarOnTheView];
     
 }
 
@@ -188,6 +211,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.toolBar = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -214,6 +238,22 @@
     
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+#pragma makr ActionSheet delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex > 0) {
+        NSString *phoneNumber = [self.numbersList objectAtIndex:buttonIndex-1];
+        NSCharacterSet *backSpace = [NSCharacterSet characterSetWithCharactersInString:@" "];
+        NSCharacterSet *dash = [NSCharacterSet characterSetWithCharactersInString:@"-"];
+        phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet:backSpace] componentsJoinedByString:@""];
+        phoneNumber = [[phoneNumber componentsSeparatedByCharactersInSet: dash] componentsJoinedByString:@""];
+
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phoneNumber]]];
+    }
+
 }
 
 

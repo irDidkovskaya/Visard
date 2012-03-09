@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSString *img;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *text;
+@property (nonatomic, retain) UIToolbar *viewForSegmContr;
 
 - (void)setTextColorsForSegmentedControl:(UISegmentedControl*)segmented;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;

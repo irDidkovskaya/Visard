@@ -12,6 +12,7 @@
 @interface ConsulateLocationViewController : UIViewController <MKMapViewDelegate> {
     
     CLLocationCoordinate2D coord;
+
 }
 
 @property (nonatomic, retain) MKMapView *mapView;
@@ -22,4 +23,5 @@
 @property (nonatomic, retain) UIToolbar *toolBar;
 
 - (id)initWithLocationLatitute:(double)latitude longitude:(double)longitude;
+- (void)zoomToFitMapAnnotations:(MKMapView *)mapView;
 @end

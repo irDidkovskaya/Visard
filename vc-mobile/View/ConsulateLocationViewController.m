@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "MyPinAnnotation.h"
 #import "AppStyle.h"
+
 @implementation ConsulateLocationViewController
 @synthesize mapView, address, img, countryName, cityName, toolBar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,6 +27,7 @@
 {
     self = [super init];
     if (self) {
+        self.mapView.showsUserLocation = YES;
         coord.longitude = (CLLocationDegrees)longitude;
         coord.latitude = (CLLocationDegrees)latitude;
     }
@@ -77,9 +79,8 @@
     self.navigationItem.title = [NSString stringWithFormat:@"Консульство %@ d %@ на карте", self.countryName, self.cityName];
     self.mapView = [[[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 44)] autorelease]; 
     self.mapView.delegate = self; 
-    self.mapView.showsUserLocation = NO;
-    
-    
+    //self.mapView.showsUserLocation = YES;
+       
     [self addToolBar];
     
     MyPinAnnotation *ann = [[MyPinAnnotation alloc] initWithCoordinate:coord title:address];
@@ -88,28 +89,15 @@
     [self.mapView addAnnotation:ann];
     [ann release];
     
-    
-    
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 5.0; //0.2
-    span.longitudeDelta = 5.0;
-    
-    
-    CLLocationCoordinate2D coordCenter;
-    coordCenter.longitude = 11.469727; 
-    coordCenter.latitude = 51.096623;
-    region.span = span;
-    region.center = coordCenter;
-    
     [self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.1, 0.1))];
     
-    [mapView setRegion:region animated:YES];
-    [mapView regionThatFits:region];
+    [self zoomToFitMapAnnotations:self.mapView];
     
     [self.view addSubview:self.mapView];
     
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
+    //self.mapView.showsUserLocation = NO;
+    
 }
 
 
@@ -143,24 +131,23 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+    if ([annotation isKindOfClass:[MKUserLocation class]]) 
+    {
         return nil;
     }
     
+    
     MyPinAnnotation *ann = (id)annotation;
     
-    MKPinAnnotationView *annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+    MKPinAnnotationView *annView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
     annView.pinColor = MKPinAnnotationColorGreen;
     annView.animatesDrop = YES;
     annView.canShowCallout = YES;
-    annView.calloutOffset = CGPointMake(-5, 5);
     MKCoordinateRegion counsLocation;
     counsLocation.center.latitude = coord.latitude;
     counsLocation.center.longitude = coord.longitude;
-    //[self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.1, 0.1))];
-     [self.mapView setRegion:counsLocation animated:YES];
-    
-    if (ann.thumb) {
+    if (ann.thumb) 
+    {
         //NSString *file = [ann.thumb stringByAppendingPathExtension:@"jpg"];
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 23, 23)];
         iv.image = [UIImage imageNamed:self.img];
@@ -170,35 +157,65 @@
         [iv release];
     }
     
-    
-    return [annView autorelease];
+   
+    return annView;
 }
 
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+- (void)zoomToFitMapAnnotations:(MKMapView *)mapView
 {
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate animated:YES];
+    if([self.mapView.annotations count] == 0)
+        return;
+    
+    CLLocationCoordinate2D topLeftCoord;
+    topLeftCoord.latitude = -90;
+    topLeftCoord.longitude = 180;
+    
+    CLLocationCoordinate2D bottomRightCoord;
+    bottomRightCoord.latitude = 90;
+    bottomRightCoord.longitude = -180;
+    
+    for(MyPinAnnotation* annotation in self.mapView.annotations)
+    {
+        topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+        topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+        
+        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+    }
+    
+    MKCoordinateRegion region1;
+    region1.center.latitude = topLeftCoord.latitude -  (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+    region1.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+    region1.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.2f; // Add a little extra space on the sides
+    region1.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.2f; // Add a little extra space on the sides
+
+    if ([self.mapView.annotations count] == 1)
+    {
+        region1.span.latitudeDelta = 0.1; 
+        region1.span.longitudeDelta = 0.1;
+    }
+    region1 = [self.mapView regionThatFits:region1];
+    [self.mapView setRegion:region1 animated:YES];
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    [self zoomToFitMapAnnotations:self.mapView];
+}
+
+- (void)mapView:(MKMapView *)mp didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [self zoomToFitMapAnnotations:mp];
 }
 
 #pragma mark Action
 
 
-- (void)gotoLocation
-{
-    MKCoordinateRegion newRegion;
-    
-    CLLocation *userLocation = mapView.userLocation.location;
-    float latitude = userLocation.coordinate.latitude;
-    float longitude = userLocation.coordinate.latitude;
-    newRegion.center.latitude = (latitude + coord.latitude)/2;
-    newRegion.center.longitude = (longitude + coord.longitude)/2;
-    
-    [self.mapView setRegion:newRegion animated:YES];
-}
+
 
 - (void)showYourLocation {
     self.mapView.showsUserLocation = YES;
-    [self gotoLocation];
 }
 
 - (void)showRoute {
