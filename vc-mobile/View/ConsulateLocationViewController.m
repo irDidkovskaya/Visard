@@ -63,7 +63,7 @@
     
     UIBarButtonItem *yourLocatBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showYourLocation)];
    
-    UIBarButtonItem *showRouteBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(showRoute)];
+    UIBarButtonItem *showRouteBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"car.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showRoute)];
     
     
     //UIBarButtonItem *showRoute = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showRoute)];
@@ -83,9 +83,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = [NSString stringWithFormat:@"Консульство %@ d %@ на карте", self.countryName, self.cityName];
-    //self.mapView = [[[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 44)] autorelease]; 
-    //self.mapView.delegate = self; 
-    //self.mapView.showsUserLocation = YES;
+
        
     MapView *mapViewNew = [[[MapView alloc] initWithFrame:
                             CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height - 44)] autorelease];
@@ -110,7 +108,7 @@
     CLLocation *location = [locationManager location];
     CLLocationCoordinate2D coordinate = [location coordinate];
     Place *home = [[[Place alloc] init] autorelease];
-    home.name = @"You here";
+    home.name = @"Вы тут";
     home.description = @"";
     home.latitude = coordinate.latitude;
     home.longitude = coordinate.longitude;
@@ -121,20 +119,9 @@
     
     [self addToolBar];
     
-    //MyPinAnnotation *ann = [[MyPinAnnotation alloc] initWithCoordinate:coord title:address];
-    //ann.tag = 0;
-    //ann.thumb = p.thumb;
-    //[self.mapView addAnnotation:ann];
-    //[ann release];
-    
-    //[self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.1, 0.1))];
-    
-    //[self zoomToFitMapAnnotations:self.mapView];
-    
-    //[self.view addSubview:self.mapView];
     
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
-    //self.mapView.showsUserLocation = NO;
+
 
 }
 
@@ -169,54 +156,8 @@
 }
 
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MKUserLocation class]]) 
-    {
-        return nil;
-    }
-    
-    
-    MyPinAnnotation *ann = (id)annotation;
-    
-    MKPinAnnotationView *annView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
-    annView.pinColor = MKPinAnnotationColorGreen;
-    annView.animatesDrop = YES;
-    annView.canShowCallout = YES;
-    MKCoordinateRegion counsLocation;
-    counsLocation.center.latitude = coord.latitude;
-    counsLocation.center.longitude = coord.longitude;
-    if (ann.thumb) 
-    {
-        //NSString *file = [ann.thumb stringByAppendingPathExtension:@"jpg"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 23, 23)];
-        iv.image = [UIImage imageNamed:self.img];
-        iv.contentMode = UIViewContentModeScaleAspectFit;
-        //UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:file]];
-        annView.leftCalloutAccessoryView = iv;
-        [iv release];
-    }
-    
-   
-    return annView;
-}
-
-
-
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
-{
-    //[self zoomToFitMapAnnotations:self.mapView];
-}
-
-- (void)mapView:(MKMapView *)mp didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    //[self zoomToFitMapAnnotations:mp];
-}
 
 #pragma mark Action
-
-
-
 
 - (void)showYourLocation {
     //self.mapView.showsUserLocation = YES;
