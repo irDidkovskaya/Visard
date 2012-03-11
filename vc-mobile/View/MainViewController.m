@@ -54,6 +54,7 @@
 - (void)dealloc 
 {
     self.managedObjectContext = nil;
+    [super dealloc];
 }
 - (void)viewDidUnload
 {

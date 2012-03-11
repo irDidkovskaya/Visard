@@ -145,8 +145,11 @@
 - (void)addToolBarOnTheView
 {
     
-    UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 376, self.view.frame.size.width, 40)] autorelease];
+    UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 372, self.view.frame.size.width, 44)] autorelease];
     tb.tintColor = [AppStyle colorForNavigationBar];
+    
+    UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pin_map.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showConsulateOnTheMap)] autorelease];
+    
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *phoneBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
     phoneBtn.tag = 3;
@@ -157,7 +160,7 @@
     UIBarButtonItem *openUrlBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
     openUrlBtn.tag = 5;
     
-    [tb setItems:[NSArray arrayWithObjects:flexibleSpace, phoneBtn,flexibleSpace, emailBtn,flexibleSpace, openUrlBtn, flexibleSpace, nil]];
+    [tb setItems:[NSArray arrayWithObjects:flexibleSpace, showMapBtn, flexibleSpace, phoneBtn,flexibleSpace, emailBtn,flexibleSpace, openUrlBtn, flexibleSpace, nil]];
     
     
     self.toolBar = tb;
@@ -197,11 +200,6 @@
     //[self finedOnMap];
     [self.view addSubview:headerLabel];
     [self.view addSubview:iv];
-    
-    
-    UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithTitle:@"Show Map" style:UIBarButtonItemStyleBordered target:self action:@selector(showConsulateOnTheMap)] autorelease];
-    
-    self.navigationItem.rightBarButtonItem = showMapBtn;
     
     [self addToolBarOnTheView];
     
