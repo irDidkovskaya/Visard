@@ -36,12 +36,19 @@
     [super viewDidLoad];
 
     // Add button
-    UIBarButtonItem *addBtn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                                                             target:self 
-                                                                             action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
+//    UIBarButtonItem *addBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"] style:UIBarButtonItemStylePlain
+//                                                                             target:self 
+//                                                                             action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
+    
+    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [addBtn setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(showAddToFavoritesConfirmationAlert) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:addBtn] autorelease];
+    [addBtn release];
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     
-    self.navigationItem.rightBarButtonItem = addBtn;
+    //self.navigationItem.rightBarButtonItem = addBtn;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -16,10 +16,19 @@
     [super viewDidLoad];
     
     // Add to  favorites button
-    UIBarButtonItem *btn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                                                          target:self 
-                                                                          action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
-    self.navigationItem.rightBarButtonItem = btn;
+//    UIBarButtonItem *btn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"] style:UIBarButtonItemStylePlain 
+//                                                                          target:self 
+//                                                                          action:@selector(showAddToFavoritesConfirmationAlert)] autorelease];
+//    self.navigationItem.rightBarButtonItem = btn;
+    
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [btn setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(showAddToFavoritesConfirmationAlert) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    [btn release];
+    
 }
 
 #pragma mark - Nav Bar button actions

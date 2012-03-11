@@ -38,6 +38,8 @@
 		81DF2CF514CC5C9200F097CD /* Checkbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */; };
 		A070CF09150D0D8100CB38AF /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF07150D0D8100CB38AF /* car.png */; };
 		A070CF0A150D0D8100CB38AF /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF08150D0D8100CB38AF /* car@2x.png */; };
+		A070CF0C150D133700CB38AF /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF0B150D133700CB38AF /* favorite.png */; };
+		A070CF0E150D134900CB38AF /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF0D150D134900CB38AF /* favorite@2x.png */; };
 		A0725671150A227100B34981 /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = A0725670150A227100B34981 /* internet.png */; };
 		A0725673150A230D00B34981 /* internet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0725672150A230D00B34981 /* internet@2x.png */; };
 		A0725692150A490400B34981 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A0725691150A490400B34981 /* arrow.png */; };
@@ -511,6 +513,8 @@
 		81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_unchecked@2x.png"; sourceTree = "<group>"; };
 		A070CF07150D0D8100CB38AF /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		A070CF08150D0D8100CB38AF /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
+		A070CF0B150D133700CB38AF /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		A070CF0D150D134900CB38AF /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
 		A0725670150A227100B34981 /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = internet.png; sourceTree = "<group>"; };
 		A0725672150A230D00B34981 /* internet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "internet@2x.png"; sourceTree = "<group>"; };
 		A0725691150A490400B34981 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -1635,6 +1639,8 @@
 				A072568E150A479A00B34981 /* map */,
 				A085A8471508CB9E00B55C56 /* toolBar */,
 				A0893C9714BDE11400237ECD /* earth1.png */,
+				A070CF0D150D134900CB38AF /* favorite@2x.png */,
+				A070CF0B150D133700CB38AF /* favorite.png */,
 				A0893C9814BDE11400237ECD /* earth1@2x.png */,
 				A0893C9414BDDE6400237ECD /* earth@2x.png */,
 				A08627FF14A3711B0075D4BE /* mainBg.png */,
@@ -2097,6 +2103,8 @@
 				A0760235150CF2FC00631139 /* pin_map@2x.png in Resources */,
 				A070CF09150D0D8100CB38AF /* car.png in Resources */,
 				A070CF0A150D0D8100CB38AF /* car@2x.png in Resources */,
+				A070CF0C150D133700CB38AF /* favorite.png in Resources */,
+				A070CF0E150D134900CB38AF /* favorite@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
