@@ -132,10 +132,10 @@
 {
     Visa *currVisa = (Visa *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     
-    RequirementsCheckList *vc = [[RequirementsCheckList alloc] init];
-    vc.visaType = currVisa.type;
-    vc.countryName = currVisa.country.name;
-    vc.managedObjectContext = self.managedObjectContext;
+    RequirementsCheckList *vc = [[RequirementsCheckList alloc] initWithVisa:currVisa];
+//    vc.visaType = currVisa.type;
+//    vc.countryName = currVisa.country.name;
+//    vc.managedObjectContext = self.managedObjectContext;
     //vc.img = self.img;
     
     [self.navigationController pushViewController:vc animated:YES];

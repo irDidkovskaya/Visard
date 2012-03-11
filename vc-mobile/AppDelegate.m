@@ -113,6 +113,19 @@
     [self saveContext];
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSDictionary *ui = [notification userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AppDidReceiveLocalNotification" object:self userInfo:ui];
+    
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Remider", nil)
+                                                    message:[ui objectForKey:@"requirementName"] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:NSLocalizedString(@"OK", nil) 
+                                          otherButtonTitles:nil] autorelease];
+    [alert show];
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

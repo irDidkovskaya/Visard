@@ -11,12 +11,6 @@
 
 @interface RequirementsCheckList : RequirementsViewController
 
-//@property (nonatomic, copy) NSString *countryName;
-//@property (nonatomic, copy) NSString *visaType;
-//
-//@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-//@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-//
-//- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (id)initWithVisa:(Visa *)visa;
 
 @end

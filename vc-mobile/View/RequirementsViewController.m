@@ -12,8 +12,10 @@
 
 @implementation RequirementsViewController
 @synthesize visaType;
+@synthesize countryName;
 @synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext, countryName;
+@synthesize managedObjectContext;
+@synthesize expandedSections;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,7 +42,7 @@
     self.fetchedResultsController = nil;
     self.managedObjectContext = nil;
     self.countryName = nil;
-    [expandedSections release];
+    self.expandedSections = nil;
     
     [super dealloc];
 }
@@ -50,16 +52,11 @@
 {
     [super viewDidLoad];
     
-    if (!expandedSections)
+    if (!self.expandedSections)
     {
-        expandedSections = [[NSMutableIndexSet alloc] init];
-    }
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        NSMutableIndexSet *sections = [[[NSMutableIndexSet alloc] init] autorelease];
+        self.expandedSections = sections;
+    }    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -69,12 +66,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (BOOL)tableView:(UITableView *)tableView canCollapseSection:(NSInteger)section
-{
-    if (section > 0) return YES;
-    return NO;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -86,18 +77,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    if ([expandedSections containsIndex:section])
+    if ([self.expandedSections containsIndex:section])
     {
         return 2;
-    } else {
-        return 1;
     }
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = nil;
+    if (!indexPath.row) {
+        Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
+        cellText = requirement.name;
+        
+    } else {
+        Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
+        cellText = requirement.value;
+    }
+    UIFont *cellFont = [UIFont systemFontOfSize:13.0];
+    CGSize constraintSize = CGSizeMake(300.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
     
-    // Return the number of rows in the section.
-//    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-//    NSLog(@"[sectionInfo numberOfObjects] = %d", [sectionInfo numberOfObjects]);
-//    return [sectionInfo numberOfObjects];
+    return labelSize.height + 20.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,66 +118,65 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
+    NSLog(@"requirement.name = %@", requirement.name);
     
-    if (!indexPath.row) {
+    if (!indexPath.row)
+    {
+        // first row
+        //cell.textLabel.text = @"Expandable"; // only top row showing
+        cell.textLabel.text = requirement.name;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
-        Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
-        NSString *cellText = requirement.name;
-        
-        UIFont *cellFont = [UIFont systemFontOfSize:13.0];
-        CGSize constraintSize = CGSizeMake(320.0f, MAXFLOAT);
-        CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-        
-        return labelSize.height + 20.0f;
-        
+        if ([self.expandedSections containsIndex:indexPath.section]) {
+            cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeUp];
+        } else {
+            cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeDown];
+        }
     } else {
-        
-        Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
-        NSString *cellText = requirement.value;
-        
-        UIFont *cellFont = [UIFont systemFontOfSize:13.0];
-        CGSize constraintSize = CGSizeMake(320.0f, MAXFLOAT);
-        CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-        
-        return labelSize.height + 45.0f;
+        // all other rows
+        cell.textLabel.text = requirement.value;
+        cell.accessoryView = nil;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    //cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:13.0];
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    if ([self tableView:tableView canCollapseSection:indexPath.section])
-//    {
     if (!indexPath.row)
     {
         // only first row toggles exapand/collapse
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         NSInteger section = indexPath.section;
-        BOOL currentlyExpanded = [expandedSections containsIndex:section];
+        BOOL currentlyExpanded = [self.expandedSections containsIndex:section];
         NSInteger rows;
-        
         
         NSMutableArray *tmpArray = [NSMutableArray array];
         
         if (currentlyExpanded)
         {
             rows = [self tableView:tableView numberOfRowsInSection:section];
-            [expandedSections removeIndex:section];
+            [self.expandedSections removeIndex:section];
             
         }
         else
         {
-            [expandedSections addIndex:section];
+            [self.expandedSections addIndex:section];
             rows = [self tableView:tableView numberOfRowsInSection:section];
         }
         
         NSLog(@"rows = %d", rows);
-        for (int i=1; i<rows; i++)
+        for (int i = 1; i < rows; i++)
         {
             NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:i 
                                                            inSection:section];
@@ -200,8 +201,6 @@
             
         }
     }
-    //}
-                           
 }
 
 
@@ -308,36 +307,6 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
-}
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    Requirement *requirement = (Requirement *)[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.section];
-    NSLog(@"requirement.name = %@", requirement.name);
-    
-    if (!indexPath.row)
-    {
-        // first row
-        //cell.textLabel.text = @"Expandable"; // only top row showing
-        cell.textLabel.text = requirement.name;
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        
-        if ([expandedSections containsIndex:indexPath.section]) {
-            cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeUp];
-        } else {
-            cell.accessoryView = [VCustomAccessory accessoryWithColor:[UIColor grayColor] type:VCustomAccessoryTypeDown];
-        }
-    } else {
-        // all other rows
-        cell.textLabel.text = requirement.value;
-        cell.accessoryView = nil;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-    //cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont systemFontOfSize:13.0];
 }
 
 @end

@@ -33,6 +33,7 @@
         <attribute name="isDone" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isRequired" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="visa" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Visa" inverseName="requirements" inverseEntity="Visa" syncable="YES"/>
     </entity>
@@ -52,7 +53,7 @@
         <element name="Advice" positionX="252" positionY="36" width="128" height="90"/>
         <element name="Consulate" positionX="268" positionY="153" width="128" height="210"/>
         <element name="Country" positionX="81" positionY="189" width="128" height="180"/>
-        <element name="Requirement" positionX="-92" positionY="249" width="128" height="120"/>
+        <element name="Requirement" positionX="-92" positionY="261" width="128" height="135"/>
         <element name="User" positionX="72" positionY="36" width="128" height="90"/>
         <element name="Visa" positionX="-90" positionY="99" width="128" height="120"/>
     </elements>

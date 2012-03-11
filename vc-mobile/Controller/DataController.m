@@ -45,6 +45,15 @@
     return _sharedDataController;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRequirementWithNotification:) name:@"AppDidReceiveLocalNotification" object:nil];
+    }
+    return self;
+}
+
 - (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs {
     
     User *user = (User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
@@ -245,5 +254,82 @@
     }
 }
 
+- (void)updateRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withRemiderDate:(NSDate *)reminderDate
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Requirement" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"name == %@", requirementName];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"visa == %@", targetVisa];
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
+    
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *error = nil;
+    Requirement *targetRequirement = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
+    
+    if (targetRequirement) {
+        targetRequirement.reminderDate = reminderDate;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Problem saving MOC: %@", [error localizedDescription]);
+        }
+        NSLog(@"Requirement with name: %@ for visa:%@ for country: %@ reminder date: %@", requirementName, targetVisa.type, targetVisa.country.name, reminderDate);
+    }
+}
+
+- (void)scheduleRemiderForRequirementWithName:(NSString *)requirementName forVisa:(Visa *)targetVisa withRemiderDate:(NSDate *)remiderDate
+{
+    NSString *notificationId = [NSString stringWithFormat:@"%@_%@_%@", requirementName, targetVisa, targetVisa.country.name];
+    
+    // Cancel notification if it was scheduled before
+    for(UILocalNotification *notif in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        if([[notif.userInfo objectForKey:@"notificationId"] isEqualToString:notificationId]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:notif];
+            break;
+        }
+    }
+    if (remiderDate) {
+        
+        NSDictionary *notificationUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:notificationId, @"notificationId", requirementName, @"requirementName", targetVisa.type, @"visaType", targetVisa.country.name, @"countryName", nil];
+        UIApplication *app = [UIApplication sharedApplication];
+        
+        // Create a new notification.
+        UILocalNotification *alarm = [[[UILocalNotification alloc] init] autorelease];
+        if (alarm)
+        {
+            alarm.fireDate = remiderDate;
+            alarm.timeZone = [NSTimeZone defaultTimeZone];
+            alarm.repeatInterval = 0;
+            alarm.soundName = UILocalNotificationDefaultSoundName;
+            alarm.alertBody = NSLocalizedString(requirementName, nil);
+            alarm.userInfo = notificationUserInfo;
+            
+            [app scheduleLocalNotification:alarm];
+        }
+    } 
+}
+
+#pragma mark - Notification Handling
+
+- (void)updateRequirementWithNotification:(NSNotification *)note
+{
+    NSDictionary *ui = [note userInfo];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Visa" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predCountry = [NSPredicate predicateWithFormat:@"country.name == %@", [ui objectForKey:@"countryName"]];
+    NSPredicate *predVisa = [NSPredicate predicateWithFormat:@"type == %@", [ui objectForKey:@"visaType"]];
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predCountry, predVisa, nil]];
+    
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *error = nil;
+    Visa *targetVisa = [[self.managedObjectContext executeFetchRequest:fetchRequest error:&error] lastObject];
+    
+    [self updateRequirementWithName:[ui objectForKey:@"requirementName"] forVisa:targetVisa withRemiderDate:nil];
+}
 
 @end
