@@ -47,14 +47,15 @@
     MainViewController *countrySelectorVC = [[[MainViewController alloc] init] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:countrySelectorVC] autorelease];
     countrySelectorVC.managedObjectContext = self.managedObjectContext;
-    UITabBarItem *aTabBarItem = [[UITabBarItem alloc] init];
+    UITabBarItem *aTabBarItem = [[[UITabBarItem alloc] init] autorelease];
     aTabBarItem.title = NSLocalizedString(@"Главная", nil);
     aTabBarItem.image = [UIImage imageNamed:@"earth1.png"];
     self.navigationController.tabBarItem = aTabBarItem;
     //self.navigationController.tabBarItem = UITabBarSystemItemTopRated;
     
     FavoriteVisas *visasVC = [[[FavoriteVisas alloc] init] autorelease];
-    UITabBarItem *aTabBarItem2 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:1];
+    UITabBarItem *aTabBarItem2 = [[[UITabBarItem alloc] init] autorelease];
+    aTabBarItem2.image = [UIImage imageNamed:@"checkPoint.png"];
     UINavigationController *navContr = [[[UINavigationController alloc] initWithRootViewController:visasVC] autorelease];
     aTabBarItem2.title = NSLocalizedString(@"Выбранные", nil);
     navContr.tabBarItem = aTabBarItem2;
