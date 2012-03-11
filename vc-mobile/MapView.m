@@ -164,10 +164,10 @@
 
 -(void) showRoute {
 	
-	if([routes count]) {
-		[mapView removeAnnotations:[mapView annotations]];
-		[routes release];
-	}
+//	if([routes count]) {
+//		[mapView removeAnnotations:[mapView annotations]];
+//		[routes release];
+//	}
     
     if (mapView.showsUserLocation == NO) {
         [self showCurrentLocation];
