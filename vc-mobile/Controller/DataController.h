@@ -8,15 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "Visa.h"
+#import "JSONKit.h"
+
+typedef enum {
+    VisaCountrySheepNone,
+    VisaCountrySheepUkraine,
+    VisaCountrySheepRussia,
+} VisaCountrySheep;
 
 @interface DataController : NSObject
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, assign) VisaCountrySheep countrySheep;
+@property (nonatomic, retain) NSNumberFormatter *numberFormatter;
 
 
 + (DataController *)sharedDataController;
 - (void)saveUserToCoreData:(NSString *)userName countryShip:(NSString *)cs;
 - (BOOL)ifUserExist;
-- (void)updateCoreData;
+- (void)updateCoreDataWithCountrySheep:(VisaCountrySheep)csh;
 - (void)updateCoreDataWithDataArray:(NSArray *)dataArray;
 
 - (void)addToFavoritesCountryWithName:(NSString *)countryName;

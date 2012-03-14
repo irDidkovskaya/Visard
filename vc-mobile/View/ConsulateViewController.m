@@ -62,37 +62,58 @@
     
     NSArray *labelsDescriptionName = [NSArray arrayWithObjects:self.consulate.address, self.consulate.workTime,  self.consulate.price, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
     
-    CGRect rect = CGRectMake(15, 0, 0, 20);
+    CGRect rect = CGRectMake(15, 0, 280, 20);
     UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height - 120)] autorelease];
     
     for (int i = 0; i < [labelsTitleName count]; i++) 
     {
 
-        UILabel *titleName = [[[UILabel alloc] initWithFrame:rect] autorelease];
-        titleName.textColor = [UIColor blackColor];
-        titleName.backgroundColor = [UIColor clearColor];
-        titleName.text = [labelsTitleName objectAtIndex:i];
-        [titleName setFont:[UIFont boldSystemFontOfSize:14]];
-        [titleName sizeToFit];
-        [scrollView addSubview:titleName];
-        
-        rect.origin.y += titleName.frame.size.height + 2;
-        
-        UILabel *descriptionText = [[[UILabel alloc] initWithFrame:rect] autorelease];
-        descriptionText.textColor = [UIColor blackColor];
-        [descriptionText setFont:[UIFont systemFontOfSize:14]];
-        descriptionText.text = [labelsDescriptionName objectAtIndex:i];
-        [descriptionText sizeToFit];
-        
-        [scrollView addSubview:descriptionText];
-        
-        rect.origin.y += descriptionText.frame.size.height + 10;
+        if (![[labelsDescriptionName objectAtIndex:i] isEqualToString:@""])
+        {
+            CGSize constraintSize = CGSizeMake(280, MAXFLOAT);
+            CGSize labelSize = [[labelsTitleName objectAtIndex:i] sizeWithFont:[UIFont boldSystemFontOfSize:14] constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+            float height = labelSize.height;  
+            rect.size.height = height;
+            UILabel *titleName = [[[UILabel alloc] initWithFrame:rect] autorelease];
+            titleName.numberOfLines = 0;
+            titleName.textColor = [UIColor blackColor];
+            titleName.backgroundColor = [UIColor clearColor];
+            titleName.text = [labelsTitleName objectAtIndex:i];
+            [titleName setFont:[UIFont boldSystemFontOfSize:14]];
+            
+            
+            
+            
+            
+            //[titleName sizeToFit];
+            [scrollView addSubview:titleName];
+            
+            rect.origin.y += titleName.frame.size.height + 2;
+            
+            
+            CGSize descriptionSize = [[labelsTitleName objectAtIndex:i] sizeWithFont:[UIFont boldSystemFontOfSize:14] constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+            float heightOfdescription = descriptionSize.height;  
+            rect.size.height = heightOfdescription;
+            
+            UILabel *descriptionLabel = [[[UILabel alloc] initWithFrame:rect] autorelease];
+            descriptionLabel.numberOfLines = 0;
+            descriptionLabel.lineBreakMode = UILineBreakModeWordWrap;
+            descriptionLabel.textColor = [UIColor blackColor];
+            [descriptionLabel setFont:[UIFont systemFontOfSize:14]];
+            descriptionLabel.text = [labelsDescriptionName objectAtIndex:i];
+            
+            [descriptionLabel sizeToFit];
+            
+            [scrollView addSubview:descriptionLabel];
+            
+            rect.origin.y += descriptionLabel.frame.size.height + 10;
+        }
         
     }
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, rect.origin.y+80);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, rect.origin.y+88);
     [self.view addSubview:scrollView];
-     
+    
 }
 
 - (void)showActionSheet 
@@ -160,7 +181,22 @@
     UIBarButtonItem *openUrlBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
     openUrlBtn.tag = 5;
     
-    [tb setItems:[NSArray arrayWithObjects:flexibleSpace, showMapBtn, flexibleSpace, phoneBtn,flexibleSpace, emailBtn,flexibleSpace, openUrlBtn, flexibleSpace, nil]];
+    
+    NSArray *arrayWithButtons = [NSArray arrayWithObjects:showMapBtn, phoneBtn, emailBtn, openUrlBtn, nil];
+    NSArray *arrayWithInfo = [NSArray arrayWithObjects:self.consulate.address, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
+    NSMutableArray *validButtons = [NSMutableArray array];
+    NSLog(@"arrayWithButtons = %@", arrayWithButtons);
+    for (int i = 0; i < [arrayWithButtons count]; i++) {
+        
+        if (![[arrayWithInfo objectAtIndex:i] isEqualToString:@""])
+        {
+            [validButtons addObject:flexibleSpace];
+            [validButtons addObject:[arrayWithButtons objectAtIndex:i]];
+        }
+    }
+    NSLog(@"validButtons = %@", validButtons);
+    [validButtons addObject:flexibleSpace];
+    [tb setItems:validButtons];
     
     
     self.toolBar = tb;

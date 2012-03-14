@@ -78,6 +78,11 @@
 {
     [super viewDidLoad];
     
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+    
     //NSLog(@"fetched objects: %@", self.fetchedResultsController.fetchedObjects);
     
     self.navigationItem.title = self.name;

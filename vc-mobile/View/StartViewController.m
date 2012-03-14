@@ -13,7 +13,8 @@
 #import "AppStyle.h"
 
 @implementation StartViewController
-@synthesize nameField, countryField;
+
+@synthesize nameField, countryField, pickerView, toolBar, countrySheeps, countrySheep, countrySheepID;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
@@ -55,6 +56,26 @@
     
     self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
     self.tableView.tableHeaderView = [self headerView];
+    self.tableView.userInteractionEnabled = YES;
+    self.tableView.scrollEnabled = NO;
+    UIPickerView *myPickerView = [[[UIPickerView alloc] initWithFrame:CGRectMake(0.0, 460+44, 320.0, 216.0)] autorelease];
+    myPickerView.showsSelectionIndicator = YES;
+    //myPickerView.dataSource = self;
+    myPickerView.delegate = self;
+    self.pickerView = myPickerView;
+    [self.tableView addSubview:self.pickerView];
+    
+    
+    UIToolbar *myToolBar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 460, 320, 44)] autorelease];
+    //toolBar.tintColor = [AppStyle colorForNavigationBar];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hidePickerController)];
+    [myToolBar setItems:[NSArray arrayWithObjects:doneBtn, nil]];
+    self.toolBar = myToolBar;
+    [self.tableView addSubview:self.toolBar];
+    
+    self.countrySheeps = [NSArray arrayWithObjects:@"Украина", @"Россия", nil];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,10 +89,21 @@
     [super viewDidUnload];
     self.nameField = nil;
     self.countryField = nil;
+    self.pickerView = nil;
     
     
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)dealloc
+{
+    self.nameField = nil;
+    self.countryField = nil;
+    self.pickerView = nil;
+    self.countrySheep = nil;
+    self.countrySheeps = nil;
+    [super dealloc];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -133,15 +165,17 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(10, 15, 280, 30)] autorelease];
+        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 35, 280, 25)] autorelease];
         tf.delegate = self;
+        tf.backgroundColor = [UIColor clearColor];
         tf.placeholder = NSLocalizedString(@"Ваше Имя", nil);
         self.nameField = tf;
         cell.accessoryView = self.nameField;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
-        tf.delegate = self;
-        tf.placeholder = NSLocalizedString(@"Гражданство", nil);
+        UILabel *tf = [[[UILabel alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
+        tf.textColor = [UIColor lightGrayColor];
+        tf.backgroundColor = [UIColor clearColor];
+        tf.text = NSLocalizedString(@"Выберите гражданство", nil);
         self.countryField = tf;
         cell.accessoryView = self.countryField;
     } else {
@@ -159,10 +193,7 @@
         cell.backgroundView = btn;
         
     }
-    
-    
-    
-    
+
     return cell;
 }
 
@@ -209,13 +240,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if (indexPath.section == 1) {
+   if (indexPath.section == 0 && indexPath.row == 1) 
+   {
+       
+       [UIView animateWithDuration:0.5 
+                        animations:^{
+                            self.pickerView.frame = CGRectMake(0, 264, 320, 216);
+                            self.toolBar.frame = CGRectMake(0, 264-44, 320, 44);
+                            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                        } completion:^(BOOL finished){
+                            self.countrySheep = [self.countrySheeps objectAtIndex:0];
+                            self.countrySheepID = VisaCountrySheepUkraine;
+                            
+                            
+                        }];
+       
+       [self.nameField resignFirstResponder];
+       
+   } else if (indexPath.section == 1) 
+   {
         
         [self openCountryList];
     }
 }
 
+
+- (void)hidePickerController 
+{
+    [UIView animateWithDuration:0.5 
+                     animations:^{
+                         self.pickerView.frame = CGRectMake(0, 460+44, 320, 216);
+                         self.toolBar.frame = CGRectMake(0, 460, 320, 44);
+                         self.countryField.textColor = [UIColor blackColor];
+                         self.countryField.text = self.countrySheep;
+                     } completion:^(BOOL finished){
+                         
+                     }];
+}
 
 #pragma mark Action 
 
@@ -223,6 +284,8 @@
 
     DataController *dc = [DataController sharedDataController];
     [dc saveUserToCoreData:nameField.text countryShip:self.countryField.text];
+    
+    [dc updateCoreDataWithCountrySheep:self.countrySheepID];
     
     [self dismissModalViewControllerAnimated:YES];
     
@@ -235,5 +298,41 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+
+#pragma mark UIPickerViewController
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    self.countrySheep = [self.countrySheeps objectAtIndex:row];
+    self.countrySheepID = row+1;
+    NSLog(@"self.countrySheepI = %d", self.countrySheepID);
+}
+
+// tell the picker how many rows are available for a given component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    NSUInteger numRows = [self.countrySheeps count];
+    
+    return numRows;
+}
+
+// tell the picker how many components it will have
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+// tell the picker the title for a given component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *title;
+    title = [self.countrySheeps objectAtIndex:row];
+    
+    return title;
+}
+
+// tell the picker the width of each row for a given component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 300;
+    
+    return sectionWidth;
+}
+
 
 @end

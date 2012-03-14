@@ -13,7 +13,7 @@
 #import "Reachability.h"
 #import "DataController.h"
 
-NSString * const baseURLString = @"http://visard.com/";
+NSString * const baseURLString = @"http://xenon.net.ua/projects/visard/package";
 
 static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSStringEncoding encoding) {
     static NSString * const kAFLegalCharactersToBeEscaped = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\|~ ";
@@ -170,17 +170,35 @@ static NSString * AFURLEncodedStringFromStringWithEncoding(NSString *string, NSS
 - (void)loadData
 {
     // Заглушка
-    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"CountriesList3" ofType:@"json"];
-    NSData* jsonData = [NSData dataWithContentsOfFile:countriesListFilePath];
+//    NSString *countriesListFilePath = [[NSBundle mainBundle] pathForResource:@"CountriesList3" ofType:@"json"];
+//    NSData* jsonData = [NSData dataWithContentsOfFile:countriesListFilePath];
     
     // End Заглушка
+    NSString *path = @"pkg.json";
+    [self getPath:path 
+       parameters:nil success:^(NSHTTPURLResponse *response, id object) {
+           NSLog(@"[response statusCode] = %d", [response statusCode]);
+           NSDictionary *userInfo = [NSDictionary dictionaryWithObject:object forKey:@"loadedData"];
+           dispatch_async(dispatch_get_main_queue(), ^{
+               [[NSNotificationCenter defaultCenter] postNotificationName:@"DataLoaded" object:self userInfo:userInfo];
+           });
+       } failure:^(NSHTTPURLResponse *response, id jsonObject, NSError *error) {
+           dispatch_async(dispatch_get_main_queue(), ^{
+               NSLog(@"[response statusCode] = %d", [response statusCode]);
+
+               [[NSNotificationCenter defaultCenter] postNotificationName:@"DataLoadFailed" object:self];
+           });
+       }];
+
     
-    JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionNone];
-    NSArray *countriesList = [decoder objectWithData:jsonData];
-//    NSLog(@"All the Data: %@", countriesList);
-    if ([countriesList count]) {
-        [[DataController sharedDataController] updateCoreDataWithDataArray:countriesList];
-    }
+    
+    
+//    JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionNone];
+//    NSArray *countriesList = [decoder objectWithData:jsonData];
+////    NSLog(@"All the Data: %@", countriesList);
+//    if ([countriesList count]) {
+//        [[DataController sharedDataController] updateCoreDataWithDataArray:countriesList];
+//    }
 }
 
 @end

@@ -71,7 +71,7 @@
     [self.window makeKeyAndVisible];
     
     DataController *dc = [DataController sharedDataController];
-    [dc updateCoreData];
+    //[dc updateCoreData];
     if (![dc ifUserExist]) {
        [self showStartViewController];
     }
