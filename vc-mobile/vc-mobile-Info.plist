@@ -11,6 +11,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon.png</string>
+		<string>icon@2x.png</string>
 	</array>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
