@@ -119,23 +119,28 @@
     switch (indexPath.row) {
         case 0: {
             cell.textLabel.text = NSLocalizedString(@"Поиск по странам", nil);
+            cell.imageView.image = [UIImage imageNamed:@"search.png"];
         }
             break;
         case 1: {
             cell.textLabel.text = NSLocalizedString(@"Безвизовые", nil);
+            cell.imageView.image = [UIImage imageNamed:@"noVisa.png"];
         }
             break;
         case 2: {
             cell.textLabel.text = NSLocalizedString(@"Визовые", nil);
+            cell.imageView.image = [UIImage imageNamed:@"Visa.png"];
         }
             break;
         case 3: {
             cell.textLabel.text = NSLocalizedString(@"Шенген", nil);
+            cell.imageView.image = [UIImage imageNamed:@"eu.png"];
         }
             break;
             
         case 4: {
             cell.textLabel.text = NSLocalizedString(@"Избранное", nil);
+            cell.imageView.image = [UIImage imageNamed:@"favorit.png"];
         }
             break;
             

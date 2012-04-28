@@ -397,6 +397,11 @@
 		A0893C9514BDDE6400237ECD /* earth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9414BDDE6400237ECD /* earth@2x.png */; };
 		A0893C9914BDE11400237ECD /* earth1.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9714BDE11400237ECD /* earth1.png */; };
 		A0893C9A14BDE11400237ECD /* earth1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0893C9814BDE11400237ECD /* earth1@2x.png */; };
+		A09FAD0D154C2D4A00F32D54 /* eu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A09FAD09154C2D4A00F32D54 /* eu@2x.png */; };
+		A09FAD0E154C2D4A00F32D54 /* favorit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A09FAD0A154C2D4A00F32D54 /* favorit@2x.png */; };
+		A09FAD0F154C2D4A00F32D54 /* noVisa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A09FAD0B154C2D4A00F32D54 /* noVisa@2x.png */; };
+		A09FAD10154C2D4A00F32D54 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A09FAD0C154C2D4A00F32D54 /* search@2x.png */; };
+		A09FAD13154C2D7A00F32D54 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A09FAD12154C2D7A00F32D54 /* Visa@2x.png */; };
 		A0CB4E9D14A7A0DA007E3D75 /* VCustomAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */; };
 		A0CBED00149DEBA2000C1A6F /* CountriesList2.json in Resources */ = {isa = PBXBuildFile; fileRef = A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */; };
 		A0CBED34149DFCD0000C1A6F /* at.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CBED0C149DFCD0000C1A6F /* at.png */; };
@@ -887,6 +892,11 @@
 		A0893C9414BDDE6400237ECD /* earth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth@2x.png"; sourceTree = "<group>"; };
 		A0893C9714BDE11400237ECD /* earth1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth1.png; sourceTree = "<group>"; };
 		A0893C9814BDE11400237ECD /* earth1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth1@2x.png"; sourceTree = "<group>"; };
+		A09FAD09154C2D4A00F32D54 /* eu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eu@2x.png"; sourceTree = "<group>"; };
+		A09FAD0A154C2D4A00F32D54 /* favorit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorit@2x.png"; sourceTree = "<group>"; };
+		A09FAD0B154C2D4A00F32D54 /* noVisa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noVisa@2x.png"; sourceTree = "<group>"; };
+		A09FAD0C154C2D4A00F32D54 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		A09FAD12154C2D7A00F32D54 /* Visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Visa@2x.png"; sourceTree = "<group>"; };
 		A0CB4E9B14A7A0DA007E3D75 /* VCustomAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCustomAccessory.h; sourceTree = "<group>"; };
 		A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCustomAccessory.m; sourceTree = "<group>"; };
 		A0CBECFF149DEBA2000C1A6F /* CountriesList2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CountriesList2.json; path = Resources/CountriesList2.json; sourceTree = "<group>"; };
@@ -1640,6 +1650,11 @@
 		A0FE8619149CE8FA007C578B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A09FAD12154C2D7A00F32D54 /* Visa@2x.png */,
+				A09FAD09154C2D4A00F32D54 /* eu@2x.png */,
+				A09FAD0A154C2D4A00F32D54 /* favorit@2x.png */,
+				A09FAD0B154C2D4A00F32D54 /* noVisa@2x.png */,
+				A09FAD0C154C2D4A00F32D54 /* search@2x.png */,
 				A0436797151368B70074D929 /* icon.png */,
 				A0436798151368B70074D929 /* icon@2x.png */,
 				A072568E150A479A00B34981 /* map */,
@@ -2113,6 +2128,11 @@
 				A070CF16150D206200CB38AF /* checkPoint@2x.png in Resources */,
 				A0436799151368B70074D929 /* icon.png in Resources */,
 				A043679A151368B70074D929 /* icon@2x.png in Resources */,
+				A09FAD0D154C2D4A00F32D54 /* eu@2x.png in Resources */,
+				A09FAD0E154C2D4A00F32D54 /* favorit@2x.png in Resources */,
+				A09FAD0F154C2D4A00F32D54 /* noVisa@2x.png in Resources */,
+				A09FAD10154C2D4A00F32D54 /* search@2x.png in Resources */,
+				A09FAD13154C2D7A00F32D54 /* Visa@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

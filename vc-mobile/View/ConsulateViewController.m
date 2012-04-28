@@ -118,7 +118,7 @@
 
 - (void)showActionSheet 
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Title" delegate:self cancelButtonTitle:@"Cancel Button" destructiveButtonTitle:nil otherButtonTitles: nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Cancel" otherButtonTitles: nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     
    self.numbersList = [self.consulate.phone componentsSeparatedByString:@","];

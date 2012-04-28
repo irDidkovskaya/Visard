@@ -75,51 +75,50 @@
 {	
     
 	NSString *resultString;
+
 	// Notifies users about errors associated with the interface
 	switch (result)
 	{
-		case MFMailComposeResultCancelled:
-			resultString = NSLocalizedString(@"Результат: Отправка письма отменена", nil);
-			break;
-		case MFMailComposeResultSaved:
-			resultString = NSLocalizedString(@"Результат: Ваше письмо не было сохранено", nil);
-			break;
-		case MFMailComposeResultSent:
-			resultString = NSLocalizedString(@"Результат: Ваше письмо было отправлено", nil);
-			break;
 		case MFMailComposeResultFailed:
+        {
+            UIAlertView *alert = [[[UIAlertView alloc] init] autorelease];
+            [alert setTitle:NSLocalizedString(@"Результат", nil)];
+            [alert setMessage:resultString];
+            [alert setDelegate:self];
+            [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
 			resultString = NSLocalizedString(@"Результат: Ошибка при отправлении письма", nil);
+            [alert show];
+        }
 			break;
 		default:
-			resultString = NSLocalizedString(@"Результат: Ваше письмо не было отправлено", nil);
 			break;
 	}
     
+    if (self.vcId) {
+        
+        [self.vcId dismissModalViewControllerAnimated:YES];
+        self.vcId = nil;
+    } else {
+        NSLog(@"CurrentVC isn't setup"); 
+    }
     
-    UIAlertView *alert = [[UIAlertView alloc] init];
-	[alert setTitle:NSLocalizedString(@"Результат", nil)];
-	[alert setMessage:resultString];
-	[alert setDelegate:self];
-	[alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
-	[alert show];
-	[alert release];
     
 }
 
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0)
-    {
-        if (self.vcId) {
-        
-            [self.vcId dismissModalViewControllerAnimated:YES];
-            self.vcId = nil;
-        } else {
-            NSLog(@"CurrentVC isn't setup"); 
-        }
-        
-    }
+//    if (buttonIndex == 0)
+//    {
+//        if (self.vcId) {
+//        
+//            [self.vcId dismissModalViewControllerAnimated:YES];
+//            self.vcId = nil;
+//        } else {
+//            NSLog(@"CurrentVC isn't setup"); 
+//        }
+//        
+//    }
 }
 
 - (void)dismissModalViewControllerAnimated {

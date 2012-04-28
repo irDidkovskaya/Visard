@@ -41,7 +41,6 @@
     
      [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    
     UITabBarController *tbc = [[[UITabBarController alloc] init] autorelease];
 
     MainViewController *countrySelectorVC = [[[MainViewController alloc] init] autorelease];
@@ -77,6 +76,9 @@
     }
     return YES;
 }
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
