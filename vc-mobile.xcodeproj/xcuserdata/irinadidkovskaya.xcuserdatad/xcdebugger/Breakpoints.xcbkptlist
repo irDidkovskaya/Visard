@@ -106,7 +106,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "vc-mobile/View/ConsulateViewController.m"
-         timestampString = "353355552.252675"
+         timestampString = "357823958.293421"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "198"
@@ -119,7 +119,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "vc-mobile/View/ConsulateViewController.m"
-         timestampString = "353355552.252675"
+         timestampString = "357823958.293421"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "193"
@@ -132,25 +132,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "vc-mobile/View/ConsulateViewController.m"
-         timestampString = "353355552.252675"
+         timestampString = "357823958.293421"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "189"
          endingLineNumber = "189"
          landmarkName = "-addToolBarOnTheView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "vc-mobile/Controller/DataController.m"
-         timestampString = "353354682.419284"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
-         landmarkName = "-updateCoreDataWithDataArray:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

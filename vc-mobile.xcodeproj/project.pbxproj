@@ -38,6 +38,9 @@
 		81DF2CF514CC5C9200F097CD /* Checkbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */; };
 		A0436799151368B70074D929 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A0436797151368B70074D929 /* icon.png */; };
 		A043679A151368B70074D929 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0436798151368B70074D929 /* icon@2x.png */; };
+		A044CFB21552A15D0010F827 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A044CFB11552A15D0010F827 /* bg@2x.png */; };
+		A044CFB91552AE280010F827 /* MYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A044CFB81552AE280010F827 /* MYTextField.m */; };
+		A044CFBB1552CE3A0010F827 /* startBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A044CFBA1552CE390010F827 /* startBg@2x.png */; };
 		A070CF09150D0D8100CB38AF /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF07150D0D8100CB38AF /* car.png */; };
 		A070CF0A150D0D8100CB38AF /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF08150D0D8100CB38AF /* car@2x.png */; };
 		A070CF0C150D133700CB38AF /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A070CF0B150D133700CB38AF /* favorite.png */; };
@@ -520,6 +523,10 @@
 		81DF2CF114CC5C9200F097CD /* Checkbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_unchecked@2x.png"; sourceTree = "<group>"; };
 		A0436797151368B70074D929 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A0436798151368B70074D929 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		A044CFB11552A15D0010F827 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		A044CFB51552A6C60010F827 /* MYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYTextField.h; path = Libraries/textField/MYTextField.h; sourceTree = "<group>"; };
+		A044CFB81552AE280010F827 /* MYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYTextField.m; path = Libraries/textField/MYTextField.m; sourceTree = "<group>"; };
+		A044CFBA1552CE390010F827 /* startBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startBg@2x.png"; sourceTree = "<group>"; };
 		A070CF07150D0D8100CB38AF /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		A070CF08150D0D8100CB38AF /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
 		A070CF0B150D133700CB38AF /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
@@ -998,6 +1005,7 @@
 		81A6D011149CBBC600D0714A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				A044CFB41552A66A0010F827 /* textField */,
 				A0CB4E9B14A7A0DA007E3D75 /* VCustomAccessory.h */,
 				A0CB4E9C14A7A0DA007E3D75 /* VCustomAccessory.m */,
 				A0FE864F149D3963007C578B /* UISegmentedControl+CustomTintExtension.h */,
@@ -1063,6 +1071,15 @@
 				A0FE8619149CE8FA007C578B /* images */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A044CFB41552A66A0010F827 /* textField */ = {
+			isa = PBXGroup;
+			children = (
+				A044CFB51552A6C60010F827 /* MYTextField.h */,
+				A044CFB81552AE280010F827 /* MYTextField.m */,
+			);
+			name = textField;
 			sourceTree = "<group>";
 		};
 		A072568E150A479A00B34981 /* map */ = {
@@ -1650,6 +1667,8 @@
 		A0FE8619149CE8FA007C578B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A044CFBA1552CE390010F827 /* startBg@2x.png */,
+				A044CFB11552A15D0010F827 /* bg@2x.png */,
 				A09FAD12154C2D7A00F32D54 /* Visa@2x.png */,
 				A09FAD09154C2D4A00F32D54 /* eu@2x.png */,
 				A09FAD0A154C2D4A00F32D54 /* favorit@2x.png */,
@@ -2133,6 +2152,8 @@
 				A09FAD0F154C2D4A00F32D54 /* noVisa@2x.png in Resources */,
 				A09FAD10154C2D4A00F32D54 /* search@2x.png in Resources */,
 				A09FAD13154C2D7A00F32D54 /* Visa@2x.png in Resources */,
+				A044CFB21552A15D0010F827 /* bg@2x.png in Resources */,
+				A044CFBB1552CE3A0010F827 /* startBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2187,6 +2208,7 @@
 				A076021E150BBA3A00631139 /* PlaceMark.m in Sources */,
 				A0760221150BC09C00631139 /* MapView.m in Sources */,
 				A0760231150BD62A00631139 /* RegexKitLite.m in Sources */,
+				A044CFB91552AE280010F827 /* MYTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

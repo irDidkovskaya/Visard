@@ -11,6 +11,16 @@
 @interface AppStyle : NSObject
 
 + (UIColor *)colorForNavigationBar;
+
 + (UIColor *)colorForSearchBar;
 
++ (UIColor *)colorForSeparatorInTable;
+
++ (UIColor *)blueColorForText;
+
++ (UIColor *)colorForCellStartView;
+
++ (UIColor *)backgroundColor;
+
++ (UIColor *)colorForToolBar;
 @end

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DataController.h"
+#import "MYTextField.h"
 @interface StartViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate, UIActionSheetDelegate>
 
 
 
-@property (nonatomic, retain) UITextField *nameField;
+@property (nonatomic, retain) MYTextField *nameField;
 @property (nonatomic, retain) UILabel *countryField;
 @property (nonatomic, retain) UIPickerView *pickerView;
 @property (nonatomic, retain) UIToolbar *toolBar;

@@ -63,7 +63,11 @@
     NSArray *labelsDescriptionName = [NSArray arrayWithObjects:self.consulate.address, self.consulate.workTime,  self.consulate.price, self.consulate.phone, self.consulate.email, self.consulate.site, nil];
     
     CGRect rect = CGRectMake(15, 0, 280, 20);
-    UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height - 120)] autorelease];
+    UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:CGRectMake(15, 110, self.view.frame.size.width-30, 240)] autorelease];
+    scrollView.backgroundColor = [UIColor whiteColor];
+    scrollView.layer.borderWidth = 1;
+    scrollView.layer.borderColor = [AppStyle colorForSeparatorInTable].CGColor;
+    scrollView.layer.cornerRadius = 5;
     
     for (int i = 0; i < [labelsTitleName count]; i++) 
     {
@@ -80,10 +84,6 @@
             titleName.backgroundColor = [UIColor clearColor];
             titleName.text = [labelsTitleName objectAtIndex:i];
             [titleName setFont:[UIFont boldSystemFontOfSize:14]];
-            
-            
-            
-            
             
             //[titleName sizeToFit];
             [scrollView addSubview:titleName];
@@ -111,7 +111,7 @@
         
     }
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, rect.origin.y+88);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width-30, rect.origin.y);
     [self.view addSubview:scrollView];
     
 }
@@ -167,7 +167,7 @@
 {
     
     UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 372, self.view.frame.size.width, 44)] autorelease];
-    tb.tintColor = [AppStyle colorForNavigationBar];
+    tb.tintColor = [AppStyle colorForToolBar];
     
     UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pin_map.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showConsulateOnTheMap)] autorelease];
     
@@ -209,25 +209,29 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [AppStyle backgroundColor];
     
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     self.navigationItem.title = self.countryName;
     
-    UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 132, 88)] autorelease];
+    UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 105, 70)] autorelease];
     iv.layer.borderWidth = 1;
-    iv.layer.borderColor = [UIColor blackColor].CGColor;
-    
+    iv.layer.borderColor = [AppStyle colorForSeparatorInTable].CGColor;
+    iv.layer.cornerRadius = 5;
+    iv.layer.masksToBounds = YES;
+    iv.layer.shadowOffset = CGSizeMake(0, 1);
+    iv.layer.shadowColor = [UIColor whiteColor].CGColor;
     [iv setImage:[UIImage imageNamed:self.img]];
     
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(160, 25, 0, 0)];
-    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 20, 0, 0)];
+    headerLabel.shadowOffset = CGSizeMake(0, 1);
+    headerLabel.shadowColor = [AppStyle colorForSeparatorInTable];
     NSString *consolateGen = NSLocalizedString(@"Консульство", nil);
     headerLabel.text = [NSString stringWithFormat:@"%@\n%@ в\n%@" ,consolateGen, self.countryName, self.consulate.city];
-    
-    headerLabel.numberOfLines = 10;
-    
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.numberOfLines = 5;
+    headerLabel.textColor = [UIColor whiteColor];
     [headerLabel setFont:[UIFont boldSystemFontOfSize:15]];
     
     [headerLabel sizeToFit];
@@ -260,17 +264,21 @@
 
 - (void)showConsulateOnTheMap {
     
-    
     NSNumber *lalitude = self.consulate.latitude;
     NSNumber *longitude = self.consulate.longitude;
+    NSString *link = [NSString stringWithFormat:@"maps://maps.google.com/maps?saddr=%@,%@&daddr=%@,%@&z=17", lalitude, longitude, lalitude, longitude];
     
-    ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
-    vc.img = self.img;
-    vc.address = self.consulate.address;
-    vc.countryName = self.countryName;
-    vc.cityName = self.consulate.city;
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+//    NSNumber *lalitude = self.consulate.latitude;
+//    NSNumber *longitude = self.consulate.longitude;
+//    
+//    ConsulateLocationViewController *vc = [[ConsulateLocationViewController alloc] initWithLocationLatitute:[lalitude doubleValue] longitude:[longitude doubleValue]];
+//    vc.img = self.img;
+//    vc.address = self.consulate.address;
+//    vc.countryName = self.countryName;
+//    vc.cityName = self.consulate.city;
+//    
+//    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

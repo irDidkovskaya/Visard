@@ -35,20 +35,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+    
+    self.tableView.separatorColor = [AppStyle colorForSeparatorInTable];
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     self.navigationItem.title = NSLocalizedString(@"Visard", nil);
     
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBg.png"]];
+//    self.navigationController.navigationBarHidden = YES;
     
-    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)] autorelease];
+    self.tableView.backgroundColor = [AppStyle backgroundColor];
+    
+    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)] autorelease];
     self.tableView.tableHeaderView = headerView;
     
-    // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)dealloc 
@@ -66,21 +69,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+//    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -149,6 +157,18 @@
     }
     
     return cell;
+}
+
+
+
+- (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 #pragma mark - Table view delegate

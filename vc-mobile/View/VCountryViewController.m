@@ -87,7 +87,7 @@
     
     self.navigationItem.title = self.name;
     UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 372, self.view.frame.size.width, 44)] autorelease];
-    tb.tintColor = [AppStyle colorForNavigationBar];
+    tb.tintColor = [AppStyle colorForToolBar];
 
     self.viewForSegmContr = tb;
     NSArray *itemArray = [NSArray arrayWithObjects: NSLocalizedString(@"Консульство", nil) , NSLocalizedString(@"Требование", nil), NSLocalizedString(@"Советы", nil), nil];
@@ -95,7 +95,7 @@
     segmentedControl.frame = CGRectMake(10, 7, 300, 30);
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = [AppStyle colorForNavigationBar];
+    segmentedControl.tintColor = [AppStyle colorForToolBar];
     [segmentedControl addTarget:self
 	                     action:@selector(pickOne:)
 	           forControlEvents:UIControlEventValueChanged];

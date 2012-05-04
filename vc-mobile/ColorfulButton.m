@@ -34,7 +34,7 @@
         [self addObserver:self forKeyPath:@"highlighted" options:NSKeyValueObservingOptionNew context:NULL];
         
         self.layer.borderWidth = 1;
-        self.layer.borderColor = [[UIColor colorWithRed:11/255.0 green:121/255.0 blue:5/255.0 alpha:1] CGColor];
+        self.layer.borderColor = [[UIColor colorWithRed:1/255.0 green:64/255.0 blue:135/255.0 alpha:1] CGColor];
         self.layer.cornerRadius = 7;
         self.layer.masksToBounds = YES;
         

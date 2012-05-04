@@ -37,12 +37,12 @@
 - (UIView *)headerView {
     
     UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)] autorelease];
-    UIImageView *logoView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 320, 122)] autorelease];
+    //UIImageView *logoView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 320, 122)] autorelease];
     
-    UIImage *logoImg = [UIImage imageNamed:@"visard.png"];
+    //UIImage *logoImg = [UIImage imageNamed:@"visard.png"];
     
-    [logoView setImage:logoImg];
-    [headerView addSubview:logoView];
+    //[logoView setImage:logoImg];
+    //[headerView addSubview:logoView];
     
     
     return headerView;
@@ -51,22 +51,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.countrySheep = @"";
     self.navigationItem.title = NSLocalizedString(@"Старт", nil);
-    
-    self.tableView.backgroundColor = [UIColor colorWithRed:7/255.0 green:200/255.0 blue:98/255.0 alpha:1];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"startBg.png"]];
+    //self.tableView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
     self.tableView.tableHeaderView = [self headerView];
     self.tableView.userInteractionEnabled = YES;
     self.tableView.scrollEnabled = NO;
-    UIPickerView *myPickerView = [[[UIPickerView alloc] initWithFrame:CGRectMake(0.0, 460+44, 320.0, 216.0)] autorelease];
+    UIPickerView *myPickerView = [[[UIPickerView alloc] initWithFrame:CGRectMake(0.0, 460+44+20, 320.0, 216.0)] autorelease];
     myPickerView.showsSelectionIndicator = YES;
     //myPickerView.dataSource = self;
     myPickerView.delegate = self;
     self.pickerView = myPickerView;
-    [self.tableView addSubview:self.pickerView];
+    [self.view addSubview:self.pickerView];
     
     
-    UIToolbar *myToolBar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 460, 320, 44)] autorelease];
+    UIToolbar *myToolBar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 460+20, 320, 44)] autorelease];
     //toolBar.tintColor = [AppStyle colorForNavigationBar];
     
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hidePickerController)];
@@ -114,6 +116,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -151,6 +154,8 @@
     
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -163,28 +168,28 @@
     // Configure the cell...
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    self.tableView.separatorColor = [AppStyle colorForSeparatorInTable];
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UITextField *tf = [[[UITextField alloc] initWithFrame:CGRectMake(20, 35, 280, 25)] autorelease];
+        MYTextField *tf = [[[MYTextField alloc] initWithFrame:CGRectMake(20, 35, 280, 25)] autorelease];
         tf.delegate = self;
         tf.backgroundColor = [UIColor clearColor];
+        tf.textColor = [UIColor colorWithRed:1/255.0 green:64/255.0 blue:135/255.0 alpha:1];
         tf.placeholder = NSLocalizedString(@"Ваше Имя", nil);
         self.nameField = tf;
         cell.accessoryView = self.nameField;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        UILabel *tf = [[[UILabel alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
-        tf.textColor = [UIColor lightGrayColor];
-        tf.backgroundColor = [UIColor clearColor];
-        tf.text = NSLocalizedString(@"Выберите гражданство", nil);
-        self.countryField = tf;
+        UILabel *tl = [[[UILabel alloc] initWithFrame:CGRectMake(20, 15, 280, 30)] autorelease];
+        tl.textColor = [UIColor colorWithRed:66/255.0 green:97/255.0 blue:133/255.0 alpha:1];
+        tl.backgroundColor = [UIColor clearColor];
+        tl.text = NSLocalizedString(@"Выберите гражданство", nil);
+        self.countryField = tl;
         cell.accessoryView = self.countryField;
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        ColorfulButton *btn = [[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] andBottomGradientColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+        ColorfulButton *btn = [[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[AppStyle colorForCellStartView] andBottomGradientColor:[AppStyle colorForCellStartView]];
         
-        [btn setTitleColor:[UIColor colorWithRed:11/255.0 green:121/255.0 blue:5/255.0 alpha:1]  forState:UIControlStateNormal];
-        
-        
+        [btn setTitleColor:[AppStyle blueColorForText]  forState:UIControlStateNormal];
+//        [btn setTitleColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]  forState:UIControlStateNormal];
         
         [btn setTitle:NSLocalizedString(@"Старт", nil) forState:UIControlStateNormal];
         
@@ -197,44 +202,13 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+//    cell.backgroundColor = [UIColor colorWithRed:2/255.0 green:204/255.0 blue:76/255.0 alpha:1];
+    cell.backgroundColor = [AppStyle colorForCellStartView];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -245,9 +219,10 @@
        
        [UIView animateWithDuration:0.5 
                         animations:^{
-                            self.pickerView.frame = CGRectMake(0, 264, 320, 216);
-                            self.toolBar.frame = CGRectMake(0, 264-44, 320, 44);
-                            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                            self.pickerView.frame = CGRectMake(0, 264+44, 320, 216);
+                            self.toolBar.frame = CGRectMake(0, 264, 320, 44);
+                            self.tableView.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+                            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
                         } completion:^(BOOL finished){
                             self.countrySheep = [self.countrySheeps objectAtIndex:0];
                             self.countrySheepID = VisaCountrySheepUkraine;
@@ -269,10 +244,15 @@
 {
     [UIView animateWithDuration:0.5 
                      animations:^{
-                         self.pickerView.frame = CGRectMake(0, 460+44, 320, 216);
-                         self.toolBar.frame = CGRectMake(0, 460, 320, 44);
-                         self.countryField.textColor = [UIColor blackColor];
-                         self.countryField.text = self.countrySheep;
+                         self.pickerView.frame = CGRectMake(0, 460+44+20, 320, 216);
+                         self.toolBar.frame = CGRectMake(0, 460+20, 320, 44);
+//                         self.tableView.contentOffset = CGPointMake(0, 0);
+                         self.tableView.contentInset = UIEdgeInsetsZero;
+                         if (![self.countrySheep isEqualToString:@""])
+                         {
+                             self.countryField.text = self.countrySheep;
+                             self.countryField.textColor = [UIColor colorWithRed:1/255.0 green:64/255.0 blue:135/255.0 alpha:1];
+                         }
                      } completion:^(BOOL finished){
                          
                      }];
@@ -292,6 +272,11 @@
 }
 
 #pragma mark - Text Field Delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self hidePickerController];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

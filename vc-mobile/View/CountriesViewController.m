@@ -11,6 +11,7 @@
 #import "CountryViewController.h"
 #import "User.h"
 #import "AppStyle.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation CountriesViewController
@@ -42,6 +43,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
     
     UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.countrySearchBar = sb;
@@ -270,6 +275,12 @@
     }
     
     cell.textLabel.text = currentContry.name;
+    
+    
+    cell.imageView.layer.borderWidth = 1;
+    cell.imageView.layer.borderColor = [AppStyle colorForSeparatorInTable].CGColor;
+    cell.imageView.layer.cornerRadius = 15;
+    cell.imageView.layer.masksToBounds = YES;
     cell.imageView.image = [UIImage imageNamed:currentContry.image];
     
     // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];
