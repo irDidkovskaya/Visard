@@ -214,17 +214,11 @@
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     self.navigationItem.title = self.countryName;
     
-    UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 105, 70)] autorelease];
-    iv.layer.borderWidth = 1;
-    iv.layer.borderColor = [AppStyle colorForSeparatorInTable].CGColor;
-    iv.layer.cornerRadius = 5;
-    iv.layer.masksToBounds = YES;
-    iv.layer.shadowOffset = CGSizeMake(0, 1);
-    iv.layer.shadowColor = [UIColor whiteColor].CGColor;
+    UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 90, 90)] autorelease];
     [iv setImage:[UIImage imageNamed:self.img]];
     
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 20, 0, 0)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 25, 0, 0)];
     headerLabel.shadowOffset = CGSizeMake(0, 1);
     headerLabel.shadowColor = [AppStyle colorForSeparatorInTable];
     NSString *consolateGen = NSLocalizedString(@"Консульство", nil);

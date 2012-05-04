@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = NSLocalizedString(@"Favorites", nil);
+    self.navigationItem.title = NSLocalizedString(@"Избранное", nil);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

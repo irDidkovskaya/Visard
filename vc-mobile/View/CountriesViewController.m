@@ -44,7 +44,7 @@
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     [backButton release];
     
@@ -276,11 +276,6 @@
     
     cell.textLabel.text = currentContry.name;
     
-    
-    cell.imageView.layer.borderWidth = 1;
-    cell.imageView.layer.borderColor = [AppStyle colorForSeparatorInTable].CGColor;
-    cell.imageView.layer.cornerRadius = 15;
-    cell.imageView.layer.masksToBounds = YES;
     cell.imageView.image = [UIImage imageNamed:currentContry.image];
     
     // cell.detailTextLabel.text = [[managedObject valueForKey:@"translation"] description];

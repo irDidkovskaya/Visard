@@ -84,7 +84,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+    self.navigationItem.title = NSLocalizedString(@"Напоминание", nil);
     if (!self.expandedSections)
     {
         NSMutableIndexSet *sections = [[[NSMutableIndexSet alloc] init] autorelease];
@@ -214,7 +217,7 @@
         }
     } else {
         if (!indexPath.row) {
-            cell.textLabel.text = NSLocalizedString(@"Remind me", nil);
+            cell.textLabel.text = NSLocalizedString(@"Напомнить", nil);
             UISwitch *switchBtn = [[[UISwitch alloc] init] autorelease];
             [switchBtn setOn:reminderIsOn];
             [switchBtn addTarget:self action:@selector(switchReminderSate:) forControlEvents:UIControlEventValueChanged];

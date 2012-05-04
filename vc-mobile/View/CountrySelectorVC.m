@@ -66,8 +66,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.navigationItem.title = NSLocalizedString(@"Поиск по странам", nil);
+    
+    switch ([self.group intValue]) {
+        case 0:
+            if (self.group) {
+                self.navigationItem.title = NSLocalizedString(@"Шенген", nil);
+            }
+            else {
+                self.navigationItem.title = NSLocalizedString(@"Поиск по странам", nil);
+            }
+            break;
+        case 1:
+            self.navigationItem.title = NSLocalizedString(@"Безвизовые", nil);
+            break;
+        case 2:
+            self.navigationItem.title = NSLocalizedString(@"Визовые", nil);
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Fetched results controller

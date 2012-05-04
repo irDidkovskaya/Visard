@@ -73,10 +73,15 @@
 {
     [super viewDidLoad];
 
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+    
+    self.navigationItem.title = NSLocalizedString(@"Список", nil);
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
-    self.navigationItem.backBarButtonItem.title = NSLocalizedString(@"Back", nil);
+    self.navigationItem.backBarButtonItem.title = NSLocalizedString(@"Назад", nil);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

@@ -50,7 +50,11 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = NSLocalizedString(@"Favorite Visas", nil);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+    
+    self.navigationItem.title = NSLocalizedString(@"Избранное", nil);
     self.navigationController.navigationBar.tintColor = [AppStyle colorForNavigationBar];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
