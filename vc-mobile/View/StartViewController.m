@@ -71,7 +71,7 @@
     UIToolbar *myToolBar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 460+20, 320, 44)] autorelease];
     //toolBar.tintColor = [AppStyle colorForNavigationBar];
     
-    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hidePickerController)];
+    UIBarButtonItem *doneBtn = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(hidePickerController)] autorelease];
     [myToolBar setItems:[NSArray arrayWithObjects:doneBtn, nil]];
     self.toolBar = myToolBar;
     [self.tableView addSubview:self.toolBar];
@@ -186,7 +186,7 @@
         cell.accessoryView = self.countryField;
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        ColorfulButton *btn = [[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[AppStyle colorForCellStartView] andBottomGradientColor:[AppStyle colorForCellStartView]];
+        ColorfulButton *btn = [[[ColorfulButton alloc] initWithFrame:cell.frame topGradientColor:[AppStyle colorForCellStartView] andBottomGradientColor:[AppStyle colorForCellStartView]] autorelease];
         
         [btn setTitleColor:[AppStyle blueColorForText]  forState:UIControlStateNormal];
 //        [btn setTitleColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]  forState:UIControlStateNormal];

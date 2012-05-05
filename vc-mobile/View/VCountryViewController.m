@@ -65,7 +65,7 @@
     countryName.text = self.name;
     countryName.backgroundColor = [UIColor clearColor];
     [countryName sizeToFit];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 66, 44)];
+    UIImageView *iv = [[[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 66, 44)] autorelease];
     [iv setImage:[UIImage imageNamed:self.img]];
     [headerView addSubview:iv];
     [headerView addSubview:countryName];

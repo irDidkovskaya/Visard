@@ -48,7 +48,7 @@
     self.navigationItem.backBarButtonItem = backButton;
     [backButton release];
     
-    UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UISearchBar *sb = [[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
     self.countrySearchBar = sb;
     self.countrySearchBar.delegate = self;
     UITextField *searchBarTextField = [[self.countrySearchBar subviews] objectAtIndex:1];

@@ -171,14 +171,14 @@
     
     UIBarButtonItem *showMapBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pin_map.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showConsulateOnTheMap)] autorelease];
     
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *phoneBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
+    UIBarButtonItem *phoneBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)] autorelease];
     phoneBtn.tag = 3;
     
-    UIBarButtonItem *emailBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    UIBarButtonItem *emailBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)] autorelease];
     emailBtn.tag = 4;
     
-    UIBarButtonItem *openUrlBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)];
+    UIBarButtonItem *openUrlBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"internet.png"] style:UIBarButtonItemStylePlain target:self action:@selector(openURL:)] autorelease];
     openUrlBtn.tag = 5;
     
     
@@ -218,7 +218,7 @@
     [iv setImage:[UIImage imageNamed:self.img]];
     
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 25, 0, 0)];
+    UILabel *headerLabel = [[[UILabel alloc] initWithFrame:CGRectMake(130, 25, 0, 0)] autorelease];
     headerLabel.shadowOffset = CGSizeMake(0, 1);
     headerLabel.shadowColor = [AppStyle colorForSeparatorInTable];
     NSString *consolateGen = NSLocalizedString(@"Консульство", nil);

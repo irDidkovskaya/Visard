@@ -59,11 +59,11 @@
     
     UIToolbar *tb = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 88, self.view.frame.size.width, 44)] autorelease];
    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
     
-    UIBarButtonItem *yourLocatBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showYourLocation)];
+    UIBarButtonItem *yourLocatBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showYourLocation)] autorelease];
    
-    UIBarButtonItem *showRouteBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"car.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showRoute)];
+    UIBarButtonItem *showRouteBtn = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"car.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showRoute)] autorelease];
     
     
     //UIBarButtonItem *showRoute = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showRoute)];

@@ -118,13 +118,13 @@
 
 - (void)setupNavigationBarButtons
 {
-    UIBarButtonItem *doneBtn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil) 
+    UIBarButtonItem *doneBtn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Готово", nil) 
                                                                 style:UIBarButtonItemStyleDone 
                                                                target:self 
                                                                action:@selector(applyChanges)] autorelease];
     self.navigationItem.rightBarButtonItem = doneBtn;
     
-    UIBarButtonItem *cancelBtn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil)
+    UIBarButtonItem *cancelBtn = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Отмена", nil)
                                                                   style:UIBarButtonItemStylePlain 
                                                                  target:self 
                                                                  action:@selector(discardChanges)] autorelease];

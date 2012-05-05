@@ -88,7 +88,7 @@
     
     BOOL ifUserExist = NO;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *checkData = [[NSFetchRequest alloc] init];
+    NSFetchRequest *checkData = [[[NSFetchRequest alloc] init] autorelease];
     [checkData setEntity:entity];
     NSError *error;
     NSArray *results = [self.managedObjectContext executeFetchRequest:checkData error:&error];
@@ -110,7 +110,7 @@
 {
     NSEntityDescription *country = [NSEntityDescription entityForName:@"Country" inManagedObjectContext:self.managedObjectContext];
     
-    NSFetchRequest *countryRequest = [[NSFetchRequest alloc] init];
+    NSFetchRequest *countryRequest = [[[NSFetchRequest alloc] init] autorelease];
     [countryRequest setEntity:country];
     
     NSError *error;
